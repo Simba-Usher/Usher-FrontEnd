@@ -42,11 +42,8 @@ export const GlobalStyle = createGlobalStyle`
 		box-sizing: border-box;
 	}
 	body {
-		background-color: #fff; 
-		border: 2px solid #111;
+		background-color: #111;
 		color: #062243;
-		width: 390px;
-		min-height: 844px;
 		/* nav바 높이만큼 내림 */
 		/* margin-top: 97px; */
 	}

@@ -9,7 +9,6 @@ import { Bookmark } from "./pages/my/Bookmark";
 import { Calender } from "./pages/my/Calender";
 import { Review } from "./pages/my/Review";
 import { Setting } from "./pages/my/Setting";
-import { Community } from "./pages/community/communityMain/Community";
 import { CoWrite } from "./pages/community/communityWrite/CoWrite";
 import { CoDetail } from "./pages/community/communityDetail/CoDetail";
 import { CoEditor } from "./pages/community/communityMain/CoEditor";
@@ -56,10 +55,6 @@ const router = createBrowserRouter([
         element: <Setting />,
       },
       {
-        path: "community",
-        element: <Community />,
-      },
-      {
         path: "community/write",
         element: <CoWrite />,
       },
@@ -76,7 +71,7 @@ const router = createBrowserRouter([
         element: <CoFree />,
       },
       {
-        path: "community/hot",
+        path: "community",
         element: <CoHot />,
       },
       {
