@@ -1,13 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
-/* 아래에 눈누폰트 import */
-@font-face {
-		font-family: 'Pretendard-Regular';
-		src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-		font-weight: 400;
-		font-style: normal;
-	}
-
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 	a, abbr, acronym, address, big, cite, code,
@@ -27,9 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
-        /* 아래에 폰트 지정 */
-        font-family: 'Pretendard-Regular';
-		
+        font-family: 'Noto Sans KR', sans-serif;
 	}
 	/* HTML5 display-role reset for older browsers */
 	article, aside, details, figcaption, figure, 
@@ -37,13 +27,15 @@ export const GlobalStyle = createGlobalStyle`
 		display: block;
 	}
 	*{
-        /* 아래에 폰트 지정 */
-        /* font-family: 'Roboto Mono', monospace; */
+		font-family: 'Noto Sans KR', sans-serif;
 		box-sizing: border-box;
 	}
 	body {
-		background-color: #111;
+		width: 430px;
+		min-height: 932px;
+		background-color: #062243;
 		color: #062243;
+		/* background-color: #111; */
 		/* nav바 높이만큼 내림 */
 		/* margin-top: 97px; */
 	}

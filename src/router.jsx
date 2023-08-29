@@ -16,6 +16,10 @@ import { CoFree } from "./pages/community/communityMain/CoFree";
 import { CoHot } from "./pages/community/communityMain/CoHot";
 import { CoQna } from "./pages/community/communityMain/CoQna";
 import NotFound from "./NotFound";
+import { Login } from "./pages/login/Login";
+import { Join } from "./pages/login/Join";
+import { JoinInput } from "./pages/login/JoinInput";
+import { Success } from "./pages/login/Success";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +29,22 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "join_1",
+        element: <Join />,
+      },
+      {
+        path: "join_2",
+        element: <JoinInput />,
+      },
+      {
+        path: "success",
+        element: <Success />,
       },
       {
         path: "search",
