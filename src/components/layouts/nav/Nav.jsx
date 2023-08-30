@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import * as S from "./style";
+import { useNavigate } from 'react-router-dom';
 
 export const Nav = () => {
     const [search,setSearch] = useState("");
+    const navigate = useNavigate();
 
   return (
     <S.NavContainer>
-      <img src="/usher_logo.png" alt="logo" />
+      <img src="/usher_logo.png" alt="logo" onClick={()=>navigate("/")} />
       <S.SearchSection>
         <input
           type="text"
