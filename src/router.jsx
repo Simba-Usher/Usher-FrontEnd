@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { Home } from "./pages/home/Home";
 import { SearchModal } from "./pages/searchModal/searchModal";
-import { ShowDetail } from "./pages/ShowDetail/ShowDetail";
 import { My } from "./pages/my/My";
 import { Bookmark } from "./pages/my/Bookmark";
 import { Calender } from "./pages/my/Calender";
@@ -20,6 +19,8 @@ import { Login } from "./pages/login/Login";
 import { Join } from "./pages/login/Join";
 import { JoinInput } from "./pages/login/JoinInput";
 import { Success } from "./pages/login/Success";
+import { ShowList } from "./pages/show/showList/ShowList";
+import { ShowDetail } from "./pages/show/showDetail/ShowDetail";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "success",
         element: <Success />,
+      },
+      {
+        path: "showlist",
+        element: <ShowList />,
       },
       {
         path: "search",
