@@ -118,7 +118,7 @@ export const TitleSec4 = styled.div`
 `
 // DetailNav.jsx
 export const DetailNavWrap = styled.div`
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 430px;
     height: 54px;
     padding: 7px 20px;
@@ -142,8 +142,141 @@ export const NavSec = styled.div`
 `
 // ReactionSection.jsx
 export const ReactionSecWrap = styled.div`
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 430px;
-    height: 54px;
-    padding: 7px 20px;
+    height: 310px;
+    padding: 18px 24px;
+    margin-top: 2px;
+    border-bottom: 2px solid #DBDBDB;
+    background-color: rgba(119, 158, 216, 0.00);
+`
+export const TapTitle = styled.div`
+    width: 100%;
+    height: 30px;
+    color: #062B56;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+`
+export const ReactionBox = styled.div`
+    width: 382px;
+    height: 183px;
+    border-radius: 5px;
+    background: #F0F5FF;
+`
+export const Explain = styled.div`
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+    color: #BBB;
+    font-size: 12px;
+    font-weight: 500;
+`
+// InfoImgSection.jsx
+export const InfoImgSecWrap = styled.div`
+    /* border: 1px solid red; */
+    width: 430px;
+    height: 610px;
+    padding: 35px 24px;
+    border-bottom: 2px solid #DBDBDB;
+    background-color: rgba(119, 158, 216, 0.00);
+`
+export const InfoImgBox = styled.div`
+    width: 382px;
+    height: 497px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 23px;
+`
+export const ViewDetail = styled.div`
+    width: 382px;
+    height: 52px;
+    background-color: #6A7484;
+    color: #FFF;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`
+// ReviewSection.jsx
+export const ReviewSecWrap = styled.div`
+    /* border: 1px solid red; */
+    width: 430px;
+    height: 395px;
+    padding: 30px 24px 25px 24px;
+    background-color: rgba(119, 158, 216, 0.00);
+`
+export const ReviewSec1 = styled.div`
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`
+export const ViewMore = styled.div`
+    width: 200px;
+    height: 30px;
+    color: #69A2F6;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration-line: underline;
+`
+export const ReviewSec2 = styled.div`
+    width: 100%;
+    height: 30px;
+    margin: 25px 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: 500;
+    color: #062B56;
+`
+export const Star = styled.div`
+    width: 75px;
+    height: 30px;
+    color: #FFA826;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 5px;
+`
+export const ReviewSec3 = styled.div`
+    width: 100%;
+    height: 245px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+`
+export const Reviews = styled.div`
+    width: 382px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #E3EEFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`
+export const Profile = styled.img`
+    width: 34px;
+    height: 34px;
+    margin: 0 5px;
+`
+export const ShortReview = styled.div`
+    width: 300px;
+    height: 30px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    color: #44494F;
+    font-size: 16px;
+    font-weight: 400;
 `

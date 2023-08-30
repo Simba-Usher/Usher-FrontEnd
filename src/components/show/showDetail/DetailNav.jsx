@@ -1,3 +1,5 @@
+// DetailNav.jsx
+
 import React, { useState } from 'react'
 import * as S from "../style";
 
