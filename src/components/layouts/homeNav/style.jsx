@@ -10,9 +10,30 @@ export const HomeNavContainer = styled.div`
   text-align: center;
   font-size: 1.3rem;
   * {
-    color: #a2cdeb;
+    /* color: #a2cdeb; */
     width: 100px;
     height: 40px;
+  }
+  a {
+    color: #a2cdeb;
+    border: none;
+  }
+  a.active {
+    color: #033682;
+    border-bottom: 5px solid #033682;
+    border-radius: 5px;
+  }
+  a.active:nth-child(2) {
+    color: #00b0a5;
+    border-bottom: 5px solid #00b0a5;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  a.active:last-child {
+    color: #906ccb;
+    border-bottom: 5px solid #906ccb;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 `;
 export const FocusMenu = styled.div`
