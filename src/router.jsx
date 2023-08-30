@@ -96,12 +96,12 @@ const router = createBrowserRouter([
         element: <CoFree />,
       },
       {
-        path: "community",
-        element: <CoHot />,
-      },
-      {
         path: "community/qna",
         element: <CoQna />,
+      },
+      {
+        path: "community",
+        element: <CoHot />,
       },
     ],
     errorElement: <NotFound />,

@@ -1,27 +1,5 @@
 import { styled } from "styled-components";
 
-export const HomeNavContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 40px;
-  border-bottom: 2px solid #d8e0ec;
-  text-align: center;
-  font-size: 1.3rem;
-  * {
-    color: #a2cdeb;
-    width: 100px;
-    height: 40px;
-  }
-`;
-export const FocusMenu = styled.div`
-  height: 40px;
-  color: #033682;
-  font-weight: 600;
-  border-bottom: 5px solid #033682;
-  border-radius: 2px;
-`;
-
 export const BannerContainer = styled.div`
   position: relative;
   width: 100%; /* 부모 요소에 꽉 차게 설정 */
@@ -140,11 +118,11 @@ export const ReacionArticle = styled.div`
   }
 `;
 
-export const ClosePoster = styled.div`
+export const ClosePoster = styled.span`
   position: absolute;
   color: #fff;
   font-size: 0.8rem;
   font-weight: 400;
-  top: 2px;
-  right: 12px;
+  top: 5px;
+  right: 10px;
 `
