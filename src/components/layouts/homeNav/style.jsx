@@ -34,10 +34,3 @@ export const HomeNavContainer = styled.div`
     border-radius: 5px;
   }
 `;
-export const FocusMenu = styled.div`
-  height: 40px;
-  color: #033682;
-  font-weight: 600;
-  border-bottom: 5px solid #033682;
-  border-radius: 2px;
-`;
