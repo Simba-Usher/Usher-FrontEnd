@@ -37,42 +37,48 @@ export const SearchPrice = () => {
         <p>가격별</p>
         <S.PriceSlide>
           <S.PriceSlideInner
+            class="gradient"
             rangeMinPercent={rangeMinPercent}
             rangeMaxPercent={rangeMaxPercent}
           />
         </S.PriceSlide>
         <S.PriceRangeWrap>
-          <S.PriceWrap>
-            <S.PriceRangeMin
-              type="range"
-              min={fixedMinPrice}
-              max={fixedMaxPrice - priceGap}
-              step="1000"
-              value={rangeMinValue}
-              onChange={e => {
-                priceRangeMinValueHandler(e);
-                twoRangeHandler();
-              }}
-            />
-            {/* 가격 정보 표시 */}
-            <S.PriceLabel>{rangeMinValue.toLocaleString()}원</S.PriceLabel>
-          </S.PriceWrap>
-          <S.PriceWrap>
-            <S.PriceRangeMax
-              type="range"
-              min={fixedMinPrice + priceGap}
-              max={fixedMaxPrice}
-              step="1000"
-              value={rangeMaxValue}
-              onChange={e => {
-                priceRangeMaxValueHandler(e);
-                twoRangeHandler();
-              }}
-            />
-            {/* 가격 정보 표시 */}
-            <S.PriceLabel>{rangeMaxValue.toLocaleString()}원</S.PriceLabel>
-          </S.PriceWrap>
+          {/* <S.PriceWrap> */}
+          <S.PriceRangeMin
+            type="range"
+            min={fixedMinPrice}
+            max={fixedMaxPrice - priceGap}
+            step="1000"
+            value={rangeMinValue}
+            onChange={e => {
+              priceRangeMinValueHandler(e);
+              twoRangeHandler();
+            }}
+          />
+          {/* 가격 정보 표시 */}
+          {/* <S.PriceLabel>{rangeMinValue.toLocaleString()}원</S.PriceLabel> */}
+          {/* </S.PriceWrap> */}
+          {/* <S.PriceWrap> */}
+          <S.PriceRangeMax
+            type="range"
+            min={fixedMinPrice + priceGap}
+            max={fixedMaxPrice}
+            step="1000"
+            value={rangeMaxValue}
+            onChange={e => {
+              priceRangeMaxValueHandler(e);
+              twoRangeHandler();
+            }}
+          />
+          {/* 가격 정보 표시 */}
+          {/* <S.PriceLabel>{rangeMaxValue.toLocaleString()}원</S.PriceLabel> */}
+          {/* </S.PriceWrap> */}
         </S.PriceRangeWrap>
+        <S.LabelWrap>
+          <S.PriceLabel>{rangeMinValue.toLocaleString()}원</S.PriceLabel>
+          <p>~</p>
+          <S.PriceLabel>{rangeMaxValue.toLocaleString()}원</S.PriceLabel>
+        </S.LabelWrap>
       </S.PriceBox>
       <S.SearchLine />
     </>

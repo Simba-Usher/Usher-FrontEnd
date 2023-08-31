@@ -44,11 +44,10 @@ export const SubGrayTxt = styled.div`
 export const DateWrapper = styled.div`
   display: flex;
   input {
-    width: 118px;
-    height: 38px;
+    width: 124px;
+    height: 40px;
     border-radius: 5px;
     border: 1px solid #a4a0a9;
-    background: #fcfaff;
     color: #8660c4;
     font-size: 1rem;
     text-align: center;
@@ -56,14 +55,22 @@ export const DateWrapper = styled.div`
   }
   p {
     width: 50px;
+    height: 40px;
+    color: #A4A0A9;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    color: #747177;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 400;
   }
 `;
 
 // SearchPrice.jsx
 export const PriceBox = styled(AreaBox)`
   width: 430px;
+  height: 182px;
+  padding: 10px 20px;
 `
 export const PriceSlide = styled.div`
   position: relative;
@@ -75,14 +82,11 @@ export const PriceSlide = styled.div`
 `;
 export const PriceSlideInner = styled.div`
   position: absolute;
-  /* left: 30%; */
   left: ${props => props.rangeMinPercent}%;
-  /* right: 30%; */
   right: ${props => props.rangeMaxPercent}%;
   height: 14px;
   border-radius: 10px;
-  background-color: #b0b0b0;
-  /* background-color: linear-gradient(90deg, #CCAFFA 0%, #CCAFFA 0%, #E7D8FF 47.4%, #CCAFFA 100%); */
+  background: linear-gradient(to right, #CCAFFA, #E7D8FF, #CCAFFA);
 `;
 export const PriceWrap = styled.div`
   border: 1px solid red;
@@ -90,27 +94,27 @@ export const PriceWrap = styled.div`
   width: 382px;
 `
 export const PriceRangeWrap = styled.div`
-  /* border: 1px solid red; */
   position: relative;
   width: 382px;
 `;
 export const PriceRangeMin = styled.input`
-  /* border: 1px solid red; */
   width: 100%;
   height: 7px;
   position: absolute;
-  top: -49px;
+  top: -31px;
   background: none;
   /* 막대 기본 속성 제거 */
   -webkit-appearance: none;
   /* 버튼 디자인 */
   &::-webkit-slider-thumb {
-    height: 30px;
-    width: 30px;
+    height: 26px;
+    width: 26px;
     border-radius: 50%;
-    border: 2px solid #b0b0b0;
-    background-color: white;
+    border: 2px solid #E5DCFF;
+    background-color: #9259B5;
     -webkit-appearance: none;
+    position: relative;
+    right: 10px;
   }
   pointer-events: none;
   &::-webkit-slider-thumb {
@@ -118,14 +122,36 @@ export const PriceRangeMin = styled.input`
   }
 `;
 export const PriceRangeMax = styled(PriceRangeMin)`
-  
+  right: -23px;
+`;
+export const LabelWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 334px;
+  height: 42px;
+  p {
+    width: 50px;
+    height: 40px;
+    color: #A4A0A9;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 400;
+  }
 `;
 export const PriceLabel = styled.div`
-  border: 1px solid red;
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  color: #666;
+  /* border: 1px solid red; */
+  width: 124px;
+  height: 40px;
+  color: #071D36;
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #A4A0A9;
+  background-color: #FFF;
 `
