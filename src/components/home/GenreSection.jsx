@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 
-export const GenreSection = () => {
+export const GenreSection = ({ IconColor }) => {
   const navigate = useNavigate();
 
   return (
@@ -36,6 +36,7 @@ export const GenreSection = () => {
           </S.FlexColumn>
         </S.ShowGenre>
       </S.HomeArticle>
+      <S.HomeLine />
     </>
   );
 };

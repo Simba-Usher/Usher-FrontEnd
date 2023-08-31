@@ -15,14 +15,15 @@ export const SearchSection = styled.div`
     border-radius: 20px;
     border: 2px solid #90a4c1;
     background: #fafcff;
-    padding: 10px;
+    padding-left: 15px;
     ::placeholder {
       color: #90a4c1;
     }
   }
-  img {
+  span {
     position: absolute;
     right: 13px;
-    top: 6px;
+    top: 5px;
+    color: #90a4c1;
   }
 `;
