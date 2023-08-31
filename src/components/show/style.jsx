@@ -190,6 +190,11 @@ export const InfoImgBox = styled.div`
     flex-direction: column;
     margin-top: 23px;
 `
+export const InfoImg = styled.img`
+  width: 382px;
+  height: 445px;
+  object-fit: cover;
+`
 export const ViewDetail = styled.div`
     width: 382px;
     height: 52px;
@@ -202,6 +207,31 @@ export const ViewDetail = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+`
+// ViewDetail.jsx
+export const ViewDetailWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const ViewDetailTitle = styled.div`
+  width: 430px;
+  height: 71px;
+  font-size: 24px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`
+export const XBtn = styled.img`
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 22px;
+  height: 22px;
+`
+export const ViewDetailImg = styled.img`
+  width: 430px;
 `
 // ReviewSection.jsx
 export const ReviewSecWrap = styled.div`

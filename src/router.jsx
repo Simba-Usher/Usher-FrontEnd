@@ -20,6 +20,7 @@ import { JoinInput } from "./pages/login/JoinInput";
 import { Success } from "./pages/login/Success";
 import { ShowList } from "./pages/show/showList/ShowList";
 import { ShowDetail } from "./pages/show/showDetail/ShowDetail";
+import { ViewDetail } from "./components/show/showDetail/ViewDetail";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: ":detailId",
         element: <ShowDetail />,
+      },
+      {
+        path: ":detailId/img",
+        element: <ViewDetail />
       },
       {
         path: "my",
