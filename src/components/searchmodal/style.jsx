@@ -20,7 +20,7 @@ export const AreaBox = styled.div`
   }
 `;
 export const Isselected = styled.div`
-  color: ${(props) => (props.isselected ? "#071d36" : "#8c74a3")};
+  color: ${(props) => (props.isselected === "true" ? "#071d36" : "#8c74a3")};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,10 +29,11 @@ export const Isselected = styled.div`
   border-radius: 5px;
   border: 2px solid #e5dcff;
   cursor: default;
-  background: ${(props) => (props.isselected ? "#f3ebff" : "#fff")};
+  background: ${(props) => (props.isselected === "true" ? "#f3ebff" : "#fff")};
   &:hover {
-    background: ${(props) => (props.isselected ? "#f3ebff" : "#fff")};
-    color: ${(props) => (props.isselected ? "#071d36" : "#8c74a3")};
+    background: ${(props) =>
+      props.isselected === "true" ? "#f3ebff" : "#fff"};
+    color: ${(props) => (props.isselected === "true" ? "#071d36" : "#8c74a3")};
   }
 `;
 export const SubGrayTxt = styled.div`

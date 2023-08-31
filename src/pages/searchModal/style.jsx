@@ -44,7 +44,6 @@ export const PurpleBottomBtn = styled.button`
   border: 0;
 `;
 export const SearchModalWrapper = styled.div`
-  /* position: fixed; */
   position: relative;
   top: 20px;
   display: flex;
@@ -52,7 +51,7 @@ export const SearchModalWrapper = styled.div`
   align-items: center;
   width: 100%;
   background-color: #f5f5ff;
-  animation: ${(props) => (props.isopen ? slideIn : slideOut)} 0.3s forwards;
+  animation: ${(props) => (props.isopen==="true" ? slideIn : slideOut)} 0.3s forwards;
 
 `;
 export const KeywordSearchBar = styled(SearchSection)`

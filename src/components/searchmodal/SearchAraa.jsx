@@ -29,7 +29,7 @@ export const SearchAraa = () => {
         {areas.map((area, index) => (
           <S.Isselected
             key={index}
-            isselected={selectedArea && selectedArea === area}
+            isselected={selectedArea && selectedArea === area?"true":"false"}
             onClick={() => handleAreaClick(area)}
           >
             {area}

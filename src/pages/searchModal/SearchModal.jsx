@@ -13,7 +13,7 @@ export const SearchModal = ({ isModalOpen, toggleModal }) => {
 
   return (
     <>
-      <S.SearchModalWrapper isopen={isModalOpen}>
+      <S.SearchModalWrapper isopen={isModalOpen?"true": "false"}>
         <S.TopTxt>세부 키워드 설정</S.TopTxt>
         <S.CloseBtn className="material-symbols-outlined" onClick={toggleModal}>
           close
