@@ -1,5 +1,8 @@
 import { styled } from "styled-components";
 
+export const HomeLine = styled.hr`
+  border: 1px solid #ebebeb;
+`;
 export const BannerContainer = styled.div`
   position: relative;
   width: 100%; /* 부모 요소에 꽉 차게 설정 */
@@ -13,13 +16,13 @@ export const BannerImg = styled.img`
 `;
 
 export const HomeArticle = styled.div`
+  width: 100%;
   color: #062b56;
   font-size: 1.3rem;
   font-weight: 600;
   padding: 20px;
-  border-bottom: 2px solid #ebebeb;
-  p{
-  margin-bottom: 20px;
+  p {
+    margin-bottom: 20px;
   }
 `;
 export const ShowGenre = styled.div`
@@ -33,6 +36,7 @@ export const FlexColumn = styled.div`
   font-size: 0.9rem;
   font-weight: 400;
   color: #053b8c;
+  cursor: default;
   img {
     max-width: 34px;
     height: 30px;
@@ -46,7 +50,7 @@ export const SmallImg = styled.img`
 
 export const AreaArticle = styled.div`
   margin-bottom: 10px;
-`
+`;
 export const AreaImg = styled.div`
   position: relative;
   p {
@@ -65,10 +69,10 @@ export const AreaImg = styled.div`
 `;
 export const FakeMargin = styled.div`
   height: 8px;
-`
+`;
 export const HomeArticle_nomargin = styled(HomeArticle)`
   padding-bottom: 0;
-`
+`;
 
 export const ReacionArticle = styled.div`
   display: flex;
@@ -85,12 +89,13 @@ export const ReacionArticle = styled.div`
     margin: 5px;
     padding-left: 2px;
     border-radius: 5px;
+    cursor: default;
   }
   span {
     font-size: 0.9rem;
     background-color: #fff;
     border-radius: 40px;
-    width:  18px;
+    width: 18px;
     height: 18px;
     text-align: center;
     margin-right: 2px;
@@ -125,4 +130,4 @@ export const ClosePoster = styled.span`
   font-weight: 400;
   top: 5px;
   right: 10px;
-`
+`;

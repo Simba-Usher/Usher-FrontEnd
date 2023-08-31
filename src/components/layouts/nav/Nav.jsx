@@ -8,15 +8,15 @@ export const Nav = () => {
 
   return (
     <S.NavContainer>
-      <img src="/usher_logo.png" alt="logo" onClick={()=>navigate("/")} />
+      <img src="/usher_logo.png" alt="logo" onClick={() => navigate("/")} />
       <S.SearchSection>
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder='어떤 공연을 찾으시나요?'
+          placeholder="어떤 공연을 찾으시나요?"
         />
-        <img src="/search.png" alt="" />
+        <span className="material-symbols-outlined">search</span>
       </S.SearchSection>
       <img src="/menu.png" alt="img" />
     </S.NavContainer>
