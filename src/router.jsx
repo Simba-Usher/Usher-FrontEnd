@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import { Home } from "./pages/home/Home";
-import { SearchModal } from "./pages/searchModal/searchModal";
 import { My } from "./pages/my/My";
 import { Bookmark } from "./pages/my/Bookmark";
 import { Calender } from "./pages/my/Calender";
@@ -51,10 +50,6 @@ const router = createBrowserRouter([
       {
         path: "showlist",
         element: <ShowList />,
-      },
-      {
-        path: "search",
-        element: <SearchModal />,
       },
       {
         path: ":detailId",

@@ -1,11 +1,24 @@
-import { styled } from "styled-components";
+import { styled, keyframes } from "styled-components";
 import { SearchSection } from "../../components/layouts/nav/style";
 
-export const TopWrapper = styled.div`
-  background-color: #fff;
-  position: relative;
-  top: 30px;
+const slideIn = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 `;
+
+const slideOut = keyframes`
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+`;
+
 export const TopTxt = styled.div`
   font-size: 1.3rem;
   font-weight: 600;
@@ -16,9 +29,10 @@ export const CloseBtn = styled.span`
   top: 5px;
   right: 5px;
   color: #bca4ff;
+  cursor: default;
 `;
 export const PurpleBottomBtn = styled.button`
-  margin: 20px 65px;
+  margin: 30px 65px;
   width: 294px;
   height: 53px;
   border-radius: 5px;
@@ -30,14 +44,20 @@ export const PurpleBottomBtn = styled.button`
   border: 0;
 `;
 export const SearchModalWrapper = styled.div`
+  /* position: fixed; */
   position: relative;
+  top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   background-color: #f5f5ff;
+  animation: ${(props) => (props.isopen ? slideIn : slideOut)} 0.3s forwards;
+
 `;
 export const KeywordSearchBar = styled(SearchSection)`
+  position: relative;
+  left: 2px;
   input {
     width: 382px;
     border: 2px solid #632787;
@@ -49,5 +69,6 @@ export const KeywordSearchBar = styled(SearchSection)`
   span {
     right: 10px;
     color: #632787;
+    cursor: default;
   }
 `;
