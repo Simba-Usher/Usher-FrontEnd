@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import { Nav } from "../../../components/layouts/nav/Nav";
 import { SelectedList } from "../../../components/show/SelectedList";
 import { ShowCard } from "../../../components/show/ShowCard";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../../../components/layouts/footer/Footer";
+import { SearchModal } from "../../searchModal/SearchModal";
 
 export const ShowList = () => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   const handleCardClick = (showId) => {
     navigate(`/${showId}`);
   };
@@ -83,29 +89,35 @@ export const ShowList = () => {
 
   return (
     <>
-      <Nav />
-      <S.ShowListTitle>
-        <span className="material-symbols-outlined">arrow_back</span>
-        <p>뮤지컬</p>
-        <S.FloatRight>키워드 재설정</S.FloatRight>
-      </S.ShowListTitle>
-      <SelectedList />
-      <S.SpaceBetween>
-        <p>키워드 적용된 공연입니다</p>
-        <p>
-          별점 높은순
-          <span className="material-symbols-outlined">more_vert</span>
-        </p>
-      </S.SpaceBetween>
-      {data.map((show) => (
-        <ShowCard
-          key={show.id}
-          data={show}
-          // onClick={onClick}
-          onClick={() => handleCardClick(show.id)}
-        />
-      ))}
-      <Footer />
+      {isModalOpen ? (
+        <SearchModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
+      ) : (
+        <>
+          <Nav isModalOpen={isModalOpen} toggleModal={toggleModal} />
+          <S.ShowListTitle>
+            <span className="material-symbols-outlined">arrow_back</span>
+            <p>뮤지컬</p>
+            <S.FloatRight>키워드 재설정</S.FloatRight>
+          </S.ShowListTitle>
+          <SelectedList />
+          <S.SpaceBetween>
+            <p>키워드 적용된 공연입니다</p>
+            <p>
+              별점 높은순
+              <span className="material-symbols-outlined">more_vert</span>
+            </p>
+          </S.SpaceBetween>
+          {data.map((show) => (
+            <ShowCard
+              key={show.id}
+              data={show}
+              // onClick={onClick}
+              onClick={() => handleCardClick(show.id)}
+            />
+          ))}
+          <Footer />
+        </>
+      )}
     </>
   );
 };
