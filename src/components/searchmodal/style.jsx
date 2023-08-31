@@ -60,3 +60,72 @@ export const DateWrapper = styled.div`
     color: #747177;
   }
 `;
+
+// SearchPrice.jsx
+export const PriceBox = styled(AreaBox)`
+  width: 430px;
+`
+export const PriceSlide = styled.div`
+  position: relative;
+  height: 14px;
+  width: 382px;
+  border-radius: 10px;
+  background-color: #FEFEFF;
+  border: 1px solid #E5DCFF;
+`;
+export const PriceSlideInner = styled.div`
+  position: absolute;
+  /* left: 30%; */
+  left: ${props => props.rangeMinPercent}%;
+  /* right: 30%; */
+  right: ${props => props.rangeMaxPercent}%;
+  height: 14px;
+  border-radius: 10px;
+  background-color: #b0b0b0;
+  /* background-color: linear-gradient(90deg, #CCAFFA 0%, #CCAFFA 0%, #E7D8FF 47.4%, #CCAFFA 100%); */
+`;
+export const PriceWrap = styled.div`
+  border: 1px solid red;
+  position: relative;
+  width: 382px;
+`
+export const PriceRangeWrap = styled.div`
+  /* border: 1px solid red; */
+  position: relative;
+  width: 382px;
+`;
+export const PriceRangeMin = styled.input`
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 7px;
+  position: absolute;
+  top: -49px;
+  background: none;
+  /* 막대 기본 속성 제거 */
+  -webkit-appearance: none;
+  /* 버튼 디자인 */
+  &::-webkit-slider-thumb {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid #b0b0b0;
+    background-color: white;
+    -webkit-appearance: none;
+  }
+  pointer-events: none;
+  &::-webkit-slider-thumb {
+    pointer-events: auto;
+  }
+`;
+export const PriceRangeMax = styled(PriceRangeMin)`
+  
+`;
+export const PriceLabel = styled.div`
+  border: 1px solid red;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #666;
+`
