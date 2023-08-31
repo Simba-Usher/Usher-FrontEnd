@@ -43,7 +43,6 @@ export const SearchPrice = () => {
           />
         </S.PriceSlide>
         <S.PriceRangeWrap>
-          {/* <S.PriceWrap> */}
           <S.PriceRangeMin
             type="range"
             min={fixedMinPrice}
@@ -55,10 +54,6 @@ export const SearchPrice = () => {
               twoRangeHandler();
             }}
           />
-          {/* 가격 정보 표시 */}
-          {/* <S.PriceLabel>{rangeMinValue.toLocaleString()}원</S.PriceLabel> */}
-          {/* </S.PriceWrap> */}
-          {/* <S.PriceWrap> */}
           <S.PriceRangeMax
             type="range"
             min={fixedMinPrice + priceGap}
@@ -70,9 +65,6 @@ export const SearchPrice = () => {
               twoRangeHandler();
             }}
           />
-          {/* 가격 정보 표시 */}
-          {/* <S.PriceLabel>{rangeMaxValue.toLocaleString()}원</S.PriceLabel> */}
-          {/* </S.PriceWrap> */}
         </S.PriceRangeWrap>
         <S.LabelWrap>
           <S.PriceLabel>{rangeMinValue.toLocaleString()}원</S.PriceLabel>
