@@ -5,15 +5,19 @@ import { SearchAraa } from "../../components/searchmodal/SearchAraa";
 import { SearchPrice } from "../../components/searchmodal/SearchPrice";
 import { SearchDate } from "../../components/searchmodal/SearchDate";
 import SearchReaction from "../../components/searchmodal/SearchReaction";
+import { useNavigate } from "react-router-dom";
 
-export const SearchModal = () => {
+export const SearchModal = ({ isModalOpen, toggleModal }) => {
+  const navigate = useNavigate();
   const [search, setSearch] = useState();
 
   return (
-    <S.TopWrapper>
-      <S.SearchModalWrapper>
+    <>
+      <S.SearchModalWrapper isopen={isModalOpen}>
         <S.TopTxt>세부 키워드 설정</S.TopTxt>
-        <S.CloseBtn className="material-symbols-outlined">close</S.CloseBtn>
+        <S.CloseBtn className="material-symbols-outlined" onClick={toggleModal}>
+          close
+        </S.CloseBtn>
         <S.KeywordSearchBar>
           <input
             type="text"
@@ -29,7 +33,9 @@ export const SearchModal = () => {
         <SearchDate />
         <SearchReaction />
       </S.SearchModalWrapper>
-      <S.PurpleBottomBtn>키워드 검색</S.PurpleBottomBtn>
-    </S.TopWrapper>
+      <S.PurpleBottomBtn onClick={() => navigate("/showlist")}>
+        키워드 검색
+      </S.PurpleBottomBtn>
+    </>
   );
 };
