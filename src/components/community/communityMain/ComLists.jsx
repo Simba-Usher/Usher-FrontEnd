@@ -1,10 +1,13 @@
 import React from 'react'
 import * as S from "./style";
+import { useNavigate } from 'react-router-dom';
 
 export const ComLists = () => {
+    const navigate = useNavigate();
+
     return (
         <>
-            <S.ComListsWrap>
+            <S.ComListsWrap onClick={() => navigate("/community/:detailId")}>
                 <S.TextSec>
                     <S.Sec1Title>23년 하반기 꼭 관람해야하는 뮤지컬</S.Sec1Title>
                     <S.Sec2>

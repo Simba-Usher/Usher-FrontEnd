@@ -6,9 +6,9 @@ import { NoticeSec } from "../../../components/community/communityMain/NoticeSec
 import { ComNav } from "../../../components/community/communityMain/ComNav";
 import { ComLists } from "../../../components/community/communityMain/ComLists";
 import { WriteBtn } from "../../../components/community/communityMain/WriteBtn";
+import { useNavigate } from "react-router-dom";
 
 export const CoHot = () => {
-
   return (
     <>
       <Nav />
