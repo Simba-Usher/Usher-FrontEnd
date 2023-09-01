@@ -4,6 +4,8 @@ import Wrapper from "../../../components/Wrapper";
 
 export const ShowReview =() =>{
   return (
-    <Wrapper>ShowReview</Wrapper>
-  )
+    <Wrapper>
+      <div>ShowReview</div>
+    </Wrapper>
+  );
 }
