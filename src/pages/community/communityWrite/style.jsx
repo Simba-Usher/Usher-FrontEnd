@@ -6,12 +6,12 @@ export const WriteNav = styled.div`
   align-items: center;
   height: 80px;
   color: #76777a;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.3rem;
   cursor: default;
 `;
 export const NavArrow = styled.span`
-  margin-right: 10px;
+  margin-right: 15px;
+  font-weight: 600;
 `;
 export const PostGreenBtn = styled.button`
   position: absolute;
@@ -37,6 +37,18 @@ export const PostSelect = styled.select`
   border-bottom: 1px solid #ccc;
   color: #071d36;
   font-size: 1.3rem;
+  background-color: ${(props) =>
+    props.isselect === "free" || props.isselect === "qna" ? "#f5f6f8" : ""};
+  option {
+    font-size: 1rem;
+    color: #76777a;
+  }
+  option:nth-child(n + 2) {
+    background-color: #f5f6f8;
+  }
+  option:nth-child(1) {
+    color: #071d36;
+  }
 `;
 export const PostTitle = styled.input`
   padding: 15px;
