@@ -6,11 +6,12 @@ import { NoticeSec } from "../../../components/community/communityMain/NoticeSec
 import { ComNav } from "../../../components/community/communityMain/ComNav";
 import { ComLists } from "../../../components/community/communityMain/ComLists";
 import { WriteBtn } from "../../../components/community/communityMain/WriteBtn";
+import Wrapper from "../../../components/Wrapper";
 
 export const CoHot = () => {
 
   return (
-    <div>
+    <Wrapper>
       <Nav />
       <HomeNav />
       <S.CoHotWrap>
@@ -24,6 +25,6 @@ export const CoHot = () => {
         <p>페이지넘버링</p>
         <WriteBtn />
       </S.CoHotWrap>
-    </div>
+    </Wrapper>
   );
 };

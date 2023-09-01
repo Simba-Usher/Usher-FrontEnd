@@ -1,5 +1,6 @@
 import React from "react";
+import Wrapper from "../../components/Wrapper";
 
 export const Calender = () => {
-  return <div>Calender</div>;
+  return <Wrapper>Calender</Wrapper>;
 };

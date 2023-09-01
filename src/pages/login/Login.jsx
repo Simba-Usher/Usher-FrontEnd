@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logoImg from "/usher_logo.png";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
+import Wrapper from "../../components/Wrapper";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export const Login = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <S.Bottomborder>
         <div>로그인</div>
         <S.RightFix>X</S.RightFix>
@@ -55,6 +56,6 @@ export const Login = () => {
         </S.TxtLine>
         <S.LoginFooter>Copyright &copy; 심바씨들</S.LoginFooter>
       </S.LoginSection>
-    </>
+    </Wrapper>
   );
 };

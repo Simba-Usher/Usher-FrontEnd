@@ -1,5 +1,6 @@
 import React from "react";
+import Wrapper from "../../components/Wrapper";
 
 export const Review = () => {
-  return <div>Review</div>;
+  return <Wrapper>Review</Wrapper>;
 };

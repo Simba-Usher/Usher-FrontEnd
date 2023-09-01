@@ -6,13 +6,14 @@ import { SearchPrice } from "../../components/searchmodal/SearchPrice";
 import { SearchDate } from "../../components/searchmodal/SearchDate";
 import SearchReaction from "../../components/searchmodal/SearchReaction";
 import { useNavigate } from "react-router-dom";
+import Wrapper from "../../components/Wrapper";
 
 export const SearchModal = ({ isModalOpen, toggleModal }) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState();
 
   return (
-    <>
+    <Wrapper>
       <S.SearchModalWrapper isopen={isModalOpen?"true": "false"}>
         <S.TopTxt>세부 키워드 설정</S.TopTxt>
         <S.CloseBtn className="material-symbols-outlined" onClick={toggleModal}>
@@ -36,6 +37,6 @@ export const SearchModal = ({ isModalOpen, toggleModal }) => {
       <S.PurpleBottomBtn onClick={() => navigate("/showlist")}>
         키워드 검색
       </S.PurpleBottomBtn>
-    </>
+    </Wrapper>
   );
 };

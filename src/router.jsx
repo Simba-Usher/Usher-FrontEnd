@@ -21,6 +21,7 @@ import { Success } from "./pages/login/Success";
 import { ShowList } from "./pages/show/showList/ShowList";
 import { ShowDetail } from "./pages/show/showDetail/ShowDetail";
 import { ViewDetail } from "./components/show/showDetail/ViewDetail";
+import { Category } from "./pages/category/Category";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
         path: "",
         element: <Home />,
       },
+      // 로그인
       {
         path: "login",
         element: <Login />,
@@ -47,6 +49,11 @@ const router = createBrowserRouter([
         path: "success",
         element: <Success />,
       },
+      // 공연
+      {
+        path: "category",
+        element: <Category />,
+      },
       {
         path: "showlist",
         element: <ShowList />,
@@ -59,6 +66,7 @@ const router = createBrowserRouter([
         path: ":detailId/img",
         element: <ViewDetail />
       },
+      // 마이페이지
       {
         path: "my",
         element: <My />,
@@ -79,6 +87,7 @@ const router = createBrowserRouter([
         path: "my/setting",
         element: <Setting />,
       },
+      // 커뮤니티
       {
         path: "community/write",
         element: <CoWrite />,

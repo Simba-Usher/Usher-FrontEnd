@@ -10,6 +10,7 @@ import { ReactionSection } from "../../components/home/ReactionSection";
 import { RecentSection } from "../../components/home/RecentSection";
 import { Footer } from "../../components/layouts/footer/Footer";
 import { SearchModal } from "../searchModal/SearchModal";
+import Wrapper from "../../components/Wrapper";
 
 export const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,12 +20,12 @@ export const Home = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       {isModalOpen ? (
         <SearchModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
       ) : (
         <>
-          <Nav isModalOpen={isModalOpen} toggleModal={toggleModal} />
+          <Nav toggleModal={toggleModal} />
           <HomeNav />
           <Banner />
           <GenreSection />
@@ -34,6 +35,6 @@ export const Home = () => {
           <Footer />
         </>
       )}
-    </>
+    </Wrapper>
   );
 };

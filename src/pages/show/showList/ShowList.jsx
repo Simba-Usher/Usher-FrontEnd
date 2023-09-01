@@ -6,6 +6,7 @@ import { ShowCard } from "../../../components/show/ShowCard";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../../../components/layouts/footer/Footer";
 import { SearchModal } from "../../searchModal/SearchModal";
+import Wrapper from "../../../components/Wrapper";
 
 export const ShowList = () => {
   const navigate = useNavigate();
@@ -88,7 +89,7 @@ export const ShowList = () => {
   ];
 
   return (
-    <>
+    <Wrapper>
       {isModalOpen ? (
         <SearchModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
       ) : (
@@ -118,6 +119,6 @@ export const ShowList = () => {
           <Footer />
         </>
       )}
-    </>
+    </Wrapper>
   );
 };

@@ -9,6 +9,7 @@ import { ReactionSection } from "../../../components/show/showDetail/ReactionSec
 import { InfoImgSection } from "../../../components/show/showDetail/InfoImgSection";
 import { ReviewSection } from "../../../components/show/showDetail/ReviewSection";
 import { SearchModal } from "../../searchModal/SearchModal";
+import Wrapper from "../../../components/Wrapper";
 
 export const ShowDetail = () => {
   const reactionSectionRef = useRef(null);
@@ -28,7 +29,7 @@ export const ShowDetail = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       {isModalOpen ? (
         <SearchModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
       ) : (
@@ -52,6 +53,6 @@ export const ShowDetail = () => {
           </div>
         </>
       )}
-    </>
+    </Wrapper>
   );
 };
