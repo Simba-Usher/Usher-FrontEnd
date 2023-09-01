@@ -41,7 +41,7 @@ export const InputSection = styled.div`
     height: 60px;
     border: 0;
     background: #f3f8ff;
-    ::placeholder {
+    &::placeholder {
       color: #a2b4cf;
     }
   }
@@ -227,7 +227,7 @@ export const TxtInput = styled.div`
     border: 0;
     font-size: 1rem;
     padding-left: 15px;
-    ::placeholder {
+    &::placeholder {
       color: #8e9eb6;
     }
   }
