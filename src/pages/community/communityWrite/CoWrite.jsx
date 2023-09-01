@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
+import Wrapper from "../../../components/Wrapper";
 
 export const CoWrite = () => {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ export const CoWrite = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <S.PostForm onSubmit={handleSubmit}>
         <S.WriteNav>
           <S.NavArrow
@@ -113,6 +114,6 @@ export const CoWrite = () => {
           </>
         )}
       </S.PostForm>
-    </>
+    </Wrapper>
   );
 };

@@ -7,10 +7,12 @@ import { ComNav } from '../../../components/community/communityMain/ComNav';
 import { WriteBtn } from '../../../components/community/communityMain/WriteBtn';
 import { NoticeLists } from '../../../components/community/communityMain/NoticeLists';
 import { NoticeTitle } from '../../../components/community/communityMain/NoticeTitle';
+import Wrapper from "../../../components/Wrapper";
+
 
 export const CoNotice = () => {
   return (
-    <>
+    <Wrapper>
       <Nav />
       <HomeNav />
       <S.CoWrap>
@@ -25,6 +27,6 @@ export const CoNotice = () => {
         <p>페이지넘버링</p>
         {/* <WriteBtn /> */}
       </S.CoWrap>
-    </>
+    </Wrapper>
   )
 }

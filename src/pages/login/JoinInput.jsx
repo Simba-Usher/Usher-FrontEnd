@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import logoImg from "/usher_logo.png";
 import * as S from "./style";
-import { Container } from "../../App";
 import { useNavigate } from "react-router-dom";
+import Wrapper from "../../components/Wrapper";
 
 export const JoinInput = () => {
   const [isName, setisName] = useState("");
@@ -19,7 +19,7 @@ export const JoinInput = () => {
   };
 
   return (
-    <Container>
+    <Wrapper>
       <S.Bottomborder>
         <S.LeftFix>
           <img src={logoImg} alt="logo" />
@@ -106,6 +106,6 @@ export const JoinInput = () => {
         </S.TxtInput>
         <S.BottomBlueBtn>가입하기</S.BottomBlueBtn>
       </form>
-    </Container>
+    </Wrapper>
   );
 };

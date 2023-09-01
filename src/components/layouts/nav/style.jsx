@@ -7,7 +7,6 @@ export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 10px;
-  /* justify-content: space-around; */
 `;
 export const SearchSection = styled.div`
   position: absolute;
@@ -48,4 +47,5 @@ export const LevelIcon = styled.div`
 export const MoreBtn = styled.img`
   position: absolute;
   right: 15px;
-`
+  top: 32px;
+`;

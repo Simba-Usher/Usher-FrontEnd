@@ -13,7 +13,7 @@ export const Nav = ({ toggleModal }) => {
 
   return (
     <S.NavContainer>
-      <img src="/usher_logo.png" alt="logo" onClick={() => navigate("/")} />
+      <img src="/usher_nav.png" alt="logo" onClick={() => navigate("/")} />
 
       {!isMyPage && !isCommunityPage && (
         <S.SearchSection>
@@ -35,8 +35,9 @@ export const Nav = ({ toggleModal }) => {
           <p>아이콘</p>
         </S.LevelIcon>
       )}
-
-      <S.MoreBtn src="/menu.png" alt="img" />
+      <Link to="/category">
+        <S.MoreBtn src="/menu.png" alt="img" />
+      </Link>
     </S.NavContainer>
   );
 };

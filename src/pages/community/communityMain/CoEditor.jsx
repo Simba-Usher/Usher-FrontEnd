@@ -5,11 +5,12 @@ import { HomeNav } from "../../../components/layouts/homeNav/HomeNav";
 import { NoticeSec } from "../../../components/community/communityMain/NoticeSec";
 import { ComNav } from "../../../components/community/communityMain/ComNav";
 import { ComLists } from "../../../components/community/communityMain/ComLists";
+import Wrapper from "../../../components/Wrapper";
 
 export const CoEditor = () => {
 
   return (
-    <>
+    <Wrapper>
       <Nav />
       <HomeNav />
       <S.CoWrap>
@@ -22,6 +23,6 @@ export const CoEditor = () => {
         <ComLists />
         <p>페이지넘버링</p>
       </S.CoWrap>
-    </>
+    </Wrapper>
   );
 };
