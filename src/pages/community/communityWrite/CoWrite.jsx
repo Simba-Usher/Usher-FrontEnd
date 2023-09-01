@@ -67,6 +67,7 @@ export const CoWrite = () => {
           <S.PostGreenBtn type="submit">등록</S.PostGreenBtn>
         </S.WriteNav>
         <S.PostSelect
+          isselect={group}
           name="group"
           value={group}
           onChange={(e) => setGroup(e.target.value)}
@@ -88,25 +89,29 @@ export const CoWrite = () => {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-        <S.FlexRow>
-          <S.PostImg
-            onClick={openFilePicker}
-            isselected={img ? "true" : "false"}
-          >
-            <span className="material-symbols-outlined">photo_camera</span>
-            사진 추가하기
-          </S.PostImg>
-          {img && (
-            <S.SelectedImg src={URL.createObjectURL(img)} alt="your img" />
-          )}
-        </S.FlexRow>
-        <input
-          type="file"
-          name="image"
-          accept="image/*"
-          onChange={handleImageChange}
-          style={{ visibility: "hidden" }}
-        />
+        {group !== "qna" && (
+          <>
+            <S.FlexRow>
+              <S.PostImg
+                onClick={openFilePicker}
+                isselected={img ? "true" : "false"}
+              >
+                <span className="material-symbols-outlined">photo_camera</span>
+                사진 추가하기
+              </S.PostImg>
+              {img && (
+                <S.SelectedImg src={URL.createObjectURL(img)} alt="your img" />
+              )}
+            </S.FlexRow>
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleImageChange}
+              style={{ visibility: "hidden" }}
+            />
+          </>
+        )}
       </S.PostForm>
     </>
   );
