@@ -4,7 +4,6 @@ import App from "./App";
 import { Home } from "./pages/home/Home";
 import { My } from "./pages/my/my/My";
 import { Bookmark } from "./pages/my/bookmark/Bookmark";
-import { Calender } from "./pages/my/Calender";
 import { Review } from "./pages/my/review/Review";
 import { Setting } from "./pages/my/setting/Setting";
 import { CoWrite } from "./pages/community/communityWrite/CoWrite";
@@ -76,10 +75,10 @@ const router = createBrowserRouter([
         path: "my/bookmark",
         element: <Bookmark />,
       },
-      {
-        path: "my/calender",
-        element: <Calender />,
-      },
+      // {
+      //   path: "my/calendar",
+      //   element: <Calender />,
+      // },
       {
         path: "my/review",
         element: <Review />,
