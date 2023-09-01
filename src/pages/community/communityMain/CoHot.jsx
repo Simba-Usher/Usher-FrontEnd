@@ -7,14 +7,14 @@ import { ComNav } from "../../../components/community/communityMain/ComNav";
 import { ComLists } from "../../../components/community/communityMain/ComLists";
 import { WriteBtn } from "../../../components/community/communityMain/WriteBtn";
 import Wrapper from "../../../components/Wrapper";
+import { useNavigate } from "react-router-dom";
 
 export const CoHot = () => {
-
   return (
     <Wrapper>
       <Nav />
       <HomeNav />
-      <S.CoHotWrap>
+      <S.CoWrap>
         <NoticeSec />
         <ComNav />
         <ComLists />
@@ -24,7 +24,7 @@ export const CoHot = () => {
         <ComLists />
         <p>페이지넘버링</p>
         <WriteBtn />
-      </S.CoHotWrap>
+      </S.CoWrap>
     </Wrapper>
   );
 };
