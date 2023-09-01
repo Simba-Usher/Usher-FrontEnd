@@ -2,11 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import { Home } from "./pages/home/Home";
-import { My } from "./pages/my/My";
-import { Bookmark } from "./pages/my/Bookmark";
+import { My } from "./pages/my/my/My";
+import { Bookmark } from "./pages/my/bookmark/Bookmark";
 import { Calender } from "./pages/my/Calender";
-import { Review } from "./pages/my/Review";
-import { Setting } from "./pages/my/Setting";
+import { Review } from "./pages/my/review/Review";
+import { Setting } from "./pages/my/setting/Setting";
 import { CoWrite } from "./pages/community/communityWrite/CoWrite";
 import { CoDetail } from "./pages/community/communityDetail/CoDetail";
 import { CoEditor } from "./pages/community/communityMain/CoEditor";
@@ -82,6 +82,10 @@ const router = createBrowserRouter([
       },
       {
         path: "my/review",
+        element: <Review />,
+      },
+      {
+        path: "my/ticket",
         element: <Review />,
       },
       {

@@ -5,6 +5,9 @@ import { SearchModal } from "../searchModal/SearchModal";
 import { Link } from "react-router-dom";
 import { Footer } from "../../components/layouts/footer/Footer";
 import Wrapper from "../../components/Wrapper";
+import { CateHome } from "../../components/category/CateHome";
+import { CateCommunity } from "../../components/category/CateCommunity";
+import { CateMy } from "../../components/category/CateMy";
 
 export const Category = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,7 +36,7 @@ export const Category = () => {
       },
       {
         name: "커뮤니티 공지",
-        link: "/community",
+        link: "/community/notice",
       },
     ],
     [
@@ -51,15 +54,15 @@ export const Category = () => {
       },
       {
         name: "나의 글 · 후기 관리",
-        link: "/my",
+        link: "/my/review",
       },
       {
         name: "티켓 등록",
-        link: "/my",
+        link: "/my/ticket",
       },
       {
         name: "기본 정보 수정",
-        link: "/my",
+        link: "/my/setting",
       },
     ],
   ];
@@ -72,28 +75,14 @@ export const Category = () => {
         <S.CateWrapper>
           <CategoryNav toggleModal={toggleModal} />
           <S.CateTitle>카테고리</S.CateTitle>
-          <Link to="/">
-            <S.CateMenu>
-              <img src="/home.png" alt="home" />홈
-            </S.CateMenu>
-          </Link>
-          <Link to="/community">
-            <S.CateMenu>
-              <img src="/community.png" alt="community" />
-              커뮤니티
-            </S.CateMenu>
-          </Link>
+          <CateHome />
+          <CateCommunity />
           {menu[0].map((comenu) => (
             <Link to={comenu.link}>
               <S.CateSubMenu>{comenu.name}</S.CateSubMenu>
             </Link>
           ))}
-          <Link to="/my">
-            <S.CateMenu>
-              <img src="/mypage.png" alt="mypage" />
-              마이
-            </S.CateMenu>
-          </Link>
+          <CateMy />
           {menu[1].map((mymenu) => (
             <Link to={mymenu.link}>
               <S.CateSubMenu>{mymenu.name}</S.CateSubMenu>

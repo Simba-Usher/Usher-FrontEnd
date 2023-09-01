@@ -30,3 +30,16 @@ export const CateCloseBtn = styled.span`
   font-size: 2.5rem;
   color: #e4efff;
 `;
+export const CateMenu = styled.div`
+  display: flex;
+  align-items: center;
+  height: 58px;
+  border-bottom: 1px solid #d8e0ec;
+  background: #fff;
+  color: #071d36;
+  font-size: 20px;
+  padding-left: 24px;
+  img {
+    padding-right: 10px;
+  }
+`;
