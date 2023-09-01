@@ -4,19 +4,24 @@ import * as S from "./style";
 
 export const HomeNav = () => {
   const location = useLocation();
+  const isCommunityPage = location.pathname.startsWith("/community");
+
 
   return (
     <S.HomeNavContainer>
-      <Link to="/" className={location.pathname === "/" ? "active" : ""}>
+      <Link
+        to="/"
+        className={location.pathname === "/" ? "active" : ""}>
         홈
       </Link>
       <Link
         to="/community"
-        className={location.pathname === "/community" ? "active" : ""}
-      >
+        className={isCommunityPage ? "active" : ""}>
         커뮤니티
       </Link>
-      <Link to="/my" className={location.pathname === "/my" ? "active" : ""}>
+      <Link
+        to="/my"
+        className={location.pathname === "/my" ? "active" : ""}>
         마이
       </Link>
     </S.HomeNavContainer>

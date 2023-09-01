@@ -44,7 +44,15 @@ export const ComNavWrap = styled.div`
     }
     img {
         position: absolute;
-        right: 10px;
+        right: 0;
+    }
+    /* a {
+    color: #CBD0D7;
+    } */
+    div.active {
+    color: #071D36;
+    font-size: 18px;
+    font-weight: 600;
     }
 `
 export const ComNavSec = styled.div`
@@ -52,6 +60,41 @@ export const ComNavSec = styled.div`
     font-size: 18px;
     font-weight: 400;
     padding: 0 14px;
+`
+// Array.jsx
+export const ArrayWrap = styled.div`
+    /* border: 1px solid red; */
+    width: 137px;
+    height: 160px;
+    position: absolute;
+    top: 45px;
+    right: 4px;
+    background-color: #F0F3F2;
+    display: flex;
+    flex-direction: column;
+    div {
+        color: #565857;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    div.active {
+        background-color: #D1FFF1;
+        color: #071D36;
+        font-weight: 600;
+    }
+`
+export const ArraySec = styled.div`
+    width: 137px;
+    height: 40px;
+    border-bottom: 1px solid #A1A7A7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    :active {
+        background-color: #D1FFF1;
+        color: #071D36;
+        font-weight: 600;
+    }
 `
 // ComLists.jsx
 export const ComListsWrap = styled.div`
@@ -124,6 +167,15 @@ export const ImgSec = styled.img`
     width: 80px;
     height: 107px;
     border-radius: 5px;
+`
+// QnaLists.jsx
+export const QnaSec = styled(TextSec)`
+    width: 100%;
+`
+export const Sec2Content = styled(Sec2)`
+    color: #B3B3B3;
+    font-size: 14px;
+    font-weight: 400;
 `
 // WriteBtn.jsx
 export const WriteBtnWrap = styled.div`
