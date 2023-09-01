@@ -121,7 +121,7 @@ export const Sec1Title = styled.div`
     height: 30px;
     color: #071D36;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
 `
 export const Sec2 = styled.div`
     /* border: 1px solid red; */
@@ -161,6 +161,14 @@ export const Sec3 = styled.div`
     }
     img {
         height: 60%;
+        margin-top: 3px;
+    }
+    p.comments {
+        color: #09CFC3;
+        font-size: 16px;
+        font-weight: 600;
+        padding-left: 0;
+        padding-right: 5px;
     }
 `
 export const ImgSec = styled.img`
@@ -176,10 +184,11 @@ export const Sec2Content = styled(Sec2)`
     color: #B3B3B3;
     font-size: 14px;
     font-weight: 400;
+    display: flex;
+    align-items: center;
 `
 // WriteBtn.jsx
 export const WriteBtnWrap = styled.div`
-    border: 1px solid red;
     width: 237px;
     height: 58px;
     border-radius: 13.214px;
@@ -200,4 +209,33 @@ export const WriteBtnWrap = styled.div`
         padding-left: 15px;
         padding-bottom: 4px;
     }
+`
+// NoticeLists.jsx
+export const NotiveListsWrap = styled(ComListsWrap)`
+    padding: 16px 21px;
+`
+export const NotiveSec = styled(TextSec)`
+    width: 100%;
+`
+export const Sec2Manager = styled(Sec2)`
+    padding: 5px 0;
+    height: 40px;
+    p.manager {
+        color: #0086E1;
+        font-size: 14px;
+        font-weight: 600;
+    }
+`
+export const Sec3Content = styled(Sec2Content)`
+    
+`
+// NoticeTitle.jsx
+export const NoticeTitleWrap = styled.div`
+    width: 430px;
+    height: 45px;
+    background-color: #E1E4E8;
+    color: #071D36;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 9px 24px;
 `
