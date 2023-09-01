@@ -15,7 +15,7 @@ export const CoFree = () => {
       <S.CoWrap>
         <NoticeSec />
         <ComNav />
-        <ComLists />
+        <ComLists  />
         <ComLists />
         <ComLists />
         <ComLists />

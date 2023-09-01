@@ -1,10 +1,13 @@
 import React from 'react'
 import * as S from "./style";
+import { useNavigate } from 'react-router-dom';
 
 export const NoticeLists = () => {
+    const navigate = useNavigate();
+
     return (
         <>
-            <S.NotiveListsWrap>
+            <S.NotiveListsWrap onClick={() => navigate("/community/:detailId")}>
                 <S.NotiveSec>
                     {/* 공지 제목 불러오기 */}
                     <S.Sec1Title>공지* 어셔 커뮤니티 이용 시 주의사항</S.Sec1Title>
