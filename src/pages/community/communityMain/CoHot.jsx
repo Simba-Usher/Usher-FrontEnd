@@ -10,10 +10,10 @@ import { WriteBtn } from "../../../components/community/communityMain/WriteBtn";
 export const CoHot = () => {
 
   return (
-    <div>
+    <>
       <Nav />
       <HomeNav />
-      <S.CoHotWrap>
+      <S.CoWrap>
         <NoticeSec />
         <ComNav />
         <ComLists />
@@ -23,7 +23,7 @@ export const CoHot = () => {
         <ComLists />
         <p>페이지넘버링</p>
         <WriteBtn />
-      </S.CoHotWrap>
-    </div>
+      </S.CoWrap>
+    </>
   );
 };

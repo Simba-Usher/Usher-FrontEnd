@@ -21,6 +21,7 @@ import { Success } from "./pages/login/Success";
 import { ShowList } from "./pages/show/showList/ShowList";
 import { ShowDetail } from "./pages/show/showDetail/ShowDetail";
 import { ViewDetail } from "./components/show/showDetail/ViewDetail";
+import { CoNotice } from "./pages/community/communityMain/CoNotice";
 
 const router = createBrowserRouter([
   {
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
       {
         path: "community/qna",
         element: <CoQna />,
+      },
+      {
+        path: "community/notice",
+        element: <CoNotice />
       },
       {
         path: "community",
