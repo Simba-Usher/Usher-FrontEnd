@@ -30,6 +30,13 @@
 .rdrYearPicker > select:enabled:hover {
   background-color: transparent;
 }
+/* 기디와 논의 필요 */
+/* .rdrMonthPicker > select,
+.rdrYearPicker > select {
+  color: #071D36;
+  font-size: 36px;
+  font-weight: 700;
+} */
 /* 좌우조절 화살표 */
 .rdrNextPrevButton {
   /* border: 1px solid pink; */
@@ -110,20 +117,23 @@
 }
 
 /* 날짜 선택 시 -> 배경색 변경 */
+.rdrDays > button:enabled:hover,
 .rdrDays > button:enabled:focus {
   /* background-color: #071D36; */
 
-  border: 3px solid #944BDE;
+  /* border: 3px solid #944BDE; */
+  outline: 3px solid #944BDE;
   background-color: #F2E5FF;
   
   border-radius: 7.49px;
   padding: 0;
   margin: 0 9px;
   color: #FFF;
+  position: relative;
 }
 
 /* 날짜 선택 시 -> 글자색 변경 */
-.rdrDays button span:enabled:focus,
+/* .rdrDays button span:enabled:focus,
 .rdrDayNumber > span:enabled:focus {
   color: #FFF;
 }
@@ -139,7 +149,7 @@
 .react-calendar__tile--active:enabled:focus  {
   background: #006edc;
   color: white;
-}
+} */
 
 /* 기존 호버 테두리 없앰 !! */
 button {
@@ -154,13 +164,14 @@ button > span {
   content: '';
   background-color: transparent;
   /* width: 100%; */
-  width: 39px;
+  width: 40px;
   /* height: 100%; */
-  height: 38px;
+  height: 40px;
   border-radius: 7.49px;
-  border: 1.873px solid #071D36;
+  /* border: 1.873px solid #071D36; */
+  outline: 1.873px solid #071D36;
   position: absolute;
-  top: -6px;
+  top: -5px;
 }
 
 
@@ -173,62 +184,3 @@ button > span {
   display: flex;
   margin-left: 1px;
 }
-
-
-/* .react-calendar__tile--active {
-  background: #6f48eb;
-  border-radius: 6px;
-  font-weight: bold;
-  color: white;
-  } */
-
-
-/* .rdrDayNumber > span {
-  height: 40px;
-} */
-
-
-
-/* .rdrDayNumber > span {
-  width: 40px;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-} */
-
-  /* color: #FFF;
-  font-size: 22.471px;
-  font-weight: 600; */
-
-/* .rdrDayNumber > span:enabled:focus,
-.rdrDayNumber > span:focus {
-  color: #FFF;
-  font-size: 22.471px;
-  font-weight: 600;
-} */
-/* .rdrDays > button--now {
-  color: #FFF;
-  font-size: 22.471px;
-  font-weight: 600;
-} */
-/* button.rdrDayStartPreview,
-button.rdrDayEndPreview {
-  border-radius: 7.49px;
-  background-color: #071D36;
-} */
-/* .rdrDayNumber > span::after {
-  color: #FFF;
-  font-size: 22.471px;
-  font-weight: 600;
-} */
-
-/* .rdrDayStartPreview,
-.rdrDayEndPreview {
-  border-radius: 7.49px;
-  background-color: #071D36;
-} */
-
-/* rdrDayWeekend rdrDayEndOfWeek */
