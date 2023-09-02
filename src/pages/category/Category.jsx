@@ -50,7 +50,7 @@ export const Category = () => {
       },
       {
         name: "공연 달력",
-        link: "/my/calender",
+        link: "/my/showcalendar",
       },
       {
         name: "나의 글 · 후기 관리",
