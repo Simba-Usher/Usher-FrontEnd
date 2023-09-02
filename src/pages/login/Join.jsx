@@ -45,7 +45,9 @@ export const Join = () => {
           <img src={logoImg} alt="logo" />
         </S.LeftFix>
         <div>회원가입</div>
-        <S.RightFix>X</S.RightFix>
+        <S.RightFix>
+          <span className="material-symbols-outlined">close</span>
+        </S.RightFix>
       </S.Bottomborder>
       <S.StepSection>
         Step 1. 약관 동의

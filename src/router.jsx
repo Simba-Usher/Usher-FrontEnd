@@ -22,6 +22,7 @@ import { ShowDetail } from "./pages/show/showDetail/ShowDetail";
 import { ViewDetail } from "./components/show/showDetail/ViewDetail";
 import { Category } from "./pages/category/Category";
 import { CoNotice } from "./pages/community/communityMain/CoNotice";
+import { ReviewWrite } from "./pages/show/reviewWrite/ReviewWrite";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: ":detailId/img",
         element: <ViewDetail />
+      },
+      {
+        path: "showwrite",
+        element: <ReviewWrite />,
       },
       // 마이페이지
       {
