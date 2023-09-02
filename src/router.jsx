@@ -2,10 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import { Home } from "./pages/home/Home";
-import { My } from "./pages/my/My";
-import { Bookmark } from "./pages/my/Bookmark";
-import { Review } from "./pages/my/Review";
-import { Setting } from "./pages/my/Setting";
+import { My } from "./pages/my/my/My";
+import { Bookmark } from "./pages/my/bookmark/Bookmark";
+import { Review } from "./pages/my/review/Review";
+import { Setting } from "./pages/my/setting/Setting";
 import { CoWrite } from "./pages/community/communityWrite/CoWrite";
 import { CoDetail } from "./pages/community/communityDetail/CoDetail";
 import { CoEditor } from "./pages/community/communityMain/CoEditor";
@@ -20,6 +20,7 @@ import { Success } from "./pages/login/Success";
 import { ShowList } from "./pages/show/showList/ShowList";
 import { ShowDetail } from "./pages/show/showDetail/ShowDetail";
 import { ViewDetail } from "./components/show/showDetail/ViewDetail";
+import { Category } from "./pages/category/Category";
 import { CoNotice } from "./pages/community/communityMain/CoNotice";
 import { ShowCalendar } from "./pages/my/ShowCalendar";
 
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
         path: "",
         element: <Home />,
       },
+      // 로그인
       {
         path: "login",
         element: <Login />,
@@ -48,6 +50,11 @@ const router = createBrowserRouter([
         path: "success",
         element: <Success />,
       },
+      // 공연
+      {
+        path: "category",
+        element: <Category />,
+      },
       {
         path: "showlist",
         element: <ShowList />,
@@ -60,6 +67,7 @@ const router = createBrowserRouter([
         path: ":detailId/img",
         element: <ViewDetail />
       },
+      // 마이페이지
       {
         path: "my",
         element: <My />,
@@ -77,9 +85,14 @@ const router = createBrowserRouter([
         element: <Review />,
       },
       {
+        path: "my/ticket",
+        element: <Review />,
+      },
+      {
         path: "my/setting",
         element: <Setting />,
       },
+      // 커뮤니티
       {
         path: "community/write",
         element: <CoWrite />,

@@ -1,25 +1,43 @@
 import React, { useState } from "react";
-import logoImg from "/usher_logo.png";
+import logoImg from "/usher_nav.png";
 import * as S from "./style";
-import { Container } from "../../App";
 import { useNavigate } from "react-router-dom";
+import Wrapper from "../../components/Wrapper";
+import { useSetRecoilState } from "recoil";
+import axiosInstance from "../../api/axios";
 
 export const JoinInput = () => {
+  const navigate = useNavigate();
   const [isName, setisName] = useState("");
   const [isEmail, setisEmail] = useState("");
-  const [isEmailCheck, setisEmailCheck] = useState("");
   const [isPw, setisPw] = useState("");
   const [isPwCheck, setisPwCheck] = useState("");
-
-  const navigate = useNavigate();
+  const [isSent, setIsSent] = useState(false); // 이메일이 발송되었는지 여부
 
   const handleSubmit = (e) => {
     navigate("/success");
     e.preventDefault();
   };
 
+  const handleEmailSend = async () => {
+    try {
+      const response = await axiosInstance.post("/dj-rest-auth/registration/", {
+        username: isName,
+        email: isEmail,
+        password1: isPw,
+        password2: isPwCheck,
+      });
+      console.log(response.data);
+      setIsSent(true);
+    } catch (error) {
+      // 오류 처리
+      console.error("이메일 확인 이메일 전송 중 오류 발생:", error);
+      throw error;
+    }
+  };
+
   return (
-    <Container>
+    <Wrapper>
       <S.Bottomborder>
         <S.LeftFix>
           <img src={logoImg} alt="logo" />
@@ -35,77 +53,72 @@ export const JoinInput = () => {
       <S.CommentSection>
         모든 <span>*필수 항목</span>을 입력해주세요.
       </S.CommentSection>
-      <form onSubmit={handleSubmit}>
-        <S.TxtInput>
-          <p>
-            이름<span>*필수 항목</span>
-          </p>
-          <input
-            type="text"
-            name="name"
-            value={isName}
-            onChange={(e) => setisName(e.target.value)}
-            placeholder="이름을 입력해주세요"
-            required
-          />
-        </S.TxtInput>
-        <S.TxtInput>
-          <p>
-            이메일<span>*필수 항목</span>
-          </p>
-          <input
-            type="email"
-            name="email"
-            value={isEmail}
-            onChange={(e) => setisEmail(e.target.value)}
-            placeholder="예) usher@kopis.mail"
-            required
-          />
-        </S.TxtInput>
-        <S.TxtInput>
-          <p>
-            이메일 인증<span>*필수 항목</span>
-          </p>
-          <input
-            type="text"
-            pattern="[0-9]*"
-            name="emailcheck"
-            value={isEmailCheck}
-            onChange={(e) => setisEmailCheck(e.target.value)}
-            placeholder="인증번호를 입력해주세요"
-            required
-          />
-          <S.MiniBlueBtn>인증번호 전송</S.MiniBlueBtn>
-          <S.MiniGrayBtn>확인</S.MiniGrayBtn>
-        </S.TxtInput>
-        <S.TxtInput>
-          <p>
-            비밀번호<span>*필수 항목</span>
-          </p>
-          <input
-            type="password"
-            name="password"
-            value={isPw}
-            onChange={(e) => setisPw(e.target.value)}
-            placeholder="영문/숫자/특수문자 조합 가능 (8자 이상)"
-            required
-          />
-        </S.TxtInput>
-        <S.TxtInput>
-          <p>
-            비밀번호 확인<span>*필수 항목</span>
-          </p>
-          <input
-            type="password"
-            name="passwordcheck"
-            value={isPwCheck}
-            onChange={(e) => setisPwCheck(e.target.value)}
-            placeholder="비밀번호를 다시 한번 입력해주세요"
-            required
-          />
-        </S.TxtInput>
-        <S.BottomBlueBtn>가입하기</S.BottomBlueBtn>
-      </form>
-    </Container>
+      <S.TxtInput>
+        <p>
+          이름<span>*필수 항목</span>
+        </p>
+        <input
+          type="text"
+          name="name"
+          value={isName}
+          onChange={(e) => setisName(e.target.value)}
+          placeholder="이름을 입력해주세요"
+          required
+        />
+      </S.TxtInput>
+      <S.TxtInput>
+        <p>
+          이메일 인증<span>*필수 항목</span>
+        </p>
+        <input
+          type="email"
+          name="email"
+          value={isEmail}
+          onChange={(e) => setisEmail(e.target.value)}
+          placeholder="예) usher@kopis.mail"
+          required
+        />
+        {/* {!isSent ? (
+            <S.MiniBlueBtn onClick={handleEmailSend}>
+              인증번호 발송
+            </S.MiniBlueBtn>
+          ) : (
+            <S.MiniGrayBtn onClick={handleEmailConfirm}>확인</S.MiniGrayBtn>
+          )} */}
+      </S.TxtInput>
+      <S.TxtInput>
+        <p>
+          비밀번호<span>*필수 항목</span>
+        </p>
+        <input
+          type="password"
+          name="password"
+          value={isPw}
+          onChange={(e) => setisPw(e.target.value)}
+          placeholder="영문/숫자/특수문자 조합 가능 (8자 이상)"
+          required
+        />
+      </S.TxtInput>
+      <S.TxtInput>
+        <p>
+          비밀번호 확인<span>*필수 항목</span>
+        </p>
+        <input
+          type="password"
+          name="passwordcheck"
+          value={isPwCheck}
+          onChange={(e) => setisPwCheck(e.target.value)}
+          placeholder="비밀번호를 다시 한번 입력해주세요"
+          required
+        />
+      </S.TxtInput>
+      {isSent ? (
+        <S.BottomBlueBtn onClick={handleSubmit}>가입 완료하기</S.BottomBlueBtn>
+      ) : (
+        <S.BottomBlueBtn onClick={handleEmailSend}>
+          인증번호 발송
+        </S.BottomBlueBtn>
+      )}
+    </Wrapper>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyle";
 import { styled } from "styled-components";
+import { AnimatePresence } from "framer-motion";
 
 // 모바일 크기 레이아웃 고정
 export const Container = styled.div`
@@ -9,14 +10,16 @@ export const Container = styled.div`
   width: 430px;
   min-height: 932px;
   position: relative;
-`
+`;
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <Container>
-        <Outlet />
+        <AnimatePresence>
+          <Outlet />
+        </AnimatePresence>
       </Container>
     </>
   );

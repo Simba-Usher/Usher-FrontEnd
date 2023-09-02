@@ -2,8 +2,11 @@ import React from "react";
 import * as S from "./style"
 import { ReactionBar } from "../../../components/community/ReactionSection/ReactionBar";
 import { CommentSection } from "../../../components/community/ReactionSection/CommentSection";
+import { useNavigate } from "react-router-dom";
+import Wrapper from "../../../components/Wrapper";
 
 export const CoDetail = () => {
+  const navigate = useNavigate();
   const data = {
     id: 1,
     group: "자유 게시판",
@@ -38,29 +41,33 @@ export const CoDetail = () => {
   };
 
   return (
-    <S.CoDetailWrapper>
-      <S.CoDetailNav>
-        <S.CoNavArrow
-          className="material-symbols-outlined"
-          onClick={() => navigate("/community")}
-        >
-          arrow_back
-        </S.CoNavArrow>
-        <div>{data.group}</div>
-      </S.CoDetailNav>
+    <Wrapper>
+      <S.CoDetailWrapper>
+        <S.CoDetailNav>
+          <S.CoNavArrow
+            className="material-symbols-outlined"
+            onClick={() => navigate("/community")}
+          >
+            arrow_back
+          </S.CoNavArrow>
+          <div>{data.group}</div>
+        </S.CoDetailNav>
 
-      <S.DetailTitle>{data.title}</S.DetailTitle>
-      <S.DetailUserBox>
-        <div>{data.username}</div>
-        <span>{data.date} | 조회 {data.views}</span>
-      </S.DetailUserBox>
-      <S.DetailImg>
-        <img src={data.img} alt="your img" />
-      </S.DetailImg>
-      <S.DetailGrayLine />
-      <S.DetailBody>{data.body}</S.DetailBody>
-      <ReactionBar />
-      <CommentSection />
-    </S.CoDetailWrapper>
+        <S.DetailTitle>{data.title}</S.DetailTitle>
+        <S.DetailUserBox>
+          <div>{data.username}</div>
+          <span>
+            {data.date} | 조회 {data.views}
+          </span>
+        </S.DetailUserBox>
+        <S.DetailImg>
+          <img src={data.img} alt="your img" />
+        </S.DetailImg>
+        <S.DetailGrayLine />
+        <S.DetailBody>{data.body}</S.DetailBody>
+        <ReactionBar />
+        <CommentSection />
+      </S.CoDetailWrapper>
+    </Wrapper>
   );
 };
