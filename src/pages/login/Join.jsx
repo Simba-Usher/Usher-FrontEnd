@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logoImg from "/usher_logo.png";
+import logoImg from "/usher_nav.png";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";

@@ -205,7 +205,7 @@ export const BottomBlueBtn = styled(BlueBtn)`
 export const TxtInput = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px 30px;
+  margin: 40px 30px;
   position: relative;
   p {
     padding-left: 10px;
@@ -232,12 +232,17 @@ export const TxtInput = styled.div`
     }
   }
 `;
-export const MiniBlueBtn = styled.button`
+export const MiniBlueBtn = styled.div`
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
   right: 65px;
   top: 55px;
   width: 100px;
   height: 31px;
+  cursor: default;
   border-radius: 10px;
   background: #1270b0;
   color: #fff;

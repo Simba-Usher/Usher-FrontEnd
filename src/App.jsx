@@ -10,7 +10,7 @@ export const Container = styled.div`
   width: 430px;
   min-height: 932px;
   position: relative;
-`
+`;
 
 function App() {
   return (
