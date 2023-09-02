@@ -5,6 +5,7 @@ import { MyCalendar } from "../../components/my/myCalender/MyCalendar";
 import { CalendarBar } from "../../components/my/myCalender/CalendarBar";
 import { ShowCards } from "../../components/my/myCalender/ShowCards";
 import { MemoCards } from "../../components/my/myCalender/MemoCards";
+import { Footer } from "../../components/layouts/footer/Footer";
 
 export const ShowCalendar = () => {
   const title = "공연 달력";
@@ -25,8 +26,7 @@ export const ShowCalendar = () => {
     <ShowCards activeDate={activeDate} />
     <ShowCards activeDate={activeDate} />
     <MemoCards activeDate={activeDate} />
-    <p>등록메모 카드</p>
-    <p>푸터</p>
+    <Footer />
     </>
   );
 };
