@@ -4,7 +4,6 @@ import App from "./App";
 import { Home } from "./pages/home/Home";
 import { My } from "./pages/my/My";
 import { Bookmark } from "./pages/my/Bookmark";
-import { Calender } from "./pages/my/Calender";
 import { Review } from "./pages/my/Review";
 import { Setting } from "./pages/my/Setting";
 import { CoWrite } from "./pages/community/communityWrite/CoWrite";
@@ -22,6 +21,7 @@ import { ShowList } from "./pages/show/showList/ShowList";
 import { ShowDetail } from "./pages/show/showDetail/ShowDetail";
 import { ViewDetail } from "./components/show/showDetail/ViewDetail";
 import { CoNotice } from "./pages/community/communityMain/CoNotice";
+import { ShowCalendar } from "./pages/my/ShowCalendar";
 
 const router = createBrowserRouter([
   {
@@ -69,8 +69,8 @@ const router = createBrowserRouter([
         element: <Bookmark />,
       },
       {
-        path: "my/calender",
-        element: <Calender />,
+        path: "my/showcalendar",
+        element: <ShowCalendar />,
       },
       {
         path: "my/review",
