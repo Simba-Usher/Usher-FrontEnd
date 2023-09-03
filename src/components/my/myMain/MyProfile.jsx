@@ -10,9 +10,9 @@ export const MyProfile = () => {
     <>
         <S.MyProfileWrap>
             <S.WhiteBox>
-                <S.Profile>
+                <S.Profile onClick={() => navigate("/my/setting")}>
                     <S.Grade src="/grade1.png" alt="grade" />
-                    {/* 닉네임, 메일 받아오기 */}
+                    {/* 닉네임, 메일 불러오기 */}
                     <S.MyInfo>
                         <S.MyName>뮤라이프 님</S.MyName>
                         <S.MyMail>

@@ -55,6 +55,7 @@ export const MyMail = styled.div`
         width: 12px;
         height: 9.6px;
         margin-right: 4px;
+        margin-top: 3px;
     }
 `
 export const GoImg = styled.img`
