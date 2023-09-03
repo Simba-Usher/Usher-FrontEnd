@@ -83,7 +83,7 @@ export const CardSec1 = styled.div`
     justify-content: space-between;
 `
 export const DateBox = styled.div`
-    width: 84px;
+    width: 80px;
     height: 30px;
     border-radius: 10px;
     background: #985FD1;
@@ -91,8 +91,8 @@ export const DateBox = styled.div`
     font-size: 16px;
     font-weight: 500;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding-left: 10px;
 `
 export const ToDetail = styled.div`
     color: #985FD1;

@@ -10,11 +10,11 @@ import moment from 'moment';
 
 
 const dayList = [
-  '2023-09-03',
-  '2023-09-04',
-  '2023-09-05',
-  '2023-09-14',
-  '2023-09-27',
+  '2023-9-3',
+  '2023-9-4',
+  '2023-9-5',
+  '2023-0-14',
+  '2023-9-27',
 ];
 
 export const MyCalendar = ({ onActiveDateChange }) => {
