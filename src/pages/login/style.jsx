@@ -14,6 +14,9 @@ export const Bottomborder = styled.div`
 export const RightFix = styled.div`
   position: absolute;
   right: 5%;
+  span{
+    font-size: 2rem;
+  }
 `;
 export const LeftFix = styled.div`
   position: absolute;

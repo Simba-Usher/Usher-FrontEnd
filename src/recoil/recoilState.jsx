@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
-const { persistAtom } = recoilPersist(); //로컬스토리지에 user 정보
+const { persistAtom } = recoilPersist(); //로컬스토리지에 정보 저장
 
 export const accessTokenState = atom({
   key: "accessTokenState",
