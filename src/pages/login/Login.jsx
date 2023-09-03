@@ -4,8 +4,7 @@ import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
 import axiosInstance from "../../api/axios";
-import { useSetRecoilState } from "recoil";
-import { useRecoilValue } from "recoil"; //상태 가져오기
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import { accessTokenState } from "../../recoil/recoilState";
 
 export const Login = () => {
@@ -16,17 +15,16 @@ export const Login = () => {
 
   const accessToken = useRecoilValue(accessTokenState); //상태 가져오기
 
-  const handleSubmit = () => {
-    navigate("/");
-  };
   const handleJoin = () => {
     navigate("/join_1");
   };
+  const goback = () => {
+    navigate(-1);
+  }
 
   const login = async () => {
     try {
       const response = await axiosInstance.post("/dj-rest-auth/login/", {
-        username: "테스트",
         email: isEmail,
         password: isPw,
       });
@@ -46,7 +44,9 @@ export const Login = () => {
     <Wrapper>
       <S.Bottomborder>
         <div>로그인</div>
-        <S.RightFix>X</S.RightFix>
+        <S.RightFix onClick={goback}>
+          <span className="material-symbols-outlined">close</span>
+        </S.RightFix>
       </S.Bottomborder>
       <S.LoginSection>
         <S.LogoIMG src={logoImg} alt="logo" />
