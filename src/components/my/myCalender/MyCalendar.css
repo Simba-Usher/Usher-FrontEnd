@@ -23,7 +23,7 @@
 /* 월 선택 화살표 제외 */
 .rdrMonthAndYearPickers {
   /* border: 1px solid pink; */
-  width: 120px;
+  width: 270px;
   padding: 0;
 }
 .rdrMonthPicker > select:enabled:hover,
@@ -31,12 +31,16 @@
   background-color: transparent;
 }
 /* 기디와 논의 필요 */
-/* .rdrMonthPicker > select,
+.rdrMonthPicker > select {
+  color: #6B2ED0;
+  font-size: 24px;
+  font-weight: 700;
+}
 .rdrYearPicker > select {
   color: #071D36;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 700;
-} */
+}
 /* 좌우조절 화살표 */
 .rdrNextPrevButton {
   /* border: 1px solid pink; */

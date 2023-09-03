@@ -3,8 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { Home } from "./pages/home/Home";
 import { My } from "./pages/my/my/My";
-import { Bookmark } from "./pages/my/bookmark/Bookmark";
-import { Review } from "./pages/my/review/Review";
+import { MyLike } from "./pages/my/like/MyLike";
+import { MyWrite} from "./pages/my/write/MyWrite";
 import { Setting } from "./pages/my/setting/Setting";
 import { CoWrite } from "./pages/community/communityWrite/CoWrite";
 import { CoDetail } from "./pages/community/communityDetail/CoDetail";
@@ -22,8 +22,9 @@ import { ShowDetail } from "./pages/show/showDetail/ShowDetail";
 import { ViewDetail } from "./components/show/showDetail/ViewDetail";
 import { Category } from "./pages/category/Category";
 import { CoNotice } from "./pages/community/communityMain/CoNotice";
+import { Ticket } from "./pages/my/ticket/Ticket";
 import { ReviewWrite } from "./pages/show/reviewWrite/ReviewWrite";
-import { ShowCalendar } from "./pages/my/ShowCalendar";
+import { ShowCalendar } from "./pages/my/calendar/ShowCalendar";
 
 const router = createBrowserRouter([
   {
@@ -78,20 +79,20 @@ const router = createBrowserRouter([
         element: <My />,
       },
       {
-        path: "my/bookmark",
-        element: <Bookmark />,
+        path: "my/like",
+        element: <MyLike />,
       },
       {
         path: "my/showcalendar",
         element: <ShowCalendar />,
       },
       {
-        path: "my/review",
-        element: <Review />,
+        path: "my/write",
+        element: <MyWrite />,
       },
       {
         path: "my/ticket",
-        element: <Review />,
+        element: <Ticket />,
       },
       {
         path: "my/setting",

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import '../../components/my/myCalender/MyCalendar.css'; // 새로운 CSS 파일
-import { MyInnerNav } from "../../components/my/MyInnerNav";
-import { MyCalendar } from "../../components/my/myCalender/MyCalendar";
-import { CalendarBar } from "../../components/my/myCalender/CalendarBar";
-import { ShowCards } from "../../components/my/myCalender/ShowCards";
-import { MemoCards } from "../../components/my/myCalender/MemoCards";
-import { Footer } from "../../components/layouts/footer/Footer";
+import '../../../components/my/myCalender/MyCalendar.css'; // 새로운 CSS 파일
+import { MyInnerNav } from "../../../components/my/MyInnerNav";
+import { MyCalendar } from "../../../components/my/myCalender/MyCalendar";
+import { CalendarBar } from "../../../components/my/myCalender/CalendarBar";
+import { ShowCards } from "../../../components/my/myCalender/ShowCards";
+import { MemoCards } from "../../../components/my/myCalender/MemoCards";
+import { Footer } from "../../../components/layouts/footer/Footer";
 
 export const ShowCalendar = () => {
   const title = "공연 달력";
