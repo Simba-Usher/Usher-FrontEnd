@@ -23,6 +23,7 @@ import { ViewDetail } from "./components/show/showDetail/ViewDetail";
 import { Category } from "./pages/category/Category";
 import { CoNotice } from "./pages/community/communityMain/CoNotice";
 import { ReviewWrite } from "./pages/show/reviewWrite/ReviewWrite";
+import { ShowCalendar } from "./pages/my/ShowCalendar";
 
 const router = createBrowserRouter([
   {
@@ -80,10 +81,10 @@ const router = createBrowserRouter([
         path: "my/bookmark",
         element: <Bookmark />,
       },
-      // {
-      //   path: "my/calendar",
-      //   element: <Calender />,
-      // },
+      {
+        path: "my/showcalendar",
+        element: <ShowCalendar />,
+      },
       {
         path: "my/review",
         element: <Review />,
