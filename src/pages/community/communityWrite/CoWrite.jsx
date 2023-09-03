@@ -2,37 +2,43 @@ import React, { useState } from "react";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../../components/Wrapper";
+import axiosInstance from "../../../api/axios";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
 
 export const CoWrite = () => {
   const navigate = useNavigate();
+  const accessToken = useRecoilValue(accessTokenState);
+  
   const [group, setGroup] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [img, setImg] = useState(null);
-
+  /*
   const handleSubmit = (e) => {
     e.preventDefault();
     if (group == "none" || title == "" || body == "") {
       alert("필수항목을 입력해주세요");
     } else alert("게시판: " + group + "제목: " + title + "본문: " + body+"url:"+img);
   };
-  /*
-   // submit 시 로직
+  */
+
+  // submit 시 로직
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const formData = new FormData();
-      formData.append("group", group);
-      formData.append("title", title);
-      formData.append("body", body);
-      if (img) {
-        formData.append("img", img);
-      }
-
-      const response = await axiosInstance.post("여기url",formData,{
+      const response = await axiosInstance.post(
+        "/composts",
+        {
+          category: group,
+          title: title,
+          content: body,
+          image: img,
+        },
+        {
           headers: {
-            "Content-Type": "multipart/form-data", // 필수 설정
+            Authorization: `Bearer ${accessToken}`, // 액세스 토큰을 헤더에 추가
           },
         }
       );
@@ -42,7 +48,6 @@ export const CoWrite = () => {
       console.error("Error updating like status:", error);
     }
   };
-*/
 
   // 이미지 file 로직
   const handleImageChange = (event) => {
@@ -74,8 +79,8 @@ export const CoWrite = () => {
           onChange={(e) => setGroup(e.target.value)}
         >
           <option value="none">게시판을 선택하세요</option>
-          <option value="free">자유 게시판</option>
-          <option value="qna">질문 게시판</option>
+          <option value="자유">자유 게시판</option>
+          <option value="질문">질문 게시판</option>
         </S.PostSelect>
         <S.PostTitle
           type="text"
@@ -90,7 +95,7 @@ export const CoWrite = () => {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-        {group !== "qna" && (
+        {group !== "질문" && (
           <>
             <S.FlexRow>
               <S.PostImg

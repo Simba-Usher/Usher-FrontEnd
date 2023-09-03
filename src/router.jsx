@@ -24,6 +24,7 @@ import { Category } from "./pages/category/Category";
 import { CoNotice } from "./pages/community/communityMain/CoNotice";
 import { ReviewWrite } from "./pages/show/reviewWrite/ReviewWrite";
 import { ShowCalendar } from "./pages/my/ShowCalendar";
+import { ShowReview } from "./pages/show/showReview/ShowReview";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: ":detailId/img",
         element: <ViewDetail />
+      },
+      {
+        path: ":detailId/review",
+        element: <ShowReview />,
       },
       {
         path: "showwrite",

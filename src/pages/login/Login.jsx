@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logoImg from "/usher_nav.png";
+import logoImg from "/usher_logo.png";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
@@ -11,9 +11,9 @@ export const Login = () => {
   const navigate = useNavigate();
   const [isEmail, setisEmail] = useState("");
   const [isPw, setisPw] = useState("");
-  const setAccessToken = useSetRecoilState(accessTokenState);
 
-  const accessToken = useRecoilValue(accessTokenState); //상태 가져오기
+  const setAccessToken = useSetRecoilState(accessTokenState);
+  const accessToken = useRecoilValue(accessTokenState);
 
   const handleJoin = () => {
     navigate("/join_1");
@@ -21,7 +21,8 @@ export const Login = () => {
   const goback = () => {
     navigate(-1);
   }
-
+  const login = ()=>{}
+/*
   const login = async () => {
     try {
       const response = await axiosInstance.post("/dj-rest-auth/login/", {
@@ -39,7 +40,7 @@ export const Login = () => {
       console.error("로그인 실패:", error);
     }
   };
-
+*/
   return (
     <Wrapper>
       <S.Bottomborder>
