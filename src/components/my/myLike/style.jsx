@@ -74,7 +74,8 @@ export const XBtn = styled.img`
     height: 24px !important;
     position: absolute;
     bottom: 14px;
-    right: 0;
+    right: 10px;
+    padding: 0 !important;
 `
 
 // ComLike.jsx

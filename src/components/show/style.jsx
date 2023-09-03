@@ -411,6 +411,7 @@ export const ShowCardWrapper = styled.div`
   flex-direction: row;
   border-bottom: 1px solid #d6dde6;
   padding: 15px 10px;
+  position: relative;
   img{
     padding-right: 10px;
   }
