@@ -7,7 +7,7 @@ import { MyGrade } from "../../../components/my/mySetting/MyGrade";
 export const Setting = () => {
   const title = "기본 정보 수정";
 
-  // 기존의 데이터들이 이미 입력되어 있는 상태로 불러와져야 함
+  // 기존의 데이터들이 이미 입력되어 있는 상태로 불러와져야 함 ...
   return (
     <Wrapper>
       <MyInnerNav title={title} />

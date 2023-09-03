@@ -22,5 +22,51 @@ export const MyInnerNavWrap = styled.div`
         color: #071D36;
         font-size: 24px;
         font-weight: 400;
+        color: var(--, #071D36);
+    }
+`
+
+// MyToggle.jsx
+export const MyToggleWrap = styled.div`
+    width: 430px;
+    height: 90px;
+    background-color: #F2F5F9;
+    border-top: 2px solid #D8E0EC;
+    padding: 20px 62px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+export const ToggleBtn = styled.div`
+    width: 140px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #CDD4DD;
+    background: #FFF;
+    color: #959CAA;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+// NumBox.jsx
+export const NumBoxWrap = styled.div`
+    width: 430px;
+    height: 56px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    div:nth-child(1) {
+        color: #959CAA;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    div:last-child {
+        color: #7749C3;
+        font-size: 24px;
+        font-weight: 600;
     }
 `
