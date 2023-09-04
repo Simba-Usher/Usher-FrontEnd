@@ -10,12 +10,16 @@ export const ReviewSection = forwardRef((props, ref) => {
   const navigate = useNavigate();
 
   return (
-    <div ref={ref}>
+    <div ref={reviewRef => (ref.current[2] = reviewRef)}>
       <S.ReviewSecWrap>
         <S.ReviewSec1>
           <S.TapTitle>관람 후기</S.TapTitle>
           {/* 페이지 연결하기 */}
+<<<<<<< HEAD
+          <S.ViewMore onClick={() => navigate("/showwrite")}>관람 후기 더보기</S.ViewMore>
+=======
           <S.ViewMore onClick={()=>navigate(`/${1}/review`)}>관람 후기 더보기</S.ViewMore>
+>>>>>>> 2f9be5d86f43ed87e519ca5919504c69ac500274
         </S.ReviewSec1>
         <S.ReviewSec2>
           <p>평점</p>
