@@ -91,6 +91,9 @@ export const SmallBlueTxt = styled.div`
   color: #69a2f6;
   font-size: 14px;
 `;
+export const SmallPurpleTxt = styled(SmallBlueTxt)`
+  color: #985FD1;
+`
 export const SmallBlueIcon = styled.span`
   color: #69a2f6;
   font-size: 18px;
@@ -154,6 +157,15 @@ export const ReviewDetailLikeBtn = styled(ReviewDetailCmtBtn)`
     font-size: 18px;
   }
 `;
+export const ReviewDetailPurpleBtn = styled(ReviewDetailLikeBtn)`
+  width: 124px;
+  height: 30px;
+  color: #A576D5;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  border: 1px solid #C6CFDC;
+`
 export const ReviewCmtSection = styled.div`
   border-bottom: 1px solid #bac2cc;
   background: #edeef2;
