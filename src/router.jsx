@@ -68,14 +68,14 @@ const router = createBrowserRouter([
       },
       {
         path: ":detailId/img",
-        element: <ViewDetail />
+        element: <ViewDetail />,
       },
       {
         path: ":detailId/review",
         element: <ShowReview />,
       },
       {
-        path: "showwrite",
+        path: "reviewwrite",
         element: <ReviewWrite />,
       },
       // 마이페이지
@@ -126,7 +126,7 @@ const router = createBrowserRouter([
       },
       {
         path: "community/notice",
-        element: <CoNotice />
+        element: <CoNotice />,
       },
       {
         path: "community",

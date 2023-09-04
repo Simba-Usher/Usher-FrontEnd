@@ -3,7 +3,7 @@ import * as S from "./style";
 import Wrapper from "../../../components/Wrapper";
 import { OtherNav } from "../../../components/layouts/otherNav/OtherNav";
 import { ShowReviewCard } from "../../../components/show/showReview/ShowReviewCard";
-// import WriteBtnSection from "../../../components/show/showReview/WriteBtnSection";
+import { WriteBtnSection } from "../../../components/show/showReview/WriteBtnSection";
 
 export const ShowReview = () => {
   const [isClicked, setIsClicked] = useState("최신순");
@@ -11,7 +11,6 @@ export const ShowReview = () => {
     {
       id: 1,
       writer: "뮤라이프",
-      discount: "카드 제휴 할인",
       price: 152000,
       where: "인터파크 티켓",
       star: 5,
@@ -39,7 +38,6 @@ export const ShowReview = () => {
     {
       id: 2,
       writer: "뮤라이프2",
-      discount: "카드 제휴 할인2",
       price: 152000,
       where: "인터파크 티켓2",
       star: 5,
@@ -69,7 +67,7 @@ export const ShowReview = () => {
     <Wrapper>
       <OtherNav title="관람후기" />
       <S.GrayHr />
-      {/* <WriteBtnSection /> */}
+      <WriteBtnSection />
       <S.ReviewBlueTxt>관람 후기 ({data.length})</S.ReviewBlueTxt>
       <S.ReviewFilterSection>
         <S.ReviewSort

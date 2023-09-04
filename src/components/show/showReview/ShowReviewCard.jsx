@@ -1,38 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import * as S from "./style";
-import { ShowReviewDetail } from './ShowReviewDetail';
+import { ShowReviewDetail } from "./ShowReviewDetail";
+// import { useRecoilValue } from "recoil";
+// import { accessTokenState } from "../../../recoil/recoilState";
+// 주석 처리한 부분은 로그인 한 username을 가지고 올 부분
 
 export const ShowReviewCard = ({ review }) => {
-    const [fold,setFold] = useState(false);
+  // const accessToken = useRecoilValue(accessTokenState);
+  const [fold, setFold] = useState(false);
+
   return (
-    <div>
-      <div>{review.writer}</div>
-      <div>
-        {review.where} · {review.discount} · ￦{review.price}
-      </div>
-      <div>
+    <S.ReviewCardWrapper>
+      {/* {review.writer == accessToken} 로그인 중인 사용자명과 같을 때는 없어져야함 */}
+      <S.ReviewNotify>신고</S.ReviewNotify>
+      <S.ReviewWriter>{review.writer}</S.ReviewWriter>
+      <S.ReviewData>
+        {review.where} · 카드 제휴 할인 · ￦{review.price.toLocaleString()}
+      </S.ReviewData>
+      <S.ReviewRowBox>
         {Array(parseInt(review.star))
           .fill(null)
           .map((_, index) => (
-            <i key={index} className="fas fa-star" />
+            <S.ReviewStars key={index} className="fas fa-star" />
           ))}
         {review.date.slice(2)} | {review.time} 공연
-      </div>
-      <div>
+      </S.ReviewRowBox>
+      <S.ReviewContent>
         {review.content.slice(0, 21)} <span>...더보기</span>
-      </div>
-      <div>
-        <span className="material-symbols-outlined">thumb_up</span>
-        <div>공감해요 {review.likes}</div>
-        <div> · 댓글 {review.cocomments.length}</div>
-      </div>
-      <span
-        onClick={() => setFold((prevFold) => !prevFold)}
-        class="material-symbols-outlined"
-      >
-        {fold ? "expand_less" : "keyboard_arrow_down"}
-      </span>
+      </S.ReviewContent>
+      <S.ReviewRow>
+        <S.SmallBlueIcon className="material-symbols-outlined">
+          thumb_up
+        </S.SmallBlueIcon>
+        <S.SmallBlueTxt>공감해요 {review.likes}</S.SmallBlueTxt>
+        <S.SmallGrayTxt>&nbsp;· 댓글 {review.cocomments.length}</S.SmallGrayTxt>
+        <span
+          onClick={() => setFold((prevFold) => !prevFold)}
+          class="material-symbols-outlined"
+        >
+          {fold ? "expand_less" : "keyboard_arrow_down"}
+        </span>
+      </S.ReviewRow>
       {fold && <ShowReviewDetail review={review} />}
-    </div>
+    </S.ReviewCardWrapper>
   );
 };

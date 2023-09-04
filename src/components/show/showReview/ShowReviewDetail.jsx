@@ -7,44 +7,43 @@ export const ShowReviewDetail = ({ review }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("cmt: " + cmt + "cocmt: " + cocmt);
+    alert("comment: " + comment);
   };
 
   return (
     <>
-      <div>
-        <div>
-          <div>관람 일시</div>
+      <S.ReviewDetailWrapper>
+        <S.ReviewDetailRowBox>
+          <S.ReviewDetailGrayTxt>관람 일시</S.ReviewDetailGrayTxt>
           {review.date} · {review.time}
-        </div>
-        <div>
-          <div>예매처</div>
+        </S.ReviewDetailRowBox>
+        <S.ReviewDetailRowBox>
+          <S.ReviewDetailGrayTxt>예매처</S.ReviewDetailGrayTxt>
           {review.where}
-        </div>
-        <div>
-          <div>할인 · 결제액</div>
-          {review.discount} · ￦{review.price}
-        </div>
-        <div>{review.content}</div>
-        <div>
+        </S.ReviewDetailRowBox>
+        <S.ReviewDetailRowBox>
+          <S.ReviewDetailGrayTxt>할인 · 결제액</S.ReviewDetailGrayTxt>
+          카드 제휴 할인 · ￦{review.price.toLocaleString()}
+        </S.ReviewDetailRowBox>
+        <S.ReviewDetailContent>{review.content}</S.ReviewDetailContent>
+        <S.ReviewDetailCmtBtn>
           <i className="fas fa-comment"></i>댓글쓰기
-        </div>
-        <div>
+        </S.ReviewDetailCmtBtn>
+        <S.ReviewDetailLikeBtn>
           <span className="material-symbols-outlined">thumb_up</span>공감
-        </div>
-      </div>
+        </S.ReviewDetailLikeBtn>
+      </S.ReviewDetailWrapper>
       {review.cocomments.map((cmt) => (
-        <div key={cmt.id}>
-          <div>{cmt.content}</div>
-          <div>
-            <span>{cmt.writer}</span>
-            <span>
-              {cmt.date}
-              {cmt.writer != review.writer && "| 신고"}
-            </span>
-            {(cmt.writer = review.writer && <div>작성자</div>)}
-          </div>
-        </div>
+        <S.ReviewCmtSection key={cmt.id}>
+          <S.ReviewCmtCentent>{cmt.content}</S.ReviewCmtCentent>
+          <S.ReviewCmtData>
+            <S.ReviewCmtWriter>{cmt.writer}</S.ReviewCmtWriter>
+            <S.ReviewCmtDate>{cmt.date} | 신고</S.ReviewCmtDate>
+            {cmt.writer == review.writer && (
+              <S.ReviewWriterCmt>작성자</S.ReviewWriterCmt>
+            )}
+          </S.ReviewCmtData>
+        </S.ReviewCmtSection>
       ))}
       <S.ReviewCmtWrapper onSubmit={handleSubmit}>
         <S.ReviewCmtInput
@@ -53,9 +52,7 @@ export const ShowReviewDetail = ({ review }) => {
           value={comment}
           onChange={(e) => setcomment(e.target.value)}
         />
-        <S.ReviewCmtPostBtn type="submit">
-          댓글 쓰기
-        </S.ReviewCmtPostBtn>
+        <S.ReviewCmtPostBtn type="submit">댓글 쓰기</S.ReviewCmtPostBtn>
       </S.ReviewCmtWrapper>
     </>
   );
