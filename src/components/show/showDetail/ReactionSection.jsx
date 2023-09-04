@@ -5,7 +5,7 @@ import * as S from "../style";
 
 export const ReactionSection = forwardRef((props, ref) => {
   return (
-    <div ref={ref}>
+    <div ref={reactionRef => (ref.current[0] = reactionRef)}>
         <S.ReactionSecWrap>
             <S.TapTitle style={{margin: "7px 0"}}>관람객 반응</S.TapTitle>
             <S.ReactionBox></S.ReactionBox>

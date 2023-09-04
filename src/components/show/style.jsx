@@ -120,25 +120,39 @@ export const TitleSec4 = styled.div`
 export const DetailNavWrap = styled.div`
     /* border: 1px solid red; */
     width: 430px;
-    height: 54px;
-    padding: 7px 20px;
+    /* height: 54px; */
+    /* height: 65px; */
+    /* padding: 7px 20px; */
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #FFF;
 `
 export const InfoNav = styled.div`
     width: 390px;
     height: 40px;
     border-radius: 50px;
-    border: 2px solid #DBDBDB;
+    outline: 2px solid #DBDBDB;
     background-color: rgba(119, 158, 216, 0.00);
     display: flex;
     flex-direction: row;
 `
 export const NavSec = styled.div`
     width: 130px;
-    height: 36px;
+    height: 100%;
     border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #BABABA;
+    font-size: 18px;
+    font-weight: 400;
+    &.active {
+      background-color: #0B619C;
+      color: #FFF;
+      /* font-weight: 600; */
+    }
 `
 // ReactionSection.jsx
 export const ReactionSecWrap = styled.div`
