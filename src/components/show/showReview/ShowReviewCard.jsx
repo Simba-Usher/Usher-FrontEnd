@@ -36,7 +36,7 @@ export const ShowReviewCard = ({ review }) => {
         <S.SmallGrayTxt>&nbsp;· 댓글 {review.cocomments.length}</S.SmallGrayTxt>
         <span
           onClick={() => setFold((prevFold) => !prevFold)}
-          class="material-symbols-outlined"
+          className="material-symbols-outlined"
         >
           {fold ? "expand_less" : "keyboard_arrow_down"}
         </span>

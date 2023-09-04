@@ -227,3 +227,4 @@ export const ReviewCmtInput = styled.input`
   font-size: 14px;
   padding-left: 15px;
 `;
+

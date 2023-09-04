@@ -19,7 +19,8 @@ export const Login = () => {
     navigate("/join_1");
   };
   const goback = () => {
-    navigate(-1);
+    navigate("/");
+    // navigate(-1);
   }
   const login = ()=>{}
 /*

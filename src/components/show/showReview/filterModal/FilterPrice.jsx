@@ -1,22 +1,16 @@
 import React, { useState } from 'react'
 import * as S from "./style";
 
-export const SearchPrice = ({
+export const FilterPrice = ({
   rangeMinValue,
   setRangeMinValue,
   rangeMaxValue,
   setRangeMaxValue,
 }) => {
-  // 막대의 left, right 값으로 줄 백분율
   const [rangeMinPercent, setrangeMinPercent] = useState(0);
   const [rangeMaxPercent, setrangeMaxPercent] = useState(0);
 
-  // onChange -> 현재값을 state에
-  // const fixedMinPrice = 0;
-  // const fixedMaxPrice = 200000;
   const priceGap = 20000;
-  // const [rangeMinValue, setRangeMinValue] = useState(fixedMinPrice);
-  // const [rangeMaxValue, setRangeMaxValue] = useState(fixedMaxPrice);
 
   const priceRangeMinValueHandler = (e) => {
     setRangeMinValue(parseInt(e.target.value));
@@ -25,32 +19,29 @@ export const SearchPrice = ({
     setRangeMaxValue(parseInt(e.target.value));
   };
 
-  // onChange -> 현재값을 막대의 left, right 값으로 주기위해 백분율로
   const twoRangeHandler = () => {
     if (rangeMaxValue - rangeMinValue < priceGap) {
       setRangeMaxValue(rangeMinValue + priceGap);
       setRangeMinValue(rangeMaxValue - priceGap);
     } else {
       setrangeMinPercent((rangeMinValue / 200000) * 100);
-      // setrangeMinPercent((rangeMinValue / fixedMaxPrice) * 100);
       setrangeMaxPercent(100 - (rangeMaxValue / 200000) * 100);
-      // setrangeMaxPercent(100 - (rangeMaxValue / fixedMaxPrice) * 100);
     }
   };
 
   return (
     <>
-      <S.PriceBox>
-        <p>가격별</p>
-        <S.PriceSlide>
-          <S.PriceSlideInner
+      <S.FilterStarsWrapper>
+        <S.FilterTitle>가격별</S.FilterTitle>
+        <S.FilterPriceSlide>
+          <S.FilterPriceSlideInner
             className="gradient"
             rangeMinPercent={rangeMinPercent}
             rangeMaxPercent={rangeMaxPercent}
           />
-        </S.PriceSlide>
-        <S.PriceRangeWrap>
-          <S.PriceRangeMin
+        </S.FilterPriceSlide>
+        <S.FilterPriceRangeWrap>
+          <S.FilterPriceRangeMin
             type="range"
             min="0"
             // min={fixedMinPrice}
@@ -63,7 +54,7 @@ export const SearchPrice = ({
               twoRangeHandler();
             }}
           />
-          <S.PriceRangeMax
+          <S.FilterPriceRangeMax
             type="range"
             min={priceGap}
             // min={fixedMinPrice + priceGap}
@@ -76,14 +67,13 @@ export const SearchPrice = ({
               twoRangeHandler();
             }}
           />
-        </S.PriceRangeWrap>
-        <S.LabelWrap>
-          <S.PriceLabel>￦{rangeMinValue.toLocaleString()}</S.PriceLabel>
+        </S.FilterPriceRangeWrap>
+        <S.FilterLabelWrap>
+          <S.FilterPriceLabel>￦{rangeMinValue.toLocaleString()}</S.FilterPriceLabel>
           <p>~</p>
-          <S.PriceLabel>￦{rangeMaxValue.toLocaleString()}</S.PriceLabel>
-        </S.LabelWrap>
-      </S.PriceBox>
-      <S.SearchLine />
+          <S.FilterPriceLabel>￦{rangeMaxValue.toLocaleString()}</S.FilterPriceLabel>
+        </S.FilterLabelWrap>
+      </S.FilterStarsWrapper>
     </>
   );
 };

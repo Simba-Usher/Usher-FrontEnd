@@ -314,5 +314,6 @@ export const AzaAza = styled.p`
   color: #1270b0;
   text-align: center;
   font-size: 18px;
-  font-weight: 700;
+  height: 200px;
+  padding-top: 200px;
 `;
