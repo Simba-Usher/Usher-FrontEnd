@@ -14,11 +14,11 @@ export const DetailNav = ({ scrollRef }) => {
   const [navIndex, setNavIndex] = useState(null);
   const navRef = useRef([]);
 
-  // const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
 
-  // const handleTabClick = (index) => {
-  //   setActiveTab(index);
-  // };
+  const handleTabClick = (index) => {
+    setActiveTab(index);
+  };
 
   useEffect(() => {
     if (navIndex !== null) {
@@ -102,6 +102,7 @@ export const DetailNav = ({ scrollRef }) => {
               ref={ref => (navRef.current[idx] = ref)}
               onClick={() => {
                 setNavIndex(idx);
+                handleTabClick(idx);
               }}
             >
               {name}
