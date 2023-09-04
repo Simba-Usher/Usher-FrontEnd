@@ -3,8 +3,8 @@ import logoImg from "/usher_nav.png";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
-import { useSetRecoilState } from "recoil";
 import axiosInstance from "../../api/axios";
+import { OtherNav } from "../../components/layouts/otherNav/OtherNav";
 
 export const JoinInput = () => {
   const navigate = useNavigate();
@@ -18,7 +18,9 @@ export const JoinInput = () => {
     navigate("/success");
     e.preventDefault();
   };
-
+  const handleEmailSend = ()=>{
+      setIsSent(true);}
+/*
   const handleEmailSend = async () => {
     try {
       const response = await axiosInstance.post("/dj-rest-auth/registration/", {
@@ -35,18 +37,11 @@ export const JoinInput = () => {
       throw error;
     }
   };
-
+*/
   return (
     <Wrapper>
-      <S.Bottomborder>
-        <S.LeftFix>
-          <img src={logoImg} alt="logo" />
-        </S.LeftFix>
-        <div>회원가입</div>
-        <S.RightFix>
-          <span className="material-symbols-outlined">close</span>
-        </S.RightFix>
-      </S.Bottomborder>
+      <OtherNav title="회원가입" />
+      <S.Border />
       <S.StepSection>
         Step 2. 회원 정보 입력
         <S.StepBtn3>1</S.StepBtn3>
@@ -111,7 +106,7 @@ export const JoinInput = () => {
         <S.BottomBlueBtn onClick={handleSubmit}>가입 완료하기</S.BottomBlueBtn>
       ) : (
         <S.BottomBlueBtn onClick={handleEmailSend}>
-          인증번호 발송
+          인증메일 발송
         </S.BottomBlueBtn>
       )}
     </Wrapper>

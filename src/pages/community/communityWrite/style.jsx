@@ -21,6 +21,7 @@ export const PostGreenBtn = styled.button`
   font-size: 1.2rem;
   font-weight: 600;
   background-color: #c7ffef;
+  /* color: #111; */
   color: #029f95;
   border-radius: 70px;
   border: 0;

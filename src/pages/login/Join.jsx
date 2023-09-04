@@ -3,6 +3,7 @@ import logoImg from "/usher_nav.png";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
+import { OtherNav } from "../../components/layouts/otherNav/OtherNav";
 
 export const Join = () => {
   const [allcheck, setAllcheck] = useState(false);
@@ -40,15 +41,8 @@ export const Join = () => {
 
   return (
     <Wrapper>
-      <S.Bottomborder>
-        <S.LeftFix>
-          <img src={logoImg} alt="logo" />
-        </S.LeftFix>
-        <div>회원가입</div>
-        <S.RightFix>
-          <span className="material-symbols-outlined">close</span>
-        </S.RightFix>
-      </S.Bottomborder>
+      <OtherNav title="회원가입" />
+      <S.Border />
       <S.StepSection>
         Step 1. 약관 동의
         <S.StepBtn1>1</S.StepBtn1>

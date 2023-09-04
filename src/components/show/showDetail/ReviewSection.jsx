@@ -4,15 +4,18 @@ import React, { forwardRef } from 'react'
 import * as S from "../style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
 
 export const ReviewSection = forwardRef((props, ref) => {
+  const navigate = useNavigate();
+
   return (
     <div ref={ref}>
       <S.ReviewSecWrap>
         <S.ReviewSec1>
           <S.TapTitle>관람 후기</S.TapTitle>
           {/* 페이지 연결하기 */}
-          <S.ViewMore>관람 후기 더보기</S.ViewMore>
+          <S.ViewMore onClick={()=>navigate(`/${1}/review`)}>관람 후기 더보기</S.ViewMore>
         </S.ReviewSec1>
         <S.ReviewSec2>
           <p>평점</p>
