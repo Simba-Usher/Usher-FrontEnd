@@ -24,6 +24,7 @@ import { Category } from "./pages/category/Category";
 import { CoNotice } from "./pages/community/communityMain/CoNotice";
 import { Ticket } from "./pages/my/ticket/Ticket";
 import { ReviewWrite } from "./pages/show/reviewWrite/ReviewWrite";
+import { ShowReview } from "./pages/show/showReview/ShowReview";
 import { ShowCalendar } from "./pages/my/calendar/ShowCalendar";
 
 const router = createBrowserRouter([
@@ -67,10 +68,14 @@ const router = createBrowserRouter([
       },
       {
         path: ":detailId/img",
-        element: <ViewDetail />
+        element: <ViewDetail />,
       },
       {
-        path: "showwrite",
+        path: ":detailId/review",
+        element: <ShowReview />,
+      },
+      {
+        path: "reviewwrite",
         element: <ReviewWrite />,
       },
       // 마이페이지
@@ -121,7 +126,7 @@ const router = createBrowserRouter([
       },
       {
         path: "community/notice",
-        element: <CoNotice />
+        element: <CoNotice />,
       },
       {
         path: "community",

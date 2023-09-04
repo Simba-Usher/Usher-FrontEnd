@@ -11,6 +11,10 @@ export const ReviewWrite = () => {
   const [star, setStar] = useState(5);
   const [body, setBody] = useState("");
 
+  const goback = () => {
+    navigate(-1);
+  }
+
   const handleSelectTicket = (ticket) => {
     setSelectedTicket(ticket);
   };
@@ -32,14 +36,16 @@ export const ReviewWrite = () => {
   return (
     <Wrapper>
       <S.ReviewWriteNav>
-        <NavArrow
-          className="material-symbols-outlined"
-          onClick={() => navigate("/community")}
-        >
+        <NavArrow className="material-symbols-outlined" onClick={goback}>
           arrow_back
         </NavArrow>
         관람 후기 작성
-        <S.ReviewPost isselected={selectedTicket&&"true"} onClick={handleSubmit}>등록</S.ReviewPost>
+        <S.ReviewPost
+          isselected={selectedTicket && "true"}
+          onClick={handleSubmit}
+        >
+          등록
+        </S.ReviewPost>
       </S.ReviewWriteNav>
       <ChoiceTicket
         setSelectedTicket={handleSelectTicket}

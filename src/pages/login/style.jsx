@@ -11,6 +11,10 @@ export const Bottomborder = styled.div`
   border-bottom: 3px solid #a2b4cf;
   padding: 30px;
 `;
+export const Border = styled.hr`
+  border: 1px solid #a2b4cf;
+  margin:0;
+`;
 export const RightFix = styled.div`
   position: absolute;
   right: 5%;
@@ -18,19 +22,16 @@ export const RightFix = styled.div`
     font-size: 2rem;
   }
 `;
-export const LeftFix = styled.div`
-  position: absolute;
-  left: 5%;
-`;
 export const LogoIMG = styled.img`
   width: 40%;
+
 `;
 export const LoginSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 30px;
+  padding: 0 30px;
 `;
 export const InputSection = styled.div`
   /* height: 130px; */
