@@ -8,7 +8,7 @@ export const InfoImgSection = forwardRef((shows, ref) => {
   const navigate = useNavigate();
 
   return (
-    <div ref={ref}>
+    <div ref={infoRef => (ref.current[1] = infoRef)}>
       <S.InfoImgSecWrap>
         <S.TapTitle>공연 정보</S.TapTitle>
         <S.InfoImgBox>

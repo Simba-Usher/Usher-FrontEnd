@@ -10,7 +10,7 @@ export const ReviewSection = forwardRef((props, ref) => {
   const navigate = useNavigate();
 
   return (
-    <div ref={ref}>
+    <div ref={reviewRef => (ref.current[2] = reviewRef)}>
       <S.ReviewSecWrap>
         <S.ReviewSec1>
           <S.TapTitle>관람 후기</S.TapTitle>

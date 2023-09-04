@@ -27,6 +27,7 @@ export const TitleSection = () => {
                     <p>150분 (인터미션 20분 포함)</p>
                     {/* 나이제한 불러오기 */}
                     <p style={{marginLeft: "5px"}}>7세 이상</p>
+                    {/* 수상여부 불러오기 -> 유무에 따라 보이거나 안보이게 해야함 */}
                     <S.TrophyTag src="/trophy.png" alt="trophy" />
                 </S.TitleSec3>
                 <S.TitleSec4>

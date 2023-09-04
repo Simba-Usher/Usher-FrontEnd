@@ -12,17 +12,9 @@ import { SearchModal } from "../../searchModal/SearchModal";
 import Wrapper from "../../../components/Wrapper";
 
 export const ShowDetail = () => {
-  const reactionSectionRef = useRef(null);
-  const infoImgSectionRef = useRef(null);
-  const reviewSectionRef = useRef(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const scrollRef = useRef([]);
 
-  const handleNavClick = (sectionRef) => {
-    sectionRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -33,25 +25,17 @@ export const ShowDetail = () => {
       {isModalOpen ? (
         <SearchModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
       ) : (
-        <>
+        <div style={{position: "relative"}}>
           <Nav isModalOpen={isModalOpen} toggleModal={toggleModal} />
           <PosterSection />
           <TitleSection />
           <DetailNav
-            onReactionClick={() => handleNavClick(reactionSectionRef)}
-            onInfoImgClick={() => handleNavClick(infoImgSectionRef)}
-            onReviewClick={() => handleNavClick(reviewSectionRef)}
+            scrollRef={scrollRef}
           />
-          <div ref={reactionSectionRef}>
-            <ReactionSection />
-          </div>
-          <div ref={infoImgSectionRef}>
-            <InfoImgSection />
-          </div>
-          <div ref={reviewSectionRef}>
-            <ReviewSection />
-          </div>
-        </>
+          <ReactionSection ref={scrollRef} />
+          <InfoImgSection ref={scrollRef} />
+          <ReviewSection ref={scrollRef} />
+        </div>
       )}
     </Wrapper>
   );
