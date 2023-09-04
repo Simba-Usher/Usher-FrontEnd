@@ -46,7 +46,7 @@ export const Category = () => {
       },
       {
         name: "공연 · 글 좋아요",
-        link: "/my",
+        link: "/my/like",
       },
       {
         name: "공연 달력",
@@ -54,7 +54,7 @@ export const Category = () => {
       },
       {
         name: "나의 글 · 후기 관리",
-        link: "/my/review",
+        link: "/my/write",
       },
       {
         name: "티켓 등록",

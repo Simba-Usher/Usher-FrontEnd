@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./style";
 
-export const SearchDate = () => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+export const SearchDate = ({ setStartDate, setEndDate }) => {
 
   return (
     <>

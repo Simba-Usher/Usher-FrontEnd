@@ -26,6 +26,7 @@ import { Ticket } from "./pages/my/ticket/Ticket";
 import { ReviewWrite } from "./pages/show/reviewWrite/ReviewWrite";
 import { ShowReview } from "./pages/show/showReview/ShowReview";
 import { ShowCalendar } from "./pages/my/calendar/ShowCalendar";
+import { Join_3 } from "./pages/login/Join_3";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
       {
         path: "join_1",
         element: <Join />,
+      },
+      {
+        path: "join_2",
+        element: <JoinInput />,
+      },
+      {
+        path: "join_3",
+        element: <Join_3 />,
       },
       {
         path: "join_2",

@@ -4,17 +4,23 @@ import { SearchGenre } from "../../components/searchmodal/SearchGenre";
 import { SearchAraa } from "../../components/searchmodal/SearchAraa";
 import { SearchPrice } from "../../components/searchmodal/SearchPrice";
 import { SearchDate } from "../../components/searchmodal/SearchDate";
-import SearchReaction from "../../components/searchmodal/SearchReaction";
+import {SearchReaction} from "../../components/searchmodal/SearchReaction";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
 
 export const SearchModal = ({ isModalOpen, toggleModal }) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState();
+  const [area, setarea] = useState("서울");
+  const [genre, setgenre] = useState("뮤지컬");
+  const [rangeMinValue, setRangeMinValue] = useState(0);
+  const [rangeMaxValue, setRangeMaxValue] = useState(200000);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   return (
     <Wrapper>
-      <S.SearchModalWrapper isopen={isModalOpen?"true": "false"}>
+      <S.SearchModalWrapper isopen={isModalOpen ? "true" : "false"}>
         <S.TopTxt>세부 키워드 설정</S.TopTxt>
         <S.CloseBtn className="material-symbols-outlined" onClick={toggleModal}>
           close
@@ -28,10 +34,15 @@ export const SearchModal = ({ isModalOpen, toggleModal }) => {
           />
           <span className="material-symbols-outlined">search</span>
         </S.KeywordSearchBar>
-        <SearchGenre />
-        <SearchAraa />
-        <SearchPrice />
-        <SearchDate />
+        <SearchGenre genre={genre} setgenre={setgenre} />
+        <SearchAraa area={area} setarea={setarea} />
+        <SearchPrice
+          rangeMinValue={rangeMinValue}
+          setRangeMinValue={setRangeMinValue}
+          rangeMaxValue={rangeMaxValue}
+          setRangeMaxValue={setRangeMaxValue}
+        />
+        <SearchDate setStartDate={setStartDate} setEndDate={setEndDate} />
         <SearchReaction />
       </S.SearchModalWrapper>
       <S.PurpleBottomBtn onClick={() => navigate("/showlist")}>

@@ -4,9 +4,12 @@ import Wrapper from "../../../components/Wrapper";
 import { OtherNav } from "../../../components/layouts/otherNav/OtherNav";
 import { ShowReviewCard } from "../../../components/show/showReview/ShowReviewCard";
 import { WriteBtnSection } from "../../../components/show/showReview/WriteBtnSection";
+import { FilterModal } from "../../../components/show/showReview/filterModal/FilterModal";
 
 export const ShowReview = () => {
-  const [isClicked, setIsClicked] = useState("최신순");
+  const [isSort, setIsSort] = useState("최신순");
+  const [filterModal,setFilterModal]=useState(false);
+
   const data = [
     {
       id: 1,
@@ -64,33 +67,36 @@ export const ShowReview = () => {
       },
   ];
   return (
-    <Wrapper>
-      <OtherNav title="관람후기" />
-      <S.GrayHr />
-      <WriteBtnSection />
-      <S.ReviewBlueTxt>관람 후기 ({data.length})</S.ReviewBlueTxt>
-      <S.ReviewFilterSection>
-        <S.ReviewSort
-          onClick={() => setIsClicked("최신순")}
-          isclicked={isClicked == "최신순" ? "true" : "false"}
-        >
-          최신순
-        </S.ReviewSort>
-        &nbsp;|&nbsp;
-        <S.ReviewSort
-          onClick={() => setIsClicked("공감순")}
-          isclicked={isClicked == "공감순" ? "true" : "false"}
-        >
-          공감순
-        </S.ReviewSort>
-        <S.FilterBtnWrapper>
-          <img src="/filter.png" alt="filter" />
-          맞춤 필터
-        </S.FilterBtnWrapper>
-      </S.ReviewFilterSection>
-      {data.map((review)=>(
-      <ShowReviewCard key={review.id} review={review} />
-      ))}
-    </Wrapper>
+    <>
+      {filterModal && <FilterModal setFilterModal={setFilterModal} />}
+      <Wrapper>
+        <OtherNav title="관람후기" />
+        <S.GrayHr />
+        <WriteBtnSection />
+        <S.ReviewBlueTxt>관람 후기 ({data.length})</S.ReviewBlueTxt>
+        <S.ReviewFilterSection>
+          <S.ReviewSort
+            onClick={() => setIsSort("최신순")}
+            isclicked={isSort == "최신순" ? "true" : "false"}
+          >
+            최신순
+          </S.ReviewSort>
+          &nbsp;|&nbsp;
+          <S.ReviewSort
+            onClick={() => setIsSort("공감순")}
+            isclicked={isSort == "공감순" ? "true" : "false"}
+          >
+            공감순
+          </S.ReviewSort>
+          <S.FilterBtnWrapper onClick={()=>setFilterModal(true)}>
+            <img src="/filter.png" alt="filter" />
+            맞춤 필터
+          </S.FilterBtnWrapper>
+        </S.ReviewFilterSection>
+        {data.map((review) => (
+          <ShowReviewCard key={review.id} review={review} />
+        ))}
+      </Wrapper>
+    </>
   );
 };

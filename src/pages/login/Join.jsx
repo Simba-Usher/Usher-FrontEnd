@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logoImg from "/usher_nav.png";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
@@ -31,7 +30,7 @@ export const Join = () => {
   useEffect(()=>{
     if(check1 &&check2 && check3 && check4){
       setAllcheck(true);
-    }
+    }else setAllcheck(false);
   },[check1,check2,check3,check4])
 
   const handleSubmit = (e) => {
@@ -45,8 +44,9 @@ export const Join = () => {
       <S.Border />
       <S.StepSection>
         Step 1. 약관 동의
-        <S.StepBtn1>1</S.StepBtn1>
+        <S.StepBtn1 isselected="true">1</S.StepBtn1>
         <S.StepBtn2>2</S.StepBtn2>
+        <S.StepBtn3>3</S.StepBtn3>
       </S.StepSection>
       <S.MarginSection>
         회원가입을 위해 <span>약관 동의</span>가 필요해요.
@@ -64,7 +64,10 @@ export const Join = () => {
           />
         </S.AllAgree>
         <S.Checkbox>
-          <p>이용약관 동의 (필수)</p>
+          <p>
+            <S.Underline>이용약관 동의</S.Underline>{" "}
+            <S.NoneUnderline>(필수)</S.NoneUnderline>
+          </p>
           <input
             type="checkbox"
             name="1"
@@ -74,7 +77,10 @@ export const Join = () => {
           />
         </S.Checkbox>
         <S.Checkbox>
-          <p>만 14세 이상 확인 (필수)</p>
+          <p>
+            <S.Underline>만 14세 이상 확인</S.Underline>{" "}
+            <S.NoneUnderline>(필수)</S.NoneUnderline>
+          </p>
           <input
             type="checkbox"
             name="2"
@@ -84,7 +90,10 @@ export const Join = () => {
           />
         </S.Checkbox>
         <S.Checkbox>
-          <p>개인정보 수집 및 이용 동의 (필수)</p>
+          <p>
+            <S.Underline>개인정보 수집 및 이용 동의</S.Underline>{" "}
+            <S.NoneUnderline>(필수)</S.NoneUnderline>
+          </p>
           <input
             type="checkbox"
             name="3"
@@ -94,7 +103,10 @@ export const Join = () => {
           />
         </S.Checkbox>
         <S.Checkbox>
-          <p>마케팅 알림 수신 동의 (선택)</p>
+          <p>
+            <S.Underline>마케팅 알림 수신 동의</S.Underline>{" "}
+            <S.NoneUnderline>(선택)</S.NoneUnderline>
+          </p>
           <input
             type="checkbox"
             name="4"
