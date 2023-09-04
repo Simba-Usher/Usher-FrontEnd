@@ -78,6 +78,7 @@ export const ArrayWrap = styled.div`
         font-weight: 400;
     }
     div.active {
+        /* border: 1px solid red; */
         background-color: #D1FFF1;
         color: #071D36;
         font-weight: 600;

@@ -1,3 +1,5 @@
+// ComNav.jsx
+
 import React, { useState } from 'react'
 import * as S from "./style";
 import { useNavigate } from 'react-router-dom';
@@ -11,16 +13,24 @@ export const ComNav = () => {
   const isCommunityQna = location.pathname === "/community/qna";
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [activeArray, setActiveArray] = useState("최신순");
 
-  // 모달 열기 함수
+  // 모달 열기
   const openModal = () => {
     setModalOpen(true);
   };
 
-  // 모달 닫기 함수
+  // 모달 닫기
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  // 선택한 ArraySec 저장
+  const handleArraySecClick = (selected) => {
+    setActiveArray(selected);
+    closeModal();
+  };
+
   return (
     <>
       <S.ComNavWrap>
@@ -60,10 +70,17 @@ export const ComNav = () => {
           }}
         />
         {modalOpen && (
-          <Array
+          // <Array
+          //   setModalOpen={setModalOpen}
+          //   closeModal={closeModal} />
+            <Array
             setModalOpen={setModalOpen}
-            closeModal={closeModal} />
+            closeModal={closeModal}
+            activeArray={activeArray}
+            handleArraySecClick={handleArraySecClick}
+          />
         )}
+
       </S.ComNavWrap>
     </>
   )
