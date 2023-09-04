@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logoImg from "/usher_nav.png";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
@@ -12,15 +11,12 @@ export const JoinInput = () => {
   const [isEmail, setisEmail] = useState("");
   const [isPw, setisPw] = useState("");
   const [isPwCheck, setisPwCheck] = useState("");
-  const [isSent, setIsSent] = useState(false); // 이메일이 발송되었는지 여부
+  //const [isSent, setIsSent] = useState(false); // 이메일이 발송되었는지 여부
 
-  const handleSubmit = (e) => {
-    navigate("/success");
-    e.preventDefault();
+  const handleEmailSend = () => {
+    navigate("/join_3");
   };
-  const handleEmailSend = ()=>{
-      setIsSent(true);}
-/*
+  /*
   const handleEmailSend = async () => {
     try {
       const response = await axiosInstance.post("/dj-rest-auth/registration/", {
@@ -30,7 +26,7 @@ export const JoinInput = () => {
         password2: isPwCheck,
       });
       console.log(response.data);
-      setIsSent(true);
+      navigate("/join_3");
     } catch (error) {
       // 오류 처리
       console.error("이메일 확인 이메일 전송 중 오류 발생:", error);
@@ -44,15 +40,16 @@ export const JoinInput = () => {
       <S.Border />
       <S.StepSection>
         Step 2. 회원 정보 입력
-        <S.StepBtn3>1</S.StepBtn3>
-        <S.StepBtn4>2</S.StepBtn4>
+        <S.StepBtn1>1</S.StepBtn1>
+        <S.StepBtn2 isselected="true">2</S.StepBtn2>
+        <S.StepBtn3>3</S.StepBtn3>
       </S.StepSection>
       <S.CommentSection>
         모든 <span>*필수 항목</span>을 입력해주세요.
       </S.CommentSection>
       <S.TxtInput>
         <p>
-          이름<span>*필수 항목</span>
+          닉네임<span>*필수 항목</span>
         </p>
         <input
           type="text"
@@ -65,7 +62,7 @@ export const JoinInput = () => {
       </S.TxtInput>
       <S.TxtInput>
         <p>
-          이메일 인증<span>*필수 항목</span>
+          이메일<span>*필수 항목</span>
         </p>
         <input
           type="email"
@@ -75,6 +72,12 @@ export const JoinInput = () => {
           placeholder="예) usher@kopis.mail"
           required
         />
+        <S.EmailGuide>
+          입력한 이메일로 인증 링크가 전송될 예정입니다.
+          <br />
+          인증 링크를 수신 가능한 <span>올바른 이메일 주소</span>를
+          입력해주세요.
+        </S.EmailGuide>
       </S.TxtInput>
       <S.TxtInput>
         <p>
@@ -102,13 +105,9 @@ export const JoinInput = () => {
           required
         />
       </S.TxtInput>
-      {isSent ? (
-        <S.BottomBlueBtn onClick={handleSubmit}>가입 완료하기</S.BottomBlueBtn>
-      ) : (
-        <S.BottomBlueBtn onClick={handleEmailSend}>
-          인증메일 발송
-        </S.BottomBlueBtn>
-      )}
+      <S.BottomBlueBtn onClick={handleEmailSend}>
+        인증 메일 발송
+      </S.BottomBlueBtn>
     </Wrapper>
   );
 };

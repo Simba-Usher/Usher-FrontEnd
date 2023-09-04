@@ -18,7 +18,7 @@ export const Success = () => {
       <S.ImgContainer>
         <S.SuccessImg src={successIMG} alt="" />
       </S.ImgContainer>
-      <S.BottomBlueBtn onClick={handleBtn}>로그인하기</S.BottomBlueBtn>
+      <S.SuccessBtn onClick={handleBtn}>어셔 홈으로</S.SuccessBtn>
     </Wrapper>
   );
 };
