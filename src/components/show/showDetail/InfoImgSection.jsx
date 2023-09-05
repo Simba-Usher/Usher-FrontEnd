@@ -12,7 +12,7 @@ export const InfoImgSection = forwardRef((shows, ref) => {
       <S.InfoImgSecWrap>
         <S.TapTitle>공연 정보</S.TapTitle>
         <S.InfoImgBox>
-          <S.InfoImg src="/infodetail2.jpg" alt="viewdetail"/>
+          <S.InfoImg src="/detailimg1.png" alt="viewdetail"/>
           <S.ViewDetail onClick={() => navigate(`/${shows.id}/img`)}>
             <img src='/viewdetail.png' />
             <p style={{margin: "0 10px"}}>공연 정보 상세 보기</p>

@@ -27,23 +27,23 @@ export const ReviewSection = forwardRef((props, ref) => {
         </S.ReviewSec2>
         {/* 리뷰 불러오기 */}
         <S.ReviewSec3>
-          <S.Reviews>
+          <S.Reviews onClick={()=>navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
             <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
           </S.Reviews>
-          <S.Reviews>
+          <S.Reviews onClick={()=>navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
             <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
           </S.Reviews>
-          <S.Reviews>
+          <S.Reviews onClick={()=>navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
             <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
           </S.Reviews>
-          <S.Reviews>
+          <S.Reviews onClick={()=>navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
             <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
           </S.Reviews>
-          <S.Reviews>
+          <S.Reviews onClick={()=>navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
             <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
           </S.Reviews>

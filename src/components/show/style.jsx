@@ -247,6 +247,12 @@ export const XBtn = styled.img`
   width: 22px;
   height: 22px;
 `
+export const ImgWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+    width: 430px;
+  height: fit-content;
+`
 export const ViewDetailImg = styled.img`
   width: 430px;
 `
