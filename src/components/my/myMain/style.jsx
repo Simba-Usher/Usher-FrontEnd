@@ -144,6 +144,7 @@ export const AddTicket = styled.div`
     flex-direction: row;
     justify-content: end;
     align-items: center;
+    cursor: default;
     img {
         margin-left: 8px;
     }

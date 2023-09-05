@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { FlexRowBox } from "../../community/ReactionSection/style";
 import { sync } from "framer-motion";
+import { MyWriteDeleteBtn } from "../../../pages/community/communityDetail/style";
 
 export const WriteBtnSectionWrapper = styled.div`
   height: 226px;
@@ -29,6 +30,10 @@ export const BlueWriteBtn = styled.div`
   margin-top: 20px;
 `;
 // ShowReviewCard.jsx
+export const ShowWriteDeleteBtn = styled(MyWriteDeleteBtn)`
+  top:0;
+  right:5px;
+`
 export const ReviewCardWrapper = styled.div`
   position: relative;
   margin: 15px;
