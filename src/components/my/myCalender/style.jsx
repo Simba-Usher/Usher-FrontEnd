@@ -30,6 +30,8 @@ export const CalendarBarWrap = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    /* border: 1px solid red; */
+    padding: 0 10px;
 `
 export const ShowNumSec = styled.div`
     width: 205px;
@@ -50,11 +52,16 @@ export const ShowNumSec = styled.div`
         padding: 8px;
     }
 `
+export const BlankSec = styled.div`
+    width: 80px;
+    height: 100%;
+    border-bottom: 1px solid #D8E0EC;
+`
 export const AddMemoSec = styled.div`
     color: #071D36;
     font-size: 16px;
     font-weight: 600;
-    width: 205px;
+    width: 145px;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -142,11 +149,14 @@ export const CardSec4 = styled.div`
     display: flex;
     flex-direction: row;
 `
-export const Memo = styled.input`
+export const Memo = styled.div`
     width: 350px;
     border: none !important;
-    outline: none !important;
+    /* outline: none !important; */
     background-color: #F2F5F9;
+    color: #071D36;
+    font-size: 14px;
+    font-weight: 400;
 `
 export const MemoBtn = styled.div`
     width: 60px;
@@ -179,4 +189,110 @@ export const Delete = styled(ToDetail)`
         width: 20px;
         height: 22.5px;
     }
+`
+
+// AddMemo.jsx
+export const AddMemoWrap = styled.div`
+    width: 380px;
+    height: 660px;
+    border-radius: 10px;
+    border: 1px solid #E5DCFF;
+    background: #FFF;
+    position: fixed;
+    top: 175px;
+    left: 25px;
+    z-index: 12;
+    padding: 0 16px;
+`
+export const TopSec = styled.div`
+    width: 348px;
+    height: 63px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #071D36;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #DDE1E7;
+    img {
+        width: 22px;
+        height: 22px;
+    }
+`
+export const MemoSec = styled.div`
+    width: 348px;
+    height: 84px;
+    border-bottom: 1px solid #DDE1E7;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0 26px 0;
+    p {
+        color: #737A83;
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: 2px;
+    }
+    input {
+        color: #68666A;
+        font-size: 20px;
+        font-weight: 400;
+        border: none;
+        outline: none;
+    }
+`
+export const DateBox3 = styled(MemoSec)`
+    p:last-child {
+        color: #985FD1;
+        font-size: 20px;
+        font-weight: 400;
+    }
+`
+export const MemoBox = styled(MemoSec)`
+    height: 254px;
+    position: relative;
+    input {
+        height: 202px;
+        color: #071D36;
+        font-size: 20px;
+        font-weight: 400;
+        display: flex;
+    }
+    input::placeholder {
+        position: absolute;
+        top: 0;
+    }
+`
+export const BtnSec = styled.div`
+    width: 348px;
+    height: 91px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 22px;
+`
+export const ResetBtn = styled.button`
+    width: 137px;
+    height: 55px;
+    border-radius: 5px;
+    border: 1px solid #A2B4CF;
+    background: #FFF;
+    color: #9DA6B6;
+    font-size: 24px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+export const DoneBtn = styled.button`
+    width: 200px;
+    height: 55px;
+    border-radius: 5px;
+    background: #071D36;
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
