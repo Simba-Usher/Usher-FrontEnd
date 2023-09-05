@@ -25,7 +25,7 @@ export const DetailNav = ({ scrollRef }) => {
       // 네비게이션을 클릭했을 때 스크롤 위치를 계산하여 설정
       const targetRef = scrollRef.current[navIndex];
       if (targetRef) {
-        const offset = 45;
+        const offset = 46;
         const offsetTop = targetRef.offsetTop - offset;
         window.scrollTo({
           top: offsetTop,
@@ -39,18 +39,26 @@ export const DetailNav = ({ scrollRef }) => {
   // 현재 스크롤 위치에 따라 NavBar 버튼 스타일이 바뀌도록 클래스명을 지정한다.
   useEffect(() => {
     const offset = 46;
+
     const changeNavBtnStyle = () => {
-      scrollRef.current.forEach((ref, idx) => {
-        if (ref.offsetTop - offset < window.scrollY) {
-          navRef.current.forEach(ref => {
-            ref.className = ref.className.replace(' active', '');
-          });
+      const windowHeight = window.innerHeight;
+      const scrollPosition = window.scrollY + windowHeight;
 
-          navRef.current[idx].className += ' active';
+      // 각 ref 요소의 위치를 계산하여 현재 활성화된 ref 인덱스를 찾습니다.
+      let currentIdx = null;
+      for (let idx = 0; idx < scrollRef.current.length; idx++) {
+        const ref = scrollRef.current[idx];
+        if (ref.offsetTop - offset <= scrollPosition) {
+          currentIdx = idx;
         }
-      });
-    };
+      }
 
+      // 현재 활성화된 ref 인덱스를 기반으로 activeTab을 설정합니다.
+      if (currentIdx !== null) {
+        setActiveTab(currentIdx);
+      }
+    };
+    
     window.addEventListener('scroll', changeNavBtnStyle);
 
     return () => {
@@ -58,52 +66,19 @@ export const DetailNav = ({ scrollRef }) => {
     };
   }, [scrollRef]);
 
-
-  // 마지막 ref (빈 요소임)
-  // const LastEmptyRef = styled.div`
-  //   height: 100px;
-  //   display: none;
-  // `
-
   return (
     <>
       <S.DetailNavWrap>
         <S.InfoNav>
-          {/* <S.NavSec
-            onClick={() => handleTabClick(0)}
-            style={{
-              backgroundColor: activeTab === 0 ? '#0B619C' : 'transparent',
-              color: activeTab === 0 ? '#FFF' : '#BABABA',
-            }}
-          >
-            관람객 반응
-          </S.NavSec>
-          <S.NavSec
-            onClick={() => handleTabClick(1)}
-            style={{
-              backgroundColor: activeTab === 1 ? '#0B619C' : 'transparent',
-              color: activeTab === 1 ? '#FFF' : '#BABABA',
-            }}
-          >
-            공연 정보
-          </S.NavSec>
-          <S.NavSec
-            onClick={() => handleTabClick(2)}
-            style={{
-              backgroundColor: activeTab === 2 ? '#0B619C' : 'transparent',
-              color: activeTab === 2 ? '#FFF' : '#BABABA',
-            }}
-          >
-            관람 후기
-          </S.NavSec> */}
           {DETAIL_NAV.map(({ idx, name }) => (
             <S.NavSec
               key={idx}
               ref={ref => (navRef.current[idx] = ref)}
               onClick={() => {
+                // handleTabClick(idx);
                 setNavIndex(idx);
-                handleTabClick(idx);
               }}
+              className={activeTab === idx ? 'active' : ''}
             >
               {name}
             </S.NavSec>

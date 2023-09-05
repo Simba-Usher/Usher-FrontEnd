@@ -72,6 +72,7 @@ export const ArrayWrap = styled.div`
     background-color: #F0F3F2;
     display: flex;
     flex-direction: column;
+    z-index: 12;
     div {
         color: #565857;
         font-size: 16px;
@@ -203,6 +204,7 @@ export const WriteBtnWrap = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    z-index: 10;
     p {
         color: #FFF;
         font-size: 30px;

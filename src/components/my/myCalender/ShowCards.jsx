@@ -5,12 +5,16 @@ import { useNavigate } from 'react-router-dom';
 export const ShowCards = ({ activeDate }) => {
     const navigate = useNavigate();
 
+    // const ShowDate = data.date.slice(2, 4) + '.' + data.date.slice(5, 7) + '.' + data.date.slice(8, 10);
+    // console.log("공연날짜는", ShowDate);
+
     return (
         <>
             <S.ShowCardsWrap>
                 <S.CardSec1>
                     <S.DateBox>
-                        <div>{activeDate}</div>
+                        {/* {ShowDate} */}
+                        {activeDate}
                     </S.DateBox>
                     <S.ToDetail onClick={() => navigate("/:detailId")}>
                         <p>상세페이지로</p>

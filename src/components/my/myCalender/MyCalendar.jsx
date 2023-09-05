@@ -20,7 +20,7 @@ const dayList = [
 export const MyCalendar = ({ onActiveDateChange }) => {
   const currentDate = new Date(); // 현재 날짜
   const [value, onChange] = useState(currentDate); // 초기값은 현재 날짜
-  const activeDate = moment(value).format('YY.M.D'); // 클릭한 날짜 (년-월-일)
+  const activeDate = moment(value).format('YYYY-MM-DD'); // 클릭한 날짜 (년-월-일)
   console.log(activeDate);
 
   // activeDate가 변경될 때 콜백 함수 호출

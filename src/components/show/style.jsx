@@ -134,9 +134,10 @@ export const InfoNav = styled.div`
     height: 40px;
     border-radius: 50px;
     outline: 2px solid #DBDBDB;
-    background-color: rgba(119, 158, 216, 0.00);
+    /* background-color: rgba(119, 158, 216, 0.00); */
     display: flex;
     flex-direction: row;
+    background-color: #F0F5FF;
 `
 export const NavSec = styled.div`
     width: 130px;
@@ -149,6 +150,7 @@ export const NavSec = styled.div`
     font-size: 18px;
     font-weight: 400;
     &.active {
+      border-radius: 50px;
       background-color: #0B619C;
       color: #FFF;
       /* font-weight: 600; */
@@ -208,6 +210,7 @@ export const InfoImg = styled.img`
   width: 382px;
   height: 445px;
   object-fit: cover;
+  border-radius: 5px 5px 0 0 ;
 `
 export const ViewDetail = styled.div`
     width: 382px;
@@ -243,6 +246,12 @@ export const XBtn = styled.img`
   right: 24px;
   width: 22px;
   height: 22px;
+`
+export const ImgWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+    width: 430px;
+  height: fit-content;
 `
 export const ViewDetailImg = styled.img`
   width: 430px;
