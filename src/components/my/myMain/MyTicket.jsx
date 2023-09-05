@@ -2,8 +2,11 @@
 
 import React from 'react'
 import * as S from "./style";
+import { useNavigate } from 'react-router-dom';
 
 export const MyTicket = () => {
+    const navigate = useNavigate();
+
   return (
     <>
         <S.MyTicketWrap>
@@ -15,7 +18,7 @@ export const MyTicket = () => {
                         {/* 티켓 수 불러오기 */}
                         <p>3장</p>
                     </S.MyTickets>
-                    <S.AddTicket>
+                    <S.AddTicket onClick={()=>navigate("/my/ticket")}>
                         <p>티켓 등록하기</p>
                         <img src="/go.png" alt="go" />
                     </S.AddTicket>
