@@ -31,13 +31,13 @@ export const CommentSection = () => {
       coComents: [
         {
           id: 1,
-          username: "뮤라이프_대댓글",
+          username: "뮤라이프",
           date: "2023.8.17",
           body: "엘리자벳은 있지만 레드북은 없던 것 같아요..!",
         },
         {
           id: 2,
-          username: "뮤라이프_대댓글",
+          username: "뮤라이프",
           date: "2023.8.17",
           body: "랄라는 있지만 레드북은 없던 것 같아요..!",
         },
@@ -131,7 +131,10 @@ export const CommentSection = () => {
               <S.CoFlexRowBox>
                 <S.CmtUsername>{cocmt.username}</S.CmtUsername>
                 <S.CmtDate>{cocmt.date} | 신고</S.CmtDate>
-                <S.WriterMark>작성자</S.WriterMark>
+                {/* accessTocken 확인 후 실제 사용자와 같을시 */}
+                {cocmt.username === "뮤라이프" && (
+                  <S.WriterMark>작성자</S.WriterMark>
+                )}
               </S.CoFlexRowBox>
             </S.CoCmtSection>
           ))}

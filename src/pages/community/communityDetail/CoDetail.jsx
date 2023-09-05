@@ -59,6 +59,13 @@ export const CoDetail = () => {
           <span>
             {data.date} | 조회 {data.views}
           </span>
+          {/* accessTocken 확인 후 실제 사용자와 같을시 */}
+          {data.username === "뮤라이프" && (
+            <S.MyWriteDeleteBtn>
+              삭제하기<span className="material-symbols-outlined">delete</span>
+            </S.MyWriteDeleteBtn>
+          )}
+          {/*  */}
         </S.DetailUserBox>
         <S.DetailImg>
           <img src={data.img} alt="your img" />

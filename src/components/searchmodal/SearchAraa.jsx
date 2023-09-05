@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import * as S from "./style";
 
-export const SearchAraa = () => {
-  const [selectedArea, setSelectedArea] = useState("");
+export const SearchAraa = ({ area, setarea }) => {
 
-  const handleAreaClick = (area) => {
-    setSelectedArea(area);
-    setSelectedArea(area);
-    console.log(selectedArea);
+  const handleAreaClick = (data) => {
+    setarea(data);
+    console.log(data);
   };
 
   const areas = [
@@ -26,13 +24,13 @@ export const SearchAraa = () => {
       <S.SearchLine />
       <S.AreaBox>
         <p>지역별</p>
-        {areas.map((area, index) => (
+        {areas.map((data, index) => (
           <S.Isselected
             key={index}
-            isselected={selectedArea && selectedArea === area?"true":"false"}
-            onClick={() => handleAreaClick(area)}
+            isselected={area && data === area ? "true" : "false"}
+            onClick={() => handleAreaClick(data)}
           >
-            {area}
+            {data}
           </S.Isselected>
         ))}
       </S.AreaBox>

@@ -34,7 +34,12 @@ function App() {
               로그인/클릭시로그아웃
             </div>
           ) : (
-            <div style={{ position: "fixed", top: "0" }}>로그아웃</div>
+            <div
+              onClick={() => setAccessToken(true)}
+              style={{ position: "fixed", top: "0" }}
+            >
+              로그아웃/클릭시로그인
+            </div>
           )}
         </AnimatePresence>
       </Container>

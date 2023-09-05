@@ -78,19 +78,23 @@ export const ReacionArticle = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 400;
   margin-top: 20px;
-  div {
-    width: 120px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    margin: 5px;
-    padding-left: 2px;
-    border-radius: 5px;
-    cursor: default;
-  }
+`;
+export const PurpleBtn = styled.div`
+  width: 120px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding-left: 2px;
+  border-radius: 5px;
+  cursor: default;
+  background-color: #e5dcff;
+  border: ${(props) => props.isclicked == "true" && "2px solid #985fd1"};
+  box-shadow: ${(props) =>
+    props.isclicked == "true" && "0px 2px 4px 0px rgba(0, 0, 0, 0.25)"};
   span {
     font-size: 0.9rem;
     background-color: #fff;
@@ -99,30 +103,25 @@ export const ReacionArticle = styled.div`
     height: 18px;
     text-align: center;
     margin-right: 2px;
-  }
-  :nth-child(3n + 1) {
-    background-color: #e5dcff;
-    span {
-      background-color: #fff;
-      color: #b485e2;
-    }
-  }
-  :nth-child(3n + 2) {
-    background-color: #e0ecff;
-    span {
-      background-color: #fff;
-      color: #598fdf;
-    }
-  }
-  :nth-child(3n + 3) {
-    background-color: #c8ffef;
-    span {
-      background-color: #fff;
-      color: #35d4ca;
-    }
+    color: #b485e2;
+    padding-top: 3px;
   }
 `;
-
+export const BlueReBtn = styled(PurpleBtn)`
+  background-color: #e0ecff;
+  border: ${(props) => props.isclicked == "true" && "2px solid #598FDF"};
+  span {
+    color: #598fdf;
+  }
+`;
+export const GreenReBtn = styled(PurpleBtn)`
+  background-color: #c8ffef;
+  /* border:2px solid #35D4CA; */
+  border: ${(props) => props.isclicked == "true" && "2px solid #35D4CA"};
+  span {
+    color: #35d4ca;
+  }
+`;
 export const ClosePoster = styled.span`
   position: absolute;
   color: #fff;

@@ -20,9 +20,9 @@ export const ReviewFilterSection = styled.div`
   border-bottom: 2px solid #dde1e7;
 `;
 export const ReviewSort = styled.span`
-  color: ${(props) => {
-    props.isclicked == "true" ? "#5e91dd" : "#CACED5;";
-  }};
+  color: ${(props) => (
+    props.isclicked == "true" ? "#5e91dd" : "#CACED5;"
+  )};
   font-size: 16px;
   cursor: default;
 `;
@@ -33,4 +33,5 @@ export const FilterBtnWrapper = styled.div`
   font-size: 16px;
   display: flex;
   align-items: center;
+  cursor: default;
 `;

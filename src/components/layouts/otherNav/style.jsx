@@ -19,5 +19,6 @@ export const Right = styled.div`
   top: 22px;
   span{
     font-size: 2rem;
+    color: #A2B4CF;
   }
 `;

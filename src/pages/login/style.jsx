@@ -13,18 +13,17 @@ export const Bottomborder = styled.div`
 `;
 export const Border = styled.hr`
   border: 1px solid #a2b4cf;
-  margin:0;
+  margin: 0;
 `;
 export const RightFix = styled.div`
   position: absolute;
   right: 5%;
-  span{
+  span {
     font-size: 2rem;
   }
 `;
 export const LogoIMG = styled.img`
   width: 40%;
-
 `;
 export const LoginSection = styled.div`
   display: flex;
@@ -130,24 +129,20 @@ export const StepBtn1 = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 40px;
-  background-color: #004f85;
-  color: #fff;
+  background-color: ${(props) =>
+    props.isselected === "true" ? "#004f85" : "#fff"};
+  color: ${(props) => (props.isselected === "true" ? "#fff" : "#A2B4CF")};
   position: absolute;
-  right: 90px;
+  right: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.3rem;
 `;
 export const StepBtn2 = styled(StepBtn1)`
-  background-color: #fff;
-  color: #a2b4cf;
-  right: 40px;
-`;
-export const StepBtn3 = styled(StepBtn2)`
   right: 90px;
 `;
-export const StepBtn4 = styled(StepBtn1)`
+export const StepBtn3 = styled(StepBtn1)`
   right: 40px;
 `;
 export const Checkbox = styled.div`
@@ -161,6 +156,12 @@ export const Checkbox = styled.div`
     width: 30px;
     height: 30px;
   }
+`;
+export const Underline = styled.span`
+  text-decoration: underline;
+`;
+export const NoneUnderline = styled.span`
+  text-decoration: none;
 `;
 export const MarginSection = styled.p`
   text-align: center;
@@ -206,10 +207,13 @@ export const BottomBlueBtn = styled(BlueBtn)`
   margin-left: 10px;
   z-index: 100;
 `;
+export const SuccessBtn = styled(BottomBlueBtn)`
+  background: linear-gradient(90deg, #53acea 0%, #7063bc 100%);
+`;
 export const TxtInput = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 40px 30px;
+  margin: 25px 30px;
   position: relative;
   p {
     padding-left: 10px;
@@ -234,6 +238,21 @@ export const TxtInput = styled.div`
     &::placeholder {
       color: #8e9eb6;
     }
+  }
+`;
+export const EmailGuide = styled.div`
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px dashed #0083dc;
+  background: #fff;
+  width: 370px;
+  height: 54px;
+  color: #8e9eb6;
+  font-size: 12px;
+  span {
+    color: #0083dc;
+    font-size: 12px;
   }
 `;
 export const MiniBlueBtn = styled.div`
@@ -268,4 +287,33 @@ export const SuccessImg = styled.img`
   width: 100%; /* 이미지를 부모 요소에 꽉 차게 설정 */
   height: auto; /* 이미지 원본 비율 유지 */
   display: block;
+`;
+export const Join3Wrpper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 650px;
+`;
+export const GuideTxt = styled.div`
+  text-align: center;
+  margin: 30px 0;
+`;
+export const OurEmail = styled.div`
+  width: 370px;
+  height: 50px;
+  border-radius: 5px;
+  background: #ecf0f5;
+  color: #67768c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+`;
+export const AzaAza = styled.p`
+  color: #1270b0;
+  text-align: center;
+  font-size: 18px;
+  height: 200px;
+  padding-top: 200px;
 `;
