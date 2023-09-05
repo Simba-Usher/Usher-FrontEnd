@@ -11,8 +11,15 @@ export const ShowReviewCard = ({ review }) => {
 
   return (
     <S.ReviewCardWrapper>
-      {/* {review.writer == accessToken} 로그인 중인 사용자명과 같을 때는 없어져야함 */}
-      <S.ReviewNotify>신고</S.ReviewNotify>
+      {/* accessTocken 확인 후 실제 사용자와 같을시 */}
+      {review.writer === "뮤라이프" ? (
+        <S.ShowWriteDeleteBtn>
+          삭제하기<span className="material-symbols-outlined">delete</span>
+        </S.ShowWriteDeleteBtn>
+      ) : (
+        <S.ReviewNotify>신고</S.ReviewNotify>
+      )}
+      {/*  */}
       <S.ReviewWriter>{review.writer}</S.ReviewWriter>
       <S.ReviewData>
         {review.where} · 카드 제휴 할인 · ￦{review.price.toLocaleString()}

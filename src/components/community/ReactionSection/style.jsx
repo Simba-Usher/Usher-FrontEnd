@@ -134,7 +134,6 @@ export const CmtWrapper = styled.form`
   background: #f8f8f8;
   display: flex;
   align-items: center;
-  margin: 15px 0;
   padding-left: 10px;
 `;
 export const CmtPostBtnImg = styled.img``;
