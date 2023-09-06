@@ -29,6 +29,7 @@ export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => 
             setLocation('');
             setContent('');
         }
+        closeModal();
         // console.log(memoList);
     }
 
