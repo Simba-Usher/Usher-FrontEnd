@@ -263,6 +263,7 @@ export const ReviewSecWrap = styled.div`
     height: 395px;
     padding: 30px 24px 25px 24px;
     background-color: rgba(119, 158, 216, 0.00);
+    margin-bottom: 66px;
 `
 export const ReviewSec1 = styled.div`
     width: 100%;
@@ -348,6 +349,7 @@ export const SelectDesign = styled.select`
   border-radius: 5px;
   border: 2px solid #d6dde6;
   background: #fff;
+  outline: none;
 `;
 export const DateDesign = styled.div`
   position: relative;
@@ -371,7 +373,7 @@ export const priceDesign = styled(DateDesign)`
 export const InputBar = styled.div`
   position: fixed;
   z-index: 100;
-  left: 150px;
+  left: 215px;
   top: 100px;
 `;
 export const DropDown = styled.span`
@@ -472,3 +474,35 @@ export const ShowCardComment = styled.p`
   color: #5484cc;
   font-size: 0.8rem;
 `;
+
+// GoSite.jsx
+export const GoSiteWrap = styled.div`
+  width: 430px;
+  height: 66px;
+  border: 2px solid #779ED8;
+  background-color: #1A52A5;
+  color: #FFF;
+  font-size: 26px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+`
+
+// SiteNotice
+export const SiteNoticeWrap = styled.div`
+  width: 430px;
+  height: 174px;
+  margin: 0 24px;
+  padding: 38px 0 26px 0;
+`
+export const Notice = styled.div`
+  width: 382px;
+  height: 110px;
+  border-radius: 5px;
+  background-color: #EDF0F3;
+  padding: 20px 30px;
+`

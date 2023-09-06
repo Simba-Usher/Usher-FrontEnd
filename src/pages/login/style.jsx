@@ -44,6 +44,7 @@ export const InputSection = styled.div`
     height: 60px;
     border: 0;
     background: #f3f8ff;
+    outline: none;
     &::placeholder {
       color: #a2b4cf;
     }

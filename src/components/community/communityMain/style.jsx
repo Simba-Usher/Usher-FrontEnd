@@ -24,6 +24,9 @@ export const Notice = styled.div`
         font-size: 12px;
         font-weight: 400;
     }
+    img {
+        cursor: pointer;
+    }
 `
 // ComNav.jsx
 export const ComNavWrap = styled.div`
@@ -60,6 +63,7 @@ export const ComNavSec = styled.div`
     font-size: 18px;
     font-weight: 400;
     padding: 0 14px;
+    cursor: pointer;
 `
 // Array.jsx
 export const ArrayWrap = styled.div`
@@ -108,6 +112,8 @@ export const ComListsWrap = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* cursor: pointer; */
+    cursor: default;
 `
 export const TextSec = styled.div`
     /* border: 1px solid red; */

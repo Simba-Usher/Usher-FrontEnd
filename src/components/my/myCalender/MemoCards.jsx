@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as S from "./style";
 
 export const MemoCards = ({ data }) => {
-
     const MemoDate = data.date.slice(2, 4) + '.' + data.date.slice(5, 7) + '.' + data.date.slice(8, 10);
     console.log("메모날짜는", MemoDate);
 
@@ -33,7 +32,11 @@ export const MemoCards = ({ data }) => {
                         {data.content}
                     </S.Memo>
                     <S.MemoBtn>
-                        <img src="/memoBtn.png" alt="btn" />
+                        {/* <img
+                            src="/memoBtn.png"
+                            alt="btn"
+                            onClick={openModal}
+                        /> */}
                         <p>200자</p>
                     </S.MemoBtn>
                 </S.CardSec4>

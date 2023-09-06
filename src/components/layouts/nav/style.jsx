@@ -19,6 +19,7 @@ export const SearchSection = styled.div`
     background: #fafcff;
     padding-left: 15px;
     color: #90a4c1;
+    outline: none;
     &::placeholder {
       color: #90a4c1;
     }

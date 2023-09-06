@@ -53,6 +53,7 @@ export const DateWrapper = styled.div`
     font-size: 1rem;
     text-align: center;
     padding-right: 4px;
+    outline: none;
   }
   p {
     width: 50px;
@@ -81,6 +82,10 @@ export const PriceSlide = styled.div`
   background-color: #FEFEFF;
   border: 1px solid #E5DCFF;
 `;
+export const PriceSlide2 = styled(PriceSlide)`
+  /* border: 1px solid red; */
+  width: 150px;
+`
 export const PriceSlideInner = styled.div`
   position: absolute;
   left: ${props => props.rangeMinPercent}%;
@@ -98,6 +103,9 @@ export const PriceRangeWrap = styled.div`
   position: relative;
   width: 382px;
 `;
+export const PriceRangeWrap2 = styled(PriceRangeWrap)`
+  width: 150px;
+`
 export const PriceRangeMin = styled.input`
   width: 100%;
   height: 7px;
@@ -123,9 +131,15 @@ export const PriceRangeMin = styled.input`
     pointer-events: auto;
   }
 `;
+export const PriceRangeMin2 = styled(PriceRangeMin)`
+  top: -12px;
+`
 export const PriceRangeMax = styled(PriceRangeMin)`
   right: -23px;
 `;
+export const PriceRangeMax2 = styled(PriceRangeMin2)`
+  right: -23px;
+`
 export const LabelWrap = styled.div`
   display: flex;
   flex-direction: row;
