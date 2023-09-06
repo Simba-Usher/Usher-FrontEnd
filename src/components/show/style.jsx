@@ -263,6 +263,7 @@ export const ReviewSecWrap = styled.div`
     height: 395px;
     padding: 30px 24px 25px 24px;
     background-color: rgba(119, 158, 216, 0.00);
+    margin-bottom: 66px;
 `
 export const ReviewSec1 = styled.div`
     width: 100%;
@@ -348,6 +349,7 @@ export const SelectDesign = styled.select`
   border-radius: 5px;
   border: 2px solid #d6dde6;
   background: #fff;
+  outline: none;
 `;
 export const DateDesign = styled.div`
   position: relative;
@@ -371,7 +373,7 @@ export const priceDesign = styled(DateDesign)`
 export const InputBar = styled.div`
   position: fixed;
   z-index: 100;
-  left: 150px;
+  left: 215px;
   top: 100px;
 `;
 export const DropDown = styled.span`
@@ -472,3 +474,97 @@ export const ShowCardComment = styled.p`
   color: #5484cc;
   font-size: 0.8rem;
 `;
+
+// GoSite.jsx
+export const GoSiteWrap = styled.div`
+  width: 430px;
+  height: 66px;
+  border: 2px solid #779ED8;
+  background-color: #1A52A5;
+  color: #FFF;
+  font-size: 26px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+`
+
+// SiteNotice
+export const SiteNoticeWrap = styled.div`
+  width: 430px;
+  height: 174px;
+  padding: 38px 24px 26px 24px;
+  border-top: 2px solid #D8E0EC;
+`
+export const Notice = styled.div`
+  width: 382px;
+  height: 110px;
+  border-radius: 5px;
+  background-color: #EDF0F3;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  div:nth-child(1) {
+    color: #071D36;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+  }
+  img {
+    margin-right: 4px;
+  }
+  div:last-child {
+    color: #44494F;
+    font-size: 14px;
+    font-weight: 400;
+  }
+`
+// border-bottom: 3px solid #D8E0EC ;
+export const SiteSecWrap = styled.div`
+  width: 382px;
+  height: 104px;
+  border-bottom: 1px solid #D8E0EC;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 25px 14px 25px 30px;
+  /* div:last-child {
+    width: 122px;
+    height: 100%;
+  } */
+`
+export const LeftSec = styled.div`
+  width: 260px;
+  height: 100%;
+`
+export const RightSec = styled.div`
+  width: 122px;
+  height: 100%;
+  color: #1270B0;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  img {
+    margin-left: 14px;
+    width: 12px;
+    height: 19px;
+  }
+`
+export const SiteName = styled.div`
+  color: #071D36;
+  font-size: 18px;
+  font-weight: 700;
+`
+export const CostExplain = styled.div`
+  color: #818B9F;
+  font-size: 14px;
+  font-weight: 400;
+`

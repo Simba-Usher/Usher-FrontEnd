@@ -64,6 +64,7 @@ export const TicketInput = styled.input`
   background: #fff;
   font-size: 16px;
   color: #6b2ed0;
+  outline: none;
   &::placeholder {
     color: #cbd0d7;
   }

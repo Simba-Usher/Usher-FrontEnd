@@ -287,12 +287,25 @@ export const ResetBtn = styled.button`
 export const DoneBtn = styled.button`
     width: 200px;
     height: 55px;
+    border: none;
     border-radius: 5px;
-    background: #071D36;
+    background-color: #985FD1;
     color: #FFF;
     font-size: 24px;
     font-weight: 700;
     display: flex;
     justify-content: center;
     align-items: center;
+`
+
+// EditMemo.jsx
+export const DateBox4 = styled(DateBox3)`
+        p:last-child {
+        color: #071D36;
+        font-size: 20px;
+        font-weight: 400;
+    }
+`
+export const EditBtn = styled(DoneBtn)`
+    background-color: #071D36;
 `

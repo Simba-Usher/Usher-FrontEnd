@@ -24,29 +24,7 @@ export const ShowCalendar = () => {
     setMemoList([...memoList, newMemo]);
   };
   console.log(memoList);
-  // const MemoData = [
-  //   {
-  //     "id": "1",
-  //       "title": "메모제목1",
-  //       "date": "2023-09-06",
-  //       "location": "충무로",
-  //       "content": "메모 내용1 입니다 ..."
-  //   },
-  //   {
-  //     "id": "2",
-  //       "title": "메모제목2",
-  //       "date": "2023-09-06",
-  //       "location": "명동 어딘가",
-  //       "content": "메모 내용2 입니다 ..."
-  //   },
-  //   {
-  //     "id": "3",
-  //       "title": "메모제목3",
-  //       "date": "2023-09-07",
-  //       "location": "원흥관 E347",
-  //       "content": "메모 내용3 입니다 ..."
-  //   },
-  // ];
+
   const ShowData = [
     {
       "id": "1",

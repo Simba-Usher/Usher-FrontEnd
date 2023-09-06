@@ -3,8 +3,14 @@ import * as S from "./style";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import { PriceRangeMax, PriceRangeMax2, PriceRangeMin, PriceRangeMin2, PriceRangeWrap, PriceRangeWrap2, PriceSlide, PriceSlide2, PriceSlideInner } from "../searchmodal/style";
 
-export const SelectedList = () => {
+export const SelectedList = ({
+  // rangeMinValue,
+  // setRangeMinValue,
+  // rangeMaxValue,
+  // setRangeMaxValue,
+}) => {
   const [isArea, setisArea] = useState("");
   const [dateRange, setDateRange] = useState([
     {
@@ -13,12 +19,41 @@ export const SelectedList = () => {
       key: "selection",
     },
   ]);
-  const [isStartRange, setisStartRange] = useState(30000);
-  const [isEndRange, setisEndRange] = useState(200000);
+  // const [isStartRange, setisStartRange] = useState(30000);
+  const [rangeMinValue, setRangeMinValue] = useState(30000);
+  // const [isEndRange, setisEndRange] = useState(200000);
+  const [rangeMaxValue, setRangeMaxValue] = useState(200000);
   const [isRangeClick, setisRangeClick] = useState(false);
 
   const formatDate = (date) => {
     return `${date.getMonth() + 1}.${date.getDate()}`;
+  };
+
+  // 가격바
+  // 막대의 left, right 값으로 줄 백분율
+  const [rangeMinPercent, setrangeMinPercent] = useState(0);
+  const [rangeMaxPercent, setrangeMaxPercent] = useState(0);
+
+  const priceGap = 20000;
+
+  const priceRangeMinValueHandler = (e) => {
+    setRangeMinValue(parseInt(e.target.value));
+  };
+  const priceRangeMaxValueHandler = (e) => {
+    setRangeMaxValue(parseInt(e.target.value));
+  };
+
+  // onChange -> 현재값을 막대의 left, right 값으로 주기위해 백분율로
+  const twoRangeHandler = () => {
+    if (rangeMaxValue - rangeMinValue < priceGap) {
+      setRangeMaxValue(rangeMinValue + priceGap);
+      setRangeMinValue(rangeMaxValue - priceGap);
+    } else {
+      setrangeMinPercent((rangeMinValue / 200000) * 100);
+      // setrangeMinPercent((rangeMinValue / fixedMaxPrice) * 100);
+      setrangeMaxPercent(100 - (rangeMaxValue / 200000) * 100);
+      // setrangeMaxPercent(100 - (rangeMaxValue / fixedMaxPrice) * 100);
+    }
   };
 
   return (
@@ -73,14 +108,53 @@ export const SelectedList = () => {
             setisRangeClick((prevIsRangeClick) => !prevIsRangeClick)
           }
         >
-          {isStartRange.toLocaleString()} ~ {isEndRange.toLocaleString()}
+          {rangeMinValue.toLocaleString()} ~ {rangeMaxValue.toLocaleString()}
+          {/* {isStartRange.toLocaleString()} ~ {isEndRange.toLocaleString()} */}
           <S.DropDown className="material-symbols-outlined">
             expand_more
           </S.DropDown>
         </S.priceDesign>
         {isRangeClick && (
           <S.InputBar>
-            <input
+            {/* 하나로 합치기 */}
+            <div>
+              <PriceSlide2>
+                <PriceSlideInner
+                  className="gradient"
+                  rangeMinPercent={rangeMinPercent}
+                  rangeMaxPercent={rangeMaxPercent}
+                />
+              </PriceSlide2>
+              <PriceRangeWrap2>
+                <PriceRangeMin2
+                  type="range"
+                  min="0"
+                  // min={fixedMinPrice}
+                  max={200000 - priceGap}
+                  // max={fixedMaxPrice - priceGap}
+                  step="1000"
+                  value={rangeMinValue}
+                  onChange={(e) => {
+                    priceRangeMinValueHandler(e);
+                    twoRangeHandler();
+                  }}
+                />
+                <PriceRangeMax2
+                  type="range"
+                  min={priceGap}
+                  // min={fixedMinPrice + priceGap}
+                  max="200000"
+                  // max={fixedMaxPrice}
+                  step="1000"
+                  value={rangeMaxValue}
+                  onChange={(e) => {
+                    priceRangeMaxValueHandler(e);
+                    twoRangeHandler();
+                  }}
+                />
+              </PriceRangeWrap2>
+            </div>
+            {/* <input
               type="range"
               name="startrange"
               value={isStartRange.toLocaleString()}
@@ -97,7 +171,7 @@ export const SelectedList = () => {
               max="200000"
               step="1000"
               onChange={(e) => setisEndRange(e.target.value.toLocaleString())}
-            />
+            /> */}
           </S.InputBar>
         )}
       </S.SelectedListContainer>

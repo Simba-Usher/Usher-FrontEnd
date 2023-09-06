@@ -36,7 +36,7 @@ export const ShowCards = ({ data }) => {
                         {data.content}
                     </S.Memo>
                     <S.MemoBtn>
-                        <img src="/memoBtn.png" alt="btn" />
+                        {/* <img src="/memoBtn.png" alt="btn" /> */}
                         <p>200자</p>
                     </S.MemoBtn>
                 </S.CardSec4>

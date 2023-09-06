@@ -32,8 +32,10 @@ export const Grade = styled.img`
     height: 50px;
 `
 export const MyInfo = styled.div`
-    width: 304px;
+    /* width: 304px; */
+    width: 270px;
     display: flex;
+    justify-content: start;
     flex-direction: column;
     padding-left: 12px;
 `
@@ -59,8 +61,11 @@ export const MyMail = styled.div`
     }
 `
 export const GoImg = styled.img`
-    width: 10px;
-    height: 16px;
+    /* width: 10px; */
+    width: 44px;
+    height: 36px;
+    padding: 10px 17px;
+    cursor: pointer;
 `
 export const Mine = styled.div`
     width: 378px;
@@ -76,6 +81,7 @@ export const MineBox = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     img {
         margin-bottom: 4px;
         width: 40px;
@@ -144,7 +150,7 @@ export const AddTicket = styled.div`
     flex-direction: row;
     justify-content: end;
     align-items: center;
-    cursor: default;
+    cursor: pointer;
     img {
         margin-left: 8px;
     }

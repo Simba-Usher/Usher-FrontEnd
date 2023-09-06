@@ -10,7 +10,7 @@ export const MyProfile = () => {
     <>
         <S.MyProfileWrap>
             <S.WhiteBox>
-                <S.Profile onClick={() => navigate("/my/setting")}>
+                <S.Profile>
                     <S.Grade src="/grade1.png" alt="grade" />
                     {/* 닉네임, 메일 불러오기 */}
                     <S.MyInfo>
@@ -20,7 +20,11 @@ export const MyProfile = () => {
                             <p>musicismylife@kopis.com</p>
                         </S.MyMail>
                     </S.MyInfo>
-                    <S.GoImg src="/go.png" alt="go"/>
+                    <S.GoImg
+                        src="/go.png"
+                        alt="go"
+                        onClick={() => navigate("/my/setting")}
+                    />
                 </S.Profile>
                 <S.Mine>
                     <S.MineBox onClick={() => navigate("/my/like")} >

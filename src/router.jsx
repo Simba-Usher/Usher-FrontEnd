@@ -29,6 +29,7 @@ import { ShowCalendar } from "./pages/my/calendar/ShowCalendar";
 import { Join_3 } from "./pages/login/Join_3";
 import { Loading } from "./pages/startPage/Loading";
 import { GuidePage } from "./pages/startPage/GuidePage";
+import { Site } from "./pages/show/showDetail/Site";
 
 const router = createBrowserRouter([
   {
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
       {
         path: "reviewwrite",
         element: <ReviewWrite />,
+      },
+      {
+        path: ":detailId/site",
+        element: <Site />
       },
       // 마이페이지
       {
