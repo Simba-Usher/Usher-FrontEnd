@@ -40,33 +40,33 @@ export const ShowCalendar = () => {
         "content": "메모 내용3 입니다 ..."
     },
   ];
-  // const ShowData = [
-  //   {
-  //     "id": "1",
-  //       "title": "<뮤지컬> 오페라의 유령 - 서울",
-  //       "date": "2023-09-06",
-  //       "location": "샤롯데씨어터",
-  //       "content": "공연 메모 내용1 입니다 ..."
-  //   },
-  //   {
-  //     "id": "2",
-  //       "title": "<뮤지컬> 멤피스",
-  //       "date": "2023-09-06",
-  //       "location": "충무아트센터 대극장",
-  //       "content": "공연 메모 내용2 입니다 ..."
-  //   },
-  //   {
-  //     "id": "3",
-  //       "title": "<뮤지컬> 레베카",
-  //       "date": "2023-09-07",
-  //       "location": "내 집앞",
-  //       "content": "공연 메모 내용3 입니다 ..."
-  //   },
-  // ];
+  const ShowData = [
+    {
+      "id": "1",
+        "title": "<뮤지컬> 오페라의 유령 - 서울",
+        "date": "2023-09-06",
+        "location": "샤롯데씨어터",
+        "content": "공연 메모 내용1 입니다 ..."
+    },
+    {
+      "id": "2",
+        "title": "<뮤지컬> 멤피스",
+        "date": "2023-09-06",
+        "location": "충무아트센터 대극장",
+        "content": "공연 메모 내용2 입니다 ..."
+    },
+    {
+      "id": "3",
+        "title": "<뮤지컬> 레베카",
+        "date": "2023-09-07",
+        "location": "내 집앞",
+        "content": "공연 메모 내용3 입니다 ..."
+    },
+  ];
 
   // activeDate와 일치하는 데이터만 필터링
   const filteredData1 = MemoData.filter((memo) => memo.date === activeDate);
-  // const filteredData2 = ShowData.filter((memo) => memo.date === activeDate);
+  const filteredData2 = ShowData.filter((show) => show.date === activeDate);
 
   return(
     <>
@@ -74,14 +74,14 @@ export const ShowCalendar = () => {
     <MyCalendar onActiveDateChange={handleActiveDateChange} />
     <CalendarBar activeDate={activeDate} />
     {/* 각 날짜에 맞는 공연카드 불러오기 ... */}
-    {/* {filteredData2.map ((show) => (
+    {filteredData2.map ((show) => (
       <ShowCards
       key={show.id}
       data={show}
       activeDate={activeDate}
        />
-    ))} */}
-    <ShowCards activeDate={activeDate} />
+    ))}
+    {/* <ShowCards activeDate={activeDate} /> */}
     {filteredData1.map ((memo) => (
       <MemoCards
         key={memo.id}

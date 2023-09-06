@@ -2,19 +2,19 @@ import React from 'react'
 import * as S from "./style";
 import { useNavigate } from 'react-router-dom';
 
-export const ShowCards = ({ activeDate }) => {
+export const ShowCards = ({ data }) => {
     const navigate = useNavigate();
 
-    // const ShowDate = data.date.slice(2, 4) + '.' + data.date.slice(5, 7) + '.' + data.date.slice(8, 10);
-    // console.log("공연날짜는", ShowDate);
+    const ShowDate = data.date.slice(2, 4) + '.' + data.date.slice(5, 7) + '.' + data.date.slice(8, 10);
+    console.log("공연날짜는", ShowDate);
 
     return (
         <>
             <S.ShowCardsWrap>
                 <S.CardSec1>
                     <S.DateBox>
-                        {/* {ShowDate} */}
-                        {activeDate}
+                        {ShowDate}
+                        {/* {activeDate} */}
                     </S.DateBox>
                     <S.ToDetail onClick={() => navigate("/:detailId")}>
                         <p>상세페이지로</p>
@@ -23,16 +23,18 @@ export const ShowCards = ({ activeDate }) => {
                 </S.CardSec1>
                 {/* 공연명 불러오기 */}
                 <S.CardSec2>
-                    <p>[뮤지컬] 오페라의 유령 - 서울</p>
+                    {data.title}
                 </S.CardSec2>
                 {/* 공연장명, 관람여부 불러오기 */}
                 <S.CardSec3>
-                    <p>샤롯데씨어터</p>
+                    {data.location}
                     <p>|</p>
                     <p>관람 완료</p>
                 </S.CardSec3>
                 <S.CardSec4>
-                    <S.Memo />
+                    <S.Memo>
+                        {data.content}
+                    </S.Memo>
                     <S.MemoBtn>
                         <img src="/memoBtn.png" alt="btn" />
                         <p>200자</p>
