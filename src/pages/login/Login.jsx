@@ -22,26 +22,28 @@ export const Login = () => {
     navigate("/");
     // navigate(-1);
   }
-  const login = ()=>{}
-/*
+  // const login = ()=>{}
+
   const login = async () => {
     try {
-      const response = await axiosInstance.post("/dj-rest-auth/login/", {
+      const response = await axiosInstance.post("/api/login/", {
         email: isEmail,
         password: isPw,
       });
 
-      const { key } = response.data;
+      const { access } = response.data;
 
-      setAccessToken(key);
 
-      alert("로그인 성공!" + key + "recoil: " + accessToken);
+      setAccessToken(access);
+
+      alert("로그인 성공! 토큰 : " + access + "/ recoil: " + accessToken);
+      console.log("데이터 - ",response.data);
       navigate("/");
     } catch (error) {
       console.error("로그인 실패:", error);
     }
   };
-*/
+
   return (
     <Wrapper>
       <S.Bottomborder>
