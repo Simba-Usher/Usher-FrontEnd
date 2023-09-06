@@ -496,8 +496,8 @@ export const GoSiteWrap = styled.div`
 export const SiteNoticeWrap = styled.div`
   width: 430px;
   height: 174px;
-  margin: 0 24px;
-  padding: 38px 0 26px 0;
+  padding: 38px 24px 26px 24px;
+  border-top: 2px solid #D8E0EC;
 `
 export const Notice = styled.div`
   width: 382px;
@@ -505,4 +505,66 @@ export const Notice = styled.div`
   border-radius: 5px;
   background-color: #EDF0F3;
   padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  div:nth-child(1) {
+    color: #071D36;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+  }
+  img {
+    margin-right: 4px;
+  }
+  div:last-child {
+    color: #44494F;
+    font-size: 14px;
+    font-weight: 400;
+  }
+`
+// border-bottom: 3px solid #D8E0EC ;
+export const SiteSecWrap = styled.div`
+  width: 382px;
+  height: 104px;
+  border-bottom: 1px solid #D8E0EC;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 25px 14px 25px 30px;
+  /* div:last-child {
+    width: 122px;
+    height: 100%;
+  } */
+`
+export const LeftSec = styled.div`
+  width: 260px;
+  height: 100%;
+`
+export const RightSec = styled.div`
+  width: 122px;
+  height: 100%;
+  color: #1270B0;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  img {
+    margin-left: 14px;
+    width: 12px;
+    height: 19px;
+  }
+`
+export const SiteName = styled.div`
+  color: #071D36;
+  font-size: 18px;
+  font-weight: 700;
+`
+export const CostExplain = styled.div`
+  color: #818B9F;
+  font-size: 14px;
+  font-weight: 400;
 `
