@@ -20,9 +20,9 @@ export const SelectedList = ({
     },
   ]);
   // const [isStartRange, setisStartRange] = useState(30000);
-  const [rangeMinValue, setRangeMinValue] = useState(30000);
+  const [rangeMinValue, setRangeMinValue] = useState(0);
   // const [isEndRange, setisEndRange] = useState(200000);
-  const [rangeMaxValue, setRangeMaxValue] = useState(200000);
+  const [rangeMaxValue, setRangeMaxValue] = useState(300000);
   const [isRangeClick, setisRangeClick] = useState(false);
 
   const formatDate = (date) => {
@@ -154,24 +154,6 @@ export const SelectedList = ({
                 />
               </PriceRangeWrap2>
             </div>
-            {/* <input
-              type="range"
-              name="startrange"
-              value={isStartRange.toLocaleString()}
-              min="30000"
-              max={isEndRange}
-              step="1000"
-              onChange={(e) => setisStartRange(e.target.value.toLocaleString())}
-            />
-            <input
-              type="range"
-              name="endrange"
-              value={isEndRange.toLocaleString()}
-              min={isStartRange}
-              max="200000"
-              step="1000"
-              onChange={(e) => setisEndRange(e.target.value.toLocaleString())}
-            /> */}
           </S.InputBar>
         )}
       </S.SelectedListContainer>

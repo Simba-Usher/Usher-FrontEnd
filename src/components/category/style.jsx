@@ -29,6 +29,7 @@ export const CateCloseBtn = styled.span`
   right: 10px;
   font-size: 2.5rem;
   color: #e4efff;
+  cursor: pointer;
 `;
 export const CateMenu = styled.div`
   display: flex;
