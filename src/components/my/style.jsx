@@ -9,14 +9,16 @@ export const MyInnerNavWrap = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 9.5px 25px 24px;
+    padding: 23px 9.5px 25px 24px;
     img:nth-child(1) {
         width: 22px;
         height: 22px;
+        cursor: pointer;
     }
     img:last-child {
         width: 28.5px;
         height: 19px;
+        margin-top: 5px;
     }
     p {
         color: #071D36;

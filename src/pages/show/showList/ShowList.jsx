@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Footer } from "../../../components/layouts/footer/Footer";
 import { SearchModal } from "../../searchModal/SearchModal";
 import Wrapper from "../../../components/Wrapper";
+import { Array } from "../../../components/show/Array";
 
 export const ShowList = () => {
   const navigate = useNavigate();
@@ -17,6 +18,25 @@ export const ShowList = () => {
   };
   const handleCardClick = (showId) => {
     navigate(`/${showId}`);
+  };
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [activeArray, setActiveArray] = useState("별점 높은 순");
+
+  // 모달 열기
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  // 모달 닫기
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  // 선택한 ArraySec 저장
+  const handleArraySecClick = (selected) => {
+    setActiveArray(selected);
+    closeModal();
   };
 
   const data = [
@@ -96,7 +116,7 @@ export const ShowList = () => {
         <>
           <Nav isModalOpen={isModalOpen} toggleModal={toggleModal} />
           <S.ShowListTitle>
-            <span 
+            <span
               className="material-symbols-outlined"
               onClick={() => navigate("/")}
             >
@@ -109,8 +129,13 @@ export const ShowList = () => {
           <S.SpaceBetween>
             <p>키워드 적용된 공연입니다</p>
             <p>
-              별점 높은순
-              <span className="material-symbols-outlined">more_vert</span>
+              {/* 별점 높은순 */}
+              <span 
+                className="material-symbols-outlined"
+                onClick={openModal}
+              >
+                more_vert
+              </span>
             </p>
           </S.SpaceBetween>
           {data.map((show) => (
@@ -122,6 +147,30 @@ export const ShowList = () => {
             />
           ))}
           <Footer />
+
+          {modalOpen && (
+          <Array
+            setModalOpen={setModalOpen}
+            closeModal={closeModal}
+            activeArray={activeArray}
+            handleArraySecClick={handleArraySecClick}
+          />
+        )}
+
+        {modalOpen && (
+          <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: "11"
+          }}
+          onClick={closeModal}
+          />
+        )}
         </>
       )}
     </Wrapper>

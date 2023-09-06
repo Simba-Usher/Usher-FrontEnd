@@ -37,6 +37,7 @@ export const FlexColumn = styled.div`
   font-weight: 400;
   color: #053b8c;
   cursor: default;
+  width: 70px;
   img {
     max-width: 34px;
     height: 30px;
@@ -65,6 +66,9 @@ export const AreaImg = styled.div`
     border-radius: 10px;
     background: #fff;
     box-shadow: 0px 2px 2px 0px #0000003f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 export const FakeMargin = styled.div`
@@ -102,9 +106,10 @@ export const PurpleBtn = styled.div`
     width: 18px;
     height: 18px;
     text-align: center;
-    margin-right: 2px;
     color: #b485e2;
-    padding-top: 3px;
+    padding-top: 2px;
+    margin-right: 4px;
+    margin-left: 2px;
   }
 `;
 export const BlueReBtn = styled(PurpleBtn)`

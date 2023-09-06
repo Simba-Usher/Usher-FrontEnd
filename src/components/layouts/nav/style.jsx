@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const NavContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
   padding: 0 10px;
@@ -47,6 +47,6 @@ export const LevelIcon = styled.div`
 `;
 export const MoreBtn = styled.img`
   position: absolute;
-  right: 15px;
-  top: 32px;
+  right: 9.5px;
+  top: 26px;
 `;

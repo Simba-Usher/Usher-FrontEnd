@@ -89,6 +89,13 @@ export const ArrayWrap = styled.div`
         font-weight: 600;
     }
 `
+export const ArrayWrap2 = styled(ArrayWrap)`
+    height: 80px;
+    top: 140px;
+    div.active {
+        background-color: #C5DBFC;
+    }
+`
 export const ArraySec = styled.div`
     width: 137px;
     height: 40px;
@@ -98,6 +105,20 @@ export const ArraySec = styled.div`
     align-items: center;
     :active {
         background-color: #D1FFF1;
+        color: #071D36;
+        font-weight: 600;
+    }
+`
+// C5DBFC
+export const ArraySec2 = styled.div`
+    width: 137px;
+    height: 40px;
+    border-bottom: 1px solid #A1A7A7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    :active {
+        background-color: #C5DBFC;
         color: #071D36;
         font-weight: 600;
     }
@@ -203,7 +224,7 @@ export const WriteBtnWrap = styled.div`
     border: 1px solid #FFF;
     background: linear-gradient(90deg, #11BBAF, #1DD9CB);
     box-shadow: 0px 2.87778px 5.75556px 0px rgba(0, 0, 0, 0.25);
-    position: absolute;
+    position: fixed;
     top: 663px;
     left: 96px;
     display: flex;

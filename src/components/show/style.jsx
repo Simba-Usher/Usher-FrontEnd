@@ -350,6 +350,7 @@ export const SelectDesign = styled.select`
   border: 2px solid #d6dde6;
   background: #fff;
   outline: none;
+  cursor: pointer;
 `;
 export const DateDesign = styled.div`
   position: relative;
@@ -364,17 +365,20 @@ export const DateDesign = styled.div`
   background: #fff;
   padding-right: 15px;
   font-size: 0.9rem;
+  cursor: pointer;
 `;
 export const priceDesign = styled(DateDesign)`
   /* position: fixed; */
   /* left: 215px; */
   width: 150px;
+  cursor: pointer;
 `;
 export const InputBar = styled.div`
   position: fixed;
   z-index: 100;
   left: 215px;
-  top: 100px;
+  /* top: 100px; */
+  top: 90px;
 `;
 export const DropDown = styled.span`
   position: absolute;
@@ -396,10 +400,12 @@ export const SelectedReaction = styled.div`
     border: 1px solid #b485e2;
     background: #fff;
     margin-right: 5px;
+    padding-bottom: 1px;
   }
   i {
     font-size: 1.2rem;
     padding: 0 2px;
+    margin: 2px 2px 0 2px;
   }
   :nth-child(1) {
     i {
