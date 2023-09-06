@@ -1,3 +1,5 @@
+// ShowCalendar.jsx
+
 import React, { useState } from "react";
 import '../../../components/my/myCalender/MyCalendar.css'; // 새로운 CSS 파일
 import { MyInnerNav } from "../../../components/my/MyInnerNav";
@@ -17,29 +19,34 @@ export const ShowCalendar = () => {
     setActiveDate(newActiveDate);
   };
 
-  const MemoData = [
-    {
-      "id": "1",
-        "title": "메모제목1",
-        "date": "2023-09-06",
-        "location": "충무로",
-        "content": "메모 내용1 입니다 ..."
-    },
-    {
-      "id": "2",
-        "title": "메모제목2",
-        "date": "2023-09-06",
-        "location": "명동 어딘가",
-        "content": "메모 내용2 입니다 ..."
-    },
-    {
-      "id": "3",
-        "title": "메모제목3",
-        "date": "2023-09-07",
-        "location": "원흥관 E347",
-        "content": "메모 내용3 입니다 ..."
-    },
-  ];
+  const [memoList, setMemoList] = useState([]);
+  const addMemoToList = (newMemo) => {
+    setMemoList([...memoList, newMemo]);
+  };
+  console.log(memoList);
+  // const MemoData = [
+  //   {
+  //     "id": "1",
+  //       "title": "메모제목1",
+  //       "date": "2023-09-06",
+  //       "location": "충무로",
+  //       "content": "메모 내용1 입니다 ..."
+  //   },
+  //   {
+  //     "id": "2",
+  //       "title": "메모제목2",
+  //       "date": "2023-09-06",
+  //       "location": "명동 어딘가",
+  //       "content": "메모 내용2 입니다 ..."
+  //   },
+  //   {
+  //     "id": "3",
+  //       "title": "메모제목3",
+  //       "date": "2023-09-07",
+  //       "location": "원흥관 E347",
+  //       "content": "메모 내용3 입니다 ..."
+  //   },
+  // ];
   const ShowData = [
     {
       "id": "1",
@@ -65,14 +72,20 @@ export const ShowCalendar = () => {
   ];
 
   // activeDate와 일치하는 데이터만 필터링
-  const filteredData1 = MemoData.filter((memo) => memo.date === activeDate);
+  const filteredData1 = memoList.filter((memo) => memo.date === activeDate);
+  // const filteredData1 = MemoData.filter((memo) => memo.date === activeDate);
   const filteredData2 = ShowData.filter((show) => show.date === activeDate);
 
   return(
     <>
     <MyInnerNav title={title} />
     <MyCalendar onActiveDateChange={handleActiveDateChange} />
-    <CalendarBar activeDate={activeDate} />
+    <CalendarBar
+      activeDate={activeDate}
+      // closeModal={closeModal}
+      memoList={memoList}
+      addMemoToList={addMemoToList}
+    />
     {/* 각 날짜에 맞는 공연카드 불러오기 ... */}
     {filteredData2.map ((show) => (
       <ShowCards
@@ -86,7 +99,8 @@ export const ShowCalendar = () => {
       <MemoCards
         key={memo.id}
         data={memo}
-        activeDate={activeDate} />
+        activeDate={activeDate}
+      />
     ))}
     {/* <MemoCards activeDate={activeDate} /> */}
     <Footer />

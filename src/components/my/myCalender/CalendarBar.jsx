@@ -1,8 +1,10 @@
+// CalendarBar.jsx
+
 import React, { useState } from 'react'
 import * as S from "./style";
 import { AddMemo } from './AddMemo';
 
-export const CalendarBar = ({ activeDate }) => {
+export const CalendarBar = ({ activeDate, memoList, addMemoToList }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
@@ -31,6 +33,8 @@ export const CalendarBar = ({ activeDate }) => {
                 <AddMemo 
                     activeDate={activeDate}
                     closeModal={closeModal}
+                    addMemoToList={addMemoToList}
+                    memoList={memoList}
                 />
             )}
 
