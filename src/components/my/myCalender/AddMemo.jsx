@@ -2,27 +2,31 @@
 
 import React, { useState } from 'react'
 import * as S from "./style";
+import { v4 as uuidv4 } from 'uuid'; // UUID 라이브러리 import
 
 export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => {
 
     const [title, setTitle] = useState("");
-    // const [date] = useState({activeDate});
     const [location, setLocation] = useState("");
     const [content, setContent] = useState("");
 
-    // const [memoList, setMemoList] = useState([]);
-
+    // 초기화하기
+    const handleReset = () => {
+        setTitle("");
+        setLocation("");
+        setContent("");
+    }
     // 적용하기
     const handleAdd = () => {
         if (title || location || content) {
             const newMemo = {
+                id: uuidv4(),
                 title,
                 date: activeDate,
                 location,
                 content,
             };
 
-            // setMemoList([...memoList, newMemo]);
             addMemoToList(newMemo);
 
             setTitle('');
@@ -76,7 +80,7 @@ export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => 
                     />
                 </S.MemoBox>
                 <S.BtnSec>
-                    <S.ResetBtn>초기화</S.ResetBtn>
+                    <S.ResetBtn onClick={handleReset}>초기화</S.ResetBtn>
                     <S.DoneBtn onClick={handleAdd}>적용하기</S.DoneBtn>
                 </S.BtnSec>
             </S.AddMemoWrap>
