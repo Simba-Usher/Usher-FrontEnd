@@ -348,6 +348,7 @@ export const SelectDesign = styled.select`
   border-radius: 5px;
   border: 2px solid #d6dde6;
   background: #fff;
+  outline: none;
 `;
 export const DateDesign = styled.div`
   position: relative;
@@ -371,7 +372,7 @@ export const priceDesign = styled(DateDesign)`
 export const InputBar = styled.div`
   position: fixed;
   z-index: 100;
-  left: 150px;
+  left: 215px;
   top: 100px;
 `;
 export const DropDown = styled.span`
