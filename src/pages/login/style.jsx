@@ -52,6 +52,12 @@ export const InputSection = styled.div`
   :nth-child(1) {
     border-bottom: 2px solid #a2b4cf;
   }
+  input:nth-child(1) {
+    border-radius: 10px 10px 0 0;
+  }
+  input:nth-child(2) {
+    border-radius: 0 0 10px 10px;
+  }
 `;
 export const IdSave = styled.label`
   width: 100%;
