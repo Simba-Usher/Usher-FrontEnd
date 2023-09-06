@@ -9,6 +9,8 @@ position: relative;
   span{
     margin-right: 10px;
     font-size: 2rem;
+    /* cursor: default; */
+    cursor: pointer;
   }
 `;
 export const FloatRight = styled.p`

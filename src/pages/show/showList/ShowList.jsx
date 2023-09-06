@@ -96,7 +96,12 @@ export const ShowList = () => {
         <>
           <Nav isModalOpen={isModalOpen} toggleModal={toggleModal} />
           <S.ShowListTitle>
-            <span className="material-symbols-outlined">arrow_back</span>
+            <span 
+              className="material-symbols-outlined"
+              onClick={() => navigate("/")}
+            >
+              arrow_back
+            </span>
             <p>뮤지컬</p>
             <S.FloatRight>키워드 재설정</S.FloatRight>
           </S.ShowListTitle>

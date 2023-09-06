@@ -10,6 +10,7 @@ import { InfoImgSection } from "../../../components/show/showDetail/InfoImgSecti
 import { ReviewSection } from "../../../components/show/showDetail/ReviewSection";
 import { SearchModal } from "../../searchModal/SearchModal";
 import Wrapper from "../../../components/Wrapper";
+import { GoSite } from "../../../components/show/showDetail/GoSite";
 
 export const ShowDetail = () => {
   const scrollRef = useRef([]);
@@ -35,6 +36,8 @@ export const ShowDetail = () => {
           <ReactionSection ref={scrollRef} />
           <InfoImgSection ref={scrollRef} />
           <ReviewSection ref={scrollRef} />
+
+          <GoSite />
         </div>
       )}
     </Wrapper>

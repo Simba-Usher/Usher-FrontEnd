@@ -27,6 +27,7 @@ import { ReviewWrite } from "./pages/show/reviewWrite/ReviewWrite";
 import { ShowReview } from "./pages/show/showReview/ShowReview";
 import { ShowCalendar } from "./pages/my/calendar/ShowCalendar";
 import { Join_3 } from "./pages/login/Join_3";
+import { Site } from "./pages/show/showDetail/Site";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: "reviewwrite",
         element: <ReviewWrite />,
+      },
+      {
+        path: ":detailId/site",
+        element: <Site />
       },
       // 마이페이지
       {
