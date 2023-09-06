@@ -27,6 +27,8 @@ import { ReviewWrite } from "./pages/show/reviewWrite/ReviewWrite";
 import { ShowReview } from "./pages/show/showReview/ShowReview";
 import { ShowCalendar } from "./pages/my/calendar/ShowCalendar";
 import { Join_3 } from "./pages/login/Join_3";
+import { Loading } from "./pages/startPage/Loading";
+import { GuidePage } from "./pages/startPage/GuidePage";
 import { Site } from "./pages/show/showDetail/Site";
 
 const router = createBrowserRouter([
@@ -37,6 +39,16 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      // 로딩/안내화면
+      {
+        path: "loading",
+        element: <Loading />,
+      },
+      {
+        path: "guide",
+        element: <GuidePage />,
+
       },
       // 로그인
       {
