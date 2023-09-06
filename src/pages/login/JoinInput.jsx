@@ -12,19 +12,22 @@ export const JoinInput = () => {
   const [isPw, setisPw] = useState("");
   const [isPwCheck, setisPwCheck] = useState("");
   //const [isSent, setIsSent] = useState(false); // 이메일이 발송되었는지 여부
-
+/*
   const handleEmailSend = () => {
     navigate("/join_3");
   };
-  /*
+  */
   const handleEmailSend = async () => {
     try {
-      const response = await axiosInstance.post("/dj-rest-auth/registration/", {
-        username: isName,
-        email: isEmail,
-        password1: isPw,
-        password2: isPwCheck,
-      });
+      const response = await axiosInstance.post(
+        "/api/dj-rest-auth/registration/",
+        {
+          username: isName,
+          email: isEmail,
+          password1: isPw,
+          password2: isPwCheck,
+        }
+      );
       console.log(response.data);
       navigate("/join_3");
     } catch (error) {
@@ -33,7 +36,7 @@ export const JoinInput = () => {
       throw error;
     }
   };
-*/
+
   return (
     <Wrapper>
       <OtherNav title="회원가입" />
