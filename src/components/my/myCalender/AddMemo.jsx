@@ -1,19 +1,37 @@
+// AddMemo.jsx
+
 import React, { useState } from 'react'
 import * as S from "./style";
 
-export const AddMemo = ({ activeDate, closeModal }) => {
+export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => {
 
     const [title, setTitle] = useState("");
-    const [date, setDate] = useState({activeDate});
-    const [place, setPlace] = useState("");
-    const [memo, setMemo] = useState("");
+    // const [date] = useState({activeDate});
+    const [location, setLocation] = useState("");
+    const [content, setContent] = useState("");
+
+    // const [memoList, setMemoList] = useState([]);
 
     // 적용하기
-    // const handleAdd = () => {
-    //     if (title) {
-    //         setTitle
-    //     }
-    // }
+    const handleAdd = () => {
+        if (title || location || content) {
+            const newMemo = {
+                title,
+                date: activeDate,
+                location,
+                content,
+            };
+
+            // setMemoList([...memoList, newMemo]);
+            addMemoToList(newMemo);
+
+            setTitle('');
+            setLocation('');
+            setContent('');
+        }
+        closeModal();
+        // console.log(memoList);
+    }
 
     return (
         <>
@@ -23,7 +41,8 @@ export const AddMemo = ({ activeDate, closeModal }) => {
                     <img
                         src="/xBtn.png"
                         alt="btn"
-                        onClick={closeModal} />
+                        onClick={closeModal}
+                    />
                 </S.TopSec>
                 <S.MemoSec>
                     <p>제목</p>
@@ -43,8 +62,8 @@ export const AddMemo = ({ activeDate, closeModal }) => {
                     <input
                         type='text'
                         placeholder='장소를 입력해주세요.'
-                        value={place}
-                        onChange={(e) => setTitle(e.target.value)}
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
                     />
                 </S.MemoSec>
                 <S.MemoBox>
@@ -52,13 +71,13 @@ export const AddMemo = ({ activeDate, closeModal }) => {
                     <input
                         type='text'
                         placeholder='메모를 입력해주세요.'
-                        value={memo}
-                        onChange={(e) => setTitle(e.target.value)}
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
                     />
                 </S.MemoBox>
                 <S.BtnSec>
                     <S.ResetBtn>초기화</S.ResetBtn>
-                    <S.DoneBtn>적용하기</S.DoneBtn>
+                    <S.DoneBtn onClick={handleAdd}>적용하기</S.DoneBtn>
                 </S.BtnSec>
             </S.AddMemoWrap>
         </>
