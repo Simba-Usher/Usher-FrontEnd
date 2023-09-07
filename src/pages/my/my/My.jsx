@@ -16,12 +16,10 @@ import { Footer } from '../../../components/layouts/footer/Footer';
 
 export const My = () => {
   const navigate = useNavigate();
-  // Recoil 상태에서 Access Token을 가져옵니다.
   const accessToken = useRecoilValue(accessTokenState);
 
     // Access Token이 있는지 확인
   if (true) {
-    // 서비스에 접근 가능한 코드를 실행합니다.
     return (
       <Wrapper>
         <Nav />
@@ -36,7 +34,6 @@ export const My = () => {
       </Wrapper>
     );
   } else {
-    // Access Token이 없으면 로그인 페이지로 리다이렉트 또는 다른 작업을 수행합니다.
     return (
       <div>
         <h1>로그인이 필요합니다.</h1>
