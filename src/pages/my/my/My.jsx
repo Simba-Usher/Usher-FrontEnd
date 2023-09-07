@@ -37,7 +37,7 @@ export const My = () => {
     return (
       <div>
         <h1>로그인이 필요합니다.</h1>
-        <div onClick={() => navigate("/login")} style={{background: "red"}}>로그인 하러가기</div>
+        <div onClick={() => navigate("/login")} style={{ background: "red" }}>로그인 하러가기</div>
       </div>
     );
   }

@@ -3,11 +3,12 @@ import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../../components/Wrapper";
 import axiosInstance from "../../../api/axios";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { accessTokenState } from "../../../recoil/recoilState";
 
 export const CoWrite = () => {
   const navigate = useNavigate();
+  const setAccessToken = useSetRecoilState(accessTokenState);
   const accessToken = useRecoilValue(accessTokenState);
   
   const [group, setGroup] = useState("");
@@ -29,7 +30,7 @@ export const CoWrite = () => {
 
     try {
       const response = await axiosInstance.post(
-        "/composts",
+        "/api/composts",
         {
           category: group,
           title: title,

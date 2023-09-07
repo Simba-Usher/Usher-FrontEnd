@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as S from "./style";
 import { Nav } from '../../../components/layouts/nav/Nav';
 import { HomeNav } from '../../../components/layouts/homeNav/HomeNav';
@@ -8,9 +8,21 @@ import { WriteBtn } from '../../../components/community/communityMain/WriteBtn';
 import { NoticeLists } from '../../../components/community/communityMain/NoticeLists';
 import { NoticeTitle } from '../../../components/community/communityMain/NoticeTitle';
 import Wrapper from "../../../components/Wrapper";
-
+import axiosInstance from "../../../api/axios";
 
 export const CoNotice = () => {
+  const [noticeCompost, setNoticeCompost] = useState([]);
+  
+  const fetchAllData = async () => {
+    try {
+      const response = await axiosInstance.get("/api/composts?category=공지");
+      setNoticeCompost(response.data);
+      console.log(noticeCompost);
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
+
   return (
     <Wrapper>
       <Nav />
@@ -18,12 +30,16 @@ export const CoNotice = () => {
       <S.CoWrap>
         <NoticeSec />
         <ComNav />
-        <NoticeTitle />
+        {noticeCompost
+              .map((result, id) => (
+                <div key={id}>
+                  <NoticeLists notice={result} />
+                </div>
+              ))}
+        {/* <NoticeLists />
         <NoticeLists />
         <NoticeLists />
-        <NoticeLists />
-        <NoticeLists />
-        <NoticeLists />
+        <NoticeLists /> */}
         <p>페이지넘버링</p>
         {/* <WriteBtn /> */}
       </S.CoWrap>
