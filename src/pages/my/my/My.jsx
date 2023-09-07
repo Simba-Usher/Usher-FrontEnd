@@ -19,8 +19,8 @@ export const My = () => {
   // Recoil 상태에서 Access Token을 가져옵니다.
   const accessToken = useRecoilValue(accessTokenState);
 
-    // Access Token이 있는지 확인
-  if (true) {
+  // Access Token이 있는지 확인
+  if (accessToken) {
     // 서비스에 접근 가능한 코드를 실행합니다.
     return (
       <Wrapper>
@@ -40,7 +40,7 @@ export const My = () => {
     return (
       <div>
         <h1>로그인이 필요합니다.</h1>
-        <div onClick={() => navigate("/login")} style={{background: "red"}}>로그인 하러가기</div>
+        <div onClick={() => navigate("/login")} style={{ background: "red" }}>로그인 하러가기</div>
       </div>
     );
   }
