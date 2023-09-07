@@ -39,6 +39,10 @@ export const Login = () => {
       alert("로그인 성공! 토큰 : " + access + "/ recoil: " + accessToken);
       console.log("데이터 - ",response.data);
       navigate("/");
+
+      localStorage.setItem('nickname', response.data.nickname);
+      // localStorage.getItem('nickname');
+
     } catch (error) {
       console.error("로그인 실패:", error);
     }

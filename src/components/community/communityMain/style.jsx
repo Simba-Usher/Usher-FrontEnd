@@ -158,21 +158,29 @@ export const Sec2 = styled.div`
     height: 60px;
     display: flex;
     flex-direction: row;
-    p:nth-child(1) {
+    p.writer {
         color: #6F7277;
         font-size: 14px;
         font-weight: 400;
+        padding-top: 1px;
     }
-    p:nth-child(2) {
+    p.bar {
         color: #CCCECE;
         font-size: 14px;
         font-weight: 400;
         padding: 0 5px;
     }
-    p:nth-child(3) {
+    p.date {
         color: #CCCECE;
         font-size: 14px;
         font-weight: 400;
+        padding-top: 1px;
+    }
+    div.editor {
+        color: #0AB9AD;
+        font-size: 14px;
+        font-weight: 600;
+        padding-top: 1px;
     }
 `
 export const Sec3 = styled.div`
