@@ -441,10 +441,16 @@ export const ShowCardWrapper = styled.div`
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid #d6dde6;
-  padding: 15px 10px;
+  padding: 14px 10px;
   position: relative;
+  width: 430px;
+  height: 153px;
   img{
-    padding-right: 10px;
+    margin-right: 10px;
+    width: 88px;
+    /* height: 100%; */
+    height: 126px;
+    border-radius: 5px;
   }
 `;
 export const ShowCardTitle = styled.p`
@@ -468,6 +474,8 @@ export const ShowCardStar = styled.span`
   color: #ffa826;
   font-size: 0.9rem;
   margin-right: 10px;
+  display: flex;
+  flex-direction: row;
   i{
     font-size: 1rem;
     padding-right: 3px;
@@ -475,6 +483,7 @@ export const ShowCardStar = styled.span`
 `;
 export const ShowCardReviews = styled(ShowCardDate)`
   font-size: 0.9rem;
+  margin-bottom: 0;
 `;
 export const ShowCardComment = styled.p`
   color: #5484cc;

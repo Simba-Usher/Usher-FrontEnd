@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { Nav } from "../../../components/layouts/nav/Nav";
 import { HomeNav } from "../../../components/layouts/homeNav/HomeNav";
@@ -15,12 +15,15 @@ export const CoQna = () => {
   const fetchAllData = async () => {
     try {
       const response = await axiosInstance.get("/api/composts?category=질문");
-      setQnaCompost(response.data);
+      setQnaCompost(response.data.results);
       console.log(qnaCompost);
     } catch (error) {
       console.log("ERROR", error);
     }
   };
+  useEffect(() => {
+    fetchAllData();
+  }, [])
 
   return (
     <Wrapper>
@@ -29,8 +32,7 @@ export const CoQna = () => {
       <S.CoWrap>
         <NoticeSec />
         <ComNav />
-        {qnaCompost
-              .map((result, id) => (
+        {qnaCompost.map((result, id) => (
                 <div key={id}>
                   <QnaLists compost={result} editorIsTrue={false} />
                 </div>
