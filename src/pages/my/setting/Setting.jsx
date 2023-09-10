@@ -4,6 +4,8 @@ import * as S from "./style";
 import { MyInnerNav } from "../../../components/my/MyInnerNav";
 import { MyGrade } from "../../../components/my/mySetting/MyGrade";
 import axiosInstance from "../../../api/axios";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
 
 export const Setting = () => {
   const title = "기본 정보 수정";
@@ -15,6 +17,27 @@ export const Setting = () => {
   // const [saveNickname] = useState(Nickname);
   // const [saveCurrentPw] = useState("password1");
   // const [saveNewPw] = useState("");
+  
+  const accessToken = useRecoilValue(accessTokenState);
+
+  const handleLike = async () => {
+    try {
+      const headers = { Authorization: `Bearer ${accessToken}` };
+
+      const response = await axiosInstance.post(
+        "/api/mainposts/1/likes",
+        {},
+        { headers }
+      );
+      const detail = response.data.detail;
+      detail == "좋아요 취소" ? setLike(false) : setLike(true);
+    } catch (error) {
+      console.error("좋아요 오류 발생:", error);
+      throw error;
+    }
+  };
+  handleLike();
+
 
   const [nickname, setNickname] = useState(Nickname);
   // const [currentPw, setCurrentPw] = useState(saveCurrentPw);

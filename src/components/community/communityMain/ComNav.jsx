@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import * as S from "./style";
 import { useNavigate } from 'react-router-dom';
 import { Array } from './Array';
+import axiosInstance from "../../../api/axios";
 
 export const ComNav = () => {
   const navigate = useNavigate();
@@ -26,8 +27,18 @@ export const ComNav = () => {
   };
 
   // 선택한 ArraySec 저장
-  const handleArraySecClick = (selected) => {
+  const handleArraySecClick = async (selected, apiUrl) => {
+    // setActiveArray(selected);
+    // closeModal();
+
     setActiveArray(selected);
+    // 이제 apiUrl을 사용하여 데이터를 가져올 수 있습니다.
+    console.log('Selected Array:', selected);
+    console.log('API URL:', apiUrl);
+
+    const response = await axiosInstance.get("apiUrl");
+    setActiveArray(response.data);
+
     closeModal();
   };
 

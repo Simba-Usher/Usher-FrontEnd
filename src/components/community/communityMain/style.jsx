@@ -263,6 +263,16 @@ export const Sec2Manager = styled(Sec2)`
         font-size: 14px;
         font-weight: 600;
     }
+    p.bar {
+        color: #CCCECE;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    p.date {
+        color: #CCCECE;
+        font-size: 14px;
+        font-weight: 400;
+    }
 `
 export const Sec3Content = styled(Sec2Content)`
     

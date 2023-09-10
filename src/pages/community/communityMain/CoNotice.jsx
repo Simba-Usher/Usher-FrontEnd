@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from "./style";
 import { Nav } from '../../../components/layouts/nav/Nav';
 import { HomeNav } from '../../../components/layouts/homeNav/HomeNav';
@@ -12,16 +12,19 @@ import axiosInstance from "../../../api/axios";
 
 export const CoNotice = () => {
   const [noticeCompost, setNoticeCompost] = useState([]);
-  
+
   const fetchAllData = async () => {
     try {
       const response = await axiosInstance.get("/api/composts?category=공지");
-      setNoticeCompost(response.data);
+      setNoticeCompost(response.data.results);
       console.log(noticeCompost);
     } catch (error) {
       console.log("ERROR", error);
     }
   };
+  useEffect(() => {
+    fetchAllData();
+  }, [])
 
   return (
     <Wrapper>
@@ -30,12 +33,11 @@ export const CoNotice = () => {
       <S.CoWrap>
         <NoticeSec />
         <ComNav />
-        {noticeCompost
-              .map((result, id) => (
-                <div key={id}>
-                  <NoticeLists notice={result} />
-                </div>
-              ))}
+        {noticeCompost.map((result, id) => (
+          <div key={id}>
+            <NoticeLists notice={result} />
+          </div>
+        ))}
         {/* <NoticeLists />
         <NoticeLists />
         <NoticeLists />

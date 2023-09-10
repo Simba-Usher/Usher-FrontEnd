@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { Nav } from "../../../components/layouts/nav/Nav";
 import { HomeNav } from "../../../components/layouts/homeNav/HomeNav";
@@ -15,12 +15,15 @@ export const CoEditor = () => {
   const fetchAllData = async () => {
     try {
       const response = await axiosInstance.get("/api/composts?category=에디터+픽");
-      setEditorPick(response.data);
+      setEditorPick(response.data.results);
       console.log(editorPick);
     } catch (error) {
       console.log("ERROR", error);
     }
   };
+  useEffect(() => {
+    fetchAllData();
+  }, [])
 
   return (
     <Wrapper>
