@@ -5,18 +5,17 @@ export const Array = ({ activeArray, handleArraySecClick }) => {
     const modal = useRef();
 
     const getApiUrlByArrayMethod = (arrayMethod) => {
-        // 여기서 각 배열 방법에 맞는 API URL을 설정합니다.
         switch (arrayMethod) {
             case '최신순':
                 return '/api/composts/reccent';
             case '조회순':
                 return '/api/composts/views';
             case '좋아요 많은순':
-                return '/api/좋아요_많은순_URL';
+                return '/api/composts/popular';
             case '댓글 많은 순':
-                return '/api/댓글_많은_순_URL';
+                return '/api/composts/cmt';
             default:
-                return '/api/기본_URL';
+                return '/api/composts/reccent';
         }
     };
 

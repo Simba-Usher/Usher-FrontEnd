@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react'
 import * as S from "./style";
-import { v4 as uuidv4 } from 'uuid'; // UUID 라이브러리 import
+import axiosInstance from "../../../api/axios";
+// import { v4 as uuidv4 } from 'uuid'; // UUID 라이브러리 import
 
 export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => {
 
+    const [date, setDate] = useState(activeDate);
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
     const [content, setContent] = useState("");
@@ -17,25 +19,48 @@ export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => 
         setContent("");
     }
     // 적용하기
-    const handleAdd = () => {
-        if (title || location || content) {
-            const newMemo = {
-                id: uuidv4(),
-                title,
-                date: activeDate,
-                location,
-                content,
-            };
-
-            addMemoToList(newMemo);
-
-            setTitle('');
-            setLocation('');
-            setContent('');
+    const handleAdd = async () => {
+        try {
+            const response = await axiosInstance.post(
+                "/api/mypage/memos",
+                {
+                    title: title,
+                    date: date,
+                    location: location,
+                    content: content,
+                }
+            );
+            console.log(response.data);
+            addMemoToList({
+                title: title,
+                date: date,
+                location: location,
+                content: content,
+              });
+            closeModal();
+        } catch (error) {
+            console.log("달력 메모 추가 중 오류 발생", error);
         }
-        closeModal();
-        // console.log(memoList);
-    }
+    };
+    // const handleAdd = () => {
+    //     if (title || location || content) {
+    //         const newMemo = {
+    //             // id: uuidv4(),
+    //             title,
+    //             date: activeDate,
+    //             location,
+    //             content,
+    //         };
+
+    //         addMemoToList(newMemo);
+
+    //         setTitle('');
+    //         setLocation('');
+    //         setContent('');
+    //     }
+    //     closeModal();
+    //     // console.log(memoList);
+    // }
 
     return (
         <>
@@ -59,7 +84,11 @@ export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => 
                 </S.MemoSec>
                 <S.DateBox3>
                     <p>날짜</p>
-                    <p>{activeDate}</p>
+                    {/* <p>{activeDate}</p> */}
+                    <input
+                        type='text'
+                        value={activeDate}
+                        readOnly/>
                 </S.DateBox3>
                 <S.MemoSec>
                     <p>장소</p>
@@ -72,7 +101,7 @@ export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => 
                 </S.MemoSec>
                 <S.MemoBox>
                     <p>메모</p>
-                    <input
+                    <textarea
                         type='text'
                         placeholder='메모를 입력해주세요.'
                         value={content}
