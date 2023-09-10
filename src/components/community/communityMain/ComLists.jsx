@@ -25,7 +25,7 @@ export const ComLists = ({ compost, editorIsTrue }) => {
                         <p className='bar'>|</p>
                         {/* 작성일 불러오기 */}
                         <p className='date'>{compost.created_at.slice(0,10)}</p>
-                        {/* 에디터의 경우 -> 체크뱃지 추가(아래 주석 해제) */}
+                        {/* 에디터의 경우 */}
                         {editorIsTrue === true ? (
                             <img src="/editorcheck.png"
                             style={
