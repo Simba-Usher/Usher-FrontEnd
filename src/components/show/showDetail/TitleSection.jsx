@@ -17,6 +17,7 @@ export const TitleSection = () => {
         {},
         { headers }
       );
+      console.log(response.data);
       const detail = response.data.detail;
       detail == "좋아요 취소" ? setLike(false) : setLike(true);
     } catch (error) {
