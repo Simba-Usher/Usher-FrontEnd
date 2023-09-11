@@ -22,7 +22,6 @@ export const Login = () => {
     navigate("/");
     // navigate(-1);
   }
-  // const login = ()=>{}
 
   const login = async () => {
     try {
@@ -31,12 +30,14 @@ export const Login = () => {
         password: isPw,
       });
 
-      const { access } = response.data;
+      const { refresh } = response.data;
+      // const { access } = response.data;
 
 
-      setAccessToken(access);
+      setAccessToken(refresh);
+      // setAccessToken(access);
 
-      alert("로그인 성공! 토큰 : " + access + "/ recoil: " + accessToken);
+      alert("로그인 성공! 토큰 : " + refresh + "/ recoil: " + accessToken);
       console.log("데이터 - ",response.data);
       navigate("/");
 
