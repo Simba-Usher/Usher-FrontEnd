@@ -31,8 +31,16 @@ export const CloseBtn = styled.span`
   color: #bca4ff;
   cursor: default;
 `;
-export const PurpleBottomBtn = styled.button`
-  margin: 30px 65px;
+export const BtnLabel = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+`;
+export const PurpleBottomBtn = styled.div`
+margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 294px;
   height: 53px;
   border-radius: 5px;
@@ -50,9 +58,10 @@ export const SearchModalWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 35px;
   background-color: #f5f5ff;
-  animation: ${(props) => (props.isopen==="true" ? slideIn : slideOut)} 0.3s forwards;
-
+  animation: ${(props) => (props.isopen === "true" ? slideIn : slideOut)} 0.3s
+    forwards;
 `;
 export const KeywordSearchBar = styled(SearchSection)`
   position: relative;
