@@ -4,16 +4,20 @@ import Wrapper from "../../../components/Wrapper";
 import { NavArrow } from "../../community/communityWrite/style";
 import { ChoiceTicket } from "../../../components/show/showReviewWrite/ChoiceTicket";
 import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
+import axiosInstance from "../../../api/axios";
 
 export const ReviewWrite = () => {
   const navigate = useNavigate();
+  const accessToken = useRecoilValue(accessTokenState);
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [star, setStar] = useState(5);
   const [body, setBody] = useState("");
 
   const goback = () => {
     navigate(-1);
-  }
+  };
 
   const handleSelectTicket = (ticket) => {
     setSelectedTicket(ticket);
@@ -27,11 +31,26 @@ export const ReviewWrite = () => {
       newValue = 5;
     }
     setStar(newValue);
-  }
+  };
 
-  const handleSubmit = ()=>{
-    alert("ticket: "+selectedTicket.title+"/ 별점: "+star+"/ 본문: "+body)
-  }
+  // const handleSubmit = ()=>{
+  //   alert("ticket: "+selectedTicket.title+"/ 별점: "+star+"/ 본문: "+body)
+  // }
+  const handleSubmit = async () => {
+    try {
+      const headers = { Authorization: `Bearer ${accessToken}` };
+
+      const response = await axiosInstance.post(
+        `/api/mainposts/${1}/mainreviews`,
+        { ticket: selectedTicket.ticketNum, content: body, rating: star },
+        { headers }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("관람 후기 작성 오류 발생:", error);
+      throw error;
+    }
+  };
 
   return (
     <Wrapper>
