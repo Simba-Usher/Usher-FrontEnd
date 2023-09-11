@@ -1,90 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axiosInstance from "../../../api/axios";
 import * as S from "./style";
+import Wrapper from "../../../components/Wrapper";
 import { Nav } from "../../../components/layouts/nav/Nav";
 import { SelectedList } from "../../../components/show/SelectedList";
 import { ShowCard } from "../../../components/show/ShowCard";
-import { useNavigate } from "react-router-dom";
 import { Footer } from "../../../components/layouts/footer/Footer";
 import { SearchModal } from "../../searchModal/SearchModal";
-import Wrapper from "../../../components/Wrapper";
 import { Array } from "../../../components/show/Array";
-import axiosInstance from "../../../api/axios";
 
 export const ShowList = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
-  // const data = [
-  //   {
-  //     id: 1,
-  //     title: "뮤지컬 <레베카> 10주년 기념공연",
-  //     place: "블루스퀘어 신한카드홀",
-  //     startdate: "2023.8.19",
-  //     enddate: "2023.11.19",
-  //     star: 4.9,
-  //     reviews: 40,
-  //     comment: "완벽함을 넘어선 최고의 뮤지컬",
-  //     img: "/poster_1.png",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "뮤지컬 <멤피스>",
-  //     place: "충무아트센터 대극장",
-  //     startdate: "2023.7.20",
-  //     enddate: "2023.10.22",
-  //     star: 4.8,
-  //     reviews: 32,
-  //     comment: "세상에 돌려줄거야! 내 영혼의 음악",
-  //     img: "/poster_2.png",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "뮤지컬 <라흐헤스트>",
-  //     place: "드림아트센터 1관",
-  //     startdate: "2023.6.13",
-  //     enddate: "2023.9.3",
-  //     star: 4.8,
-  //     reviews: 32,
-  //     comment: "“찬란한 순간을 지나 예술이 되다”",
-  //     img: "/poster_3.png",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "뮤지컬 <오페라의 유령> - 서울",
-  //     place: "샤롯데씨어터",
-  //     startdate: "2023.7.21",
-  //     enddate: "2023.11.17",
-  //     star: 4.7,
-  //     reviews: 20,
-  //     comment: "마침내- 13년 만의 한국어 공연",
-  //     img: "/poster_4.png",
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "뮤지컬 <곤 투모로우>",
-  //     place: "광림아트센터 BBCH홀",
-  //     startdate: "2023.8.10",
-  //     enddate: "2023.10.22",
-  //     star: 4.7,
-  //     reviews: 27,
-  //     comment: "세 발의 총성 사라진 내일, 갈 수 없는 나라",
-  //     img: "/poster_5.png",
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "뮤지컬 <와일드 그레이>",
-  //     place: "대학로 아트윈씨어터 1관",
-  //     startdate: "2023.6.8",
-  //     enddate: "2023.9.3",
-  //     star: 4.6,
-  //     reviews: 48,
-  //     comment: "예술과 현실 사이에서 자유를 꿈꾸는 세 사람",
-  //     img: "/poster_6.png",
-  //   },
-  // ];
+  const { genre, location, price_range, date_range } = useParams();
+
   useEffect(() => {
     axiosInstance
-      .get("/api/mainposts")
+      .get(
+        `/api/mainposts?genre=${
+          genre !== ":genre" ? genre.slice(1) : ""
+        }&location=${
+          location !== ":location" ? location.slice(1) : ""
+        }&price_range${
+          price_range !== ":price_range" ? price_range.slice(1) : ""
+        }&date_range=${date_range !== ":date_range" ? date_range.slice(1) : ""}`
+      )
       .then((response) => {
         console.log(response.data);
         setData(response.data);
@@ -100,7 +42,7 @@ export const ShowList = () => {
   const handleCardClick = (showId) => {
     navigate(`/${showId}`);
   };
-  
+
   const [modalOpen, setModalOpen] = useState(false);
   const [activeArray, setActiveArray] = useState("별점 높은 순");
 
@@ -120,7 +62,6 @@ export const ShowList = () => {
     closeModal();
   };
 
-
   return (
     <Wrapper>
       {isModalOpen ? (
@@ -135,7 +76,8 @@ export const ShowList = () => {
             >
               arrow_back
             </span>
-            <p>뮤지컬</p>
+            <p>{genre===":genre"?"전체 장르" :genre.slice(1)}</p>
+            {/* <p>뮤지컬</p> */}
             <S.FloatRight>키워드 재설정</S.FloatRight>
           </S.ShowListTitle>
           <SelectedList />

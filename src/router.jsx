@@ -48,7 +48,6 @@ const router = createBrowserRouter([
       {
         path: "guide",
         element: <GuidePage />,
-
       },
       // 로그인
       {
@@ -81,9 +80,13 @@ const router = createBrowserRouter([
         element: <Category />,
       },
       {
-        path: "showlist",
+        path: `/mainposts/:genre/:location/:price_range/:date_range`,
         element: <ShowList />,
       },
+      // {
+      //   path: "showlist",
+      //   element: <ShowList />,
+      // },
       {
         path: ":detailId",
         element: <ShowDetail />,
@@ -102,7 +105,7 @@ const router = createBrowserRouter([
       },
       {
         path: ":detailId/site",
-        element: <Site />
+        element: <Site />,
       },
       // 마이페이지
       {
