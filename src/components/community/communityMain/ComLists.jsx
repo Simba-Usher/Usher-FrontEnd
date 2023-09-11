@@ -17,15 +17,15 @@ export const ComLists = ({ compost, editorIsTrue }) => {
                         {editorIsTrue === true ? (
                             <>
                                 <div className='editor'>에디터·</div>
-                                <div className='editor'>작성자</div>
+                                <div className='editor'>{compost.writer}</div>
                             </>
                         ) : (
-                            <p className='writer'>작성자</p>
+                            <p className='writer'>{compost.writer}</p>
                         )}
                         <p className='bar'>|</p>
                         {/* 작성일 불러오기 */}
-                        <p className='date'>2023.7.16</p>
-                        {/* 에디터의 경우 -> 체크뱃지 추가(아래 주석 해제) */}
+                        <p className='date'>{compost.created_at.slice(0,10)}</p>
+                        {/* 에디터의 경우 */}
                         {editorIsTrue === true ? (
                             <img src="/editorcheck.png"
                             style={
@@ -41,11 +41,11 @@ export const ComLists = ({ compost, editorIsTrue }) => {
                     </S.Sec2>
                     <S.Sec3>
                         <img src="/views.png" alt="views" />
-                        <p>1,201</p>
+                        <p>{compost.views}</p>
                         <img src="/likes.png" alt="likes" />
-                        <p>10</p>
+                        <p>{compost.like_cnt}</p>
                         <img src="/comments.png" alt="comments" />
-                        <p>5</p>
+                        <p>{compost.comcomments_cnt}</p>
                     </S.Sec3>
                 </S.TextSec>
                 <S.ImgSec src="/comlistposter.png" />

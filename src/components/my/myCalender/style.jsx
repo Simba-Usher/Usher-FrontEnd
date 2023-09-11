@@ -250,14 +250,18 @@ export const DateBox3 = styled(MemoSec)`
 export const MemoBox = styled(MemoSec)`
     height: 254px;
     position: relative;
-    input {
+    textarea {
+        outline: none;
+        border: none;
         height: 202px;
         color: #071D36;
         font-size: 20px;
         font-weight: 400;
         display: flex;
+        overflow: auto; /* 내용이 넘칠 때 스크롤바가 표시되도록 합니다. */
+        resize: none;
     }
-    input::placeholder {
+    textarea::placeholder {
         position: absolute;
         top: 0;
     }

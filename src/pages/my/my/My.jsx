@@ -19,7 +19,7 @@ export const My = () => {
   const accessToken = useRecoilValue(accessTokenState);
 
     // Access Token이 있는지 확인
-  if (true) {
+  if (accessToken) {
     return (
       <Wrapper>
         <Nav />

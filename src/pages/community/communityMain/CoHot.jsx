@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { Nav } from "../../../components/layouts/nav/Nav";
 import { HomeNav } from "../../../components/layouts/homeNav/HomeNav";
@@ -16,12 +16,15 @@ export const CoHot = () => {
   const fetchAllData = async () => {
     try {
       const response = await axiosInstance.get("/api/composts/hot");
-      setHotCompost(response.data);
+      setHotCompost(response.data.results);
       console.log(hotCompost);
     } catch (error) {
       console.log("ERROR", error);
     }
   };
+  useEffect(() => {
+    fetchAllData();
+  }, [])
   
   return (
     <Wrapper>

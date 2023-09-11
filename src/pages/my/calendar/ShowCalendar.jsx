@@ -1,6 +1,6 @@
 // ShowCalendar.jsx
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../../../components/my/myCalender/MyCalendar.css'; // 새로운 CSS 파일
 import { MyInnerNav } from "../../../components/my/MyInnerNav";
 import { MyCalendar } from "../../../components/my/myCalender/MyCalendar";
@@ -8,6 +8,7 @@ import { CalendarBar } from "../../../components/my/myCalender/CalendarBar";
 import { ShowCards } from "../../../components/my/myCalender/ShowCards";
 import { MemoCards } from "../../../components/my/myCalender/MemoCards";
 import { Footer } from "../../../components/layouts/footer/Footer";
+import axiosInstance from "../../../api/axios";
 
 export const ShowCalendar = () => {
   const title = "공연 달력";
@@ -20,8 +21,11 @@ export const ShowCalendar = () => {
   };
 
   const [memoList, setMemoList] = useState([]);
+  // const addMemoToList = (newMemo) => {
+  //   setMemoList([...memoList, newMemo]);
+  // };
   const addMemoToList = (newMemo) => {
-    setMemoList([...memoList, newMemo]);
+    setMemoList((prevMemoList) => [...prevMemoList, newMemo]);
   };
   console.log(memoList);
 
@@ -51,6 +55,18 @@ export const ShowCalendar = () => {
 
   // activeDate와 일치하는 데이터만 필터링
   const filteredData1 = memoList.filter((memo) => memo.date === activeDate);
+  const fetchMeMoData = async () => {
+    try {
+      const response = await axiosInstance.get("/api/mypage/memos");
+      setMemoList(response.data);
+      console.log(memoList);
+    } catch (error) {
+      console.log("메모 받아오는 중에 오류 발생", error);
+    }
+  };
+  useEffect(() => {
+    fetchMeMoData();
+  }, [])
   // const filteredData1 = MemoData.filter((memo) => memo.date === activeDate);
   const filteredData2 = ShowData.filter((show) => show.date === activeDate);
 
