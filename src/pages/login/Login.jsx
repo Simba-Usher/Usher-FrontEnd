@@ -22,7 +22,6 @@ export const Login = () => {
     navigate("/");
     // navigate(-1);
   }
-  // const login = ()=>{}
 
   const login = async () => {
     try {

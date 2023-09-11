@@ -1,15 +1,21 @@
 // LogOut.jsx
 
-import React from 'react'
+import React from "react";
 import * as S from "./style";
-import axiosInstance from '../../../api/axios';
+import axiosInstance from "../../../api/axios";
+import { useSetRecoilState } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
 
 export const LogOut = () => {
+  const setAccessToken = useSetRecoilState(accessTokenState);
 
   const handleLogout = async () => {
     try {
       const response = await axiosInstance.post(
-        "/api/dj-rest-auth/logout/",{},);
+        "/api/dj-rest-auth/logout/",
+        {}
+      );
+      setAccessToken(null);
       console.log(response.data);
     } catch (error) {
       console.error("로그아웃 오류 발생:", error);
@@ -25,4 +31,4 @@ export const LogOut = () => {
       </S.LogOutWrap>
     </>
   );
-}
+};
