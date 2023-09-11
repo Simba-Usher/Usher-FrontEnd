@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { SearchGenre } from "../../components/searchmodal/SearchGenre";
 import { SearchAraa } from "../../components/searchmodal/SearchAraa";
 import { SearchPrice } from "../../components/searchmodal/SearchPrice";
 import { SearchDate } from "../../components/searchmodal/SearchDate";
-import {SearchReaction} from "../../components/searchmodal/SearchReaction";
+import { SearchReaction } from "../../components/searchmodal/SearchReaction";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
 
@@ -17,6 +17,12 @@ export const SearchModal = ({ isModalOpen, toggleModal }) => {
   const [rangeMaxValue, setRangeMaxValue] = useState(200000);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  const handleSubmit = () => {
+    toggleModal();
+    navigate(`/mainposts/:${genre}/:${area}/:price_range/:date_range`);
+    console.log(`/mainposts/:${genre}/:${area}/:price_range/:date_range`);
+  };
 
   return (
     <Wrapper>
@@ -45,9 +51,11 @@ export const SearchModal = ({ isModalOpen, toggleModal }) => {
         <SearchDate setStartDate={setStartDate} setEndDate={setEndDate} />
         <SearchReaction />
       </S.SearchModalWrapper>
-      <S.PurpleBottomBtn onClick={() => navigate("/showlist")}>
-        키워드 검색
-      </S.PurpleBottomBtn>
+      <S.BtnLabel>
+        <S.PurpleBottomBtn onClick={handleSubmit}>
+          키워드 검색
+        </S.PurpleBottomBtn>
+      </S.BtnLabel>
     </Wrapper>
   );
 };

@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { PriceRangeMax, PriceRangeMax2, PriceRangeMin, PriceRangeMin2, PriceRangeWrap, PriceRangeWrap2, PriceSlide, PriceSlide2, PriceSlideInner } from "../searchmodal/style";
+import {
+  PriceRangeMax,
+  PriceRangeMax2,
+  PriceRangeMin,
+  PriceRangeMin2,
+  PriceRangeWrap,
+  PriceRangeWrap2,
+  PriceSlide,
+  PriceSlide2,
+  PriceSlideInner,
+} from "../searchmodal/style";
+import { useNavigate } from "react-router-dom";
 
-export const SelectedList = ({
-  // rangeMinValue,
-  // setRangeMinValue,
-  // rangeMaxValue,
-  // setRangeMaxValue,
-}) => {
-  const [isArea, setisArea] = useState("");
+export const SelectedList = ({ genre,area, setArea }) => {
+  const navigate = useNavigate();
   const [dateRange, setDateRange] = useState([
     {
-      startDate: new Date("2023-8-1"),
-      endDate: new Date("2023-8-30"),
+      startDate: new Date("2023-9-1"),
+      endDate: new Date("2023-9-30"),
       key: "selection",
     },
   ]);
@@ -56,23 +62,28 @@ export const SelectedList = ({
     }
   };
 
+  useEffect(() => {
+    navigate(`/mainposts/:${genre.slice(1)}/:${area}/:price_range/:date_range`);
+  }, [area, genre, navigate]);
+
+  const handleLocation = (e) => {
+    setArea(e.target.value);
+  };
+    
+
   return (
     <>
       <S.SelectedListContainer>
         {/* area */}
-        <S.SelectDesign
-          name="area"
-          value={isArea}
-          onChange={(e) => setisArea(e.target.value)}
-        >
-          <option value="seoul">서울</option>
-          <option value="gyeonggi">경기</option>
-          <option value="incheon">인천</option>
-          <option value="gangwon">강원</option>
-          <option value="chungcheong">충청</option>
-          <option value="gyeongsang">경상</option>
-          <option value="jeola">전라</option>
-          <option value="jeju">제주</option>
+        <S.SelectDesign name="area" value={area} onChange={handleLocation}>
+          <option value="서울">서울</option>
+          <option value="경기">경기</option>
+          <option value="인천">인천</option>
+          <option value="강원">강원</option>
+          <option value="충청">충청</option>
+          <option value="경상">경상</option>
+          <option value="전라">전라</option>
+          <option value="제주">제주</option>
         </S.SelectDesign>
 
         {/* date */}

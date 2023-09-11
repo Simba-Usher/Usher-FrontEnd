@@ -15,15 +15,14 @@ export const ShowList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
   const { genre, location, price_range, date_range } = useParams();
+  const [area, setArea] = useState(location.slice(1));
 
   useEffect(() => {
     axiosInstance
       .get(
         `/api/mainposts?genre=${
           genre !== ":genre" ? genre.slice(1) : ""
-        }&location=${
-          location !== ":location" ? location.slice(1) : ""
-        }&price_range${
+        }&location=${area !== "location" ? area : ""}&price_range${
           price_range !== ":price_range" ? price_range.slice(1) : ""
         }&date_range=${date_range !== ":date_range" ? date_range.slice(1) : ""}`
       )
@@ -34,7 +33,7 @@ export const ShowList = () => {
       .catch((error) => {
         console.error("API 요청 실패:", error);
       });
-  }, []);
+  }, [genre, location]);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -61,7 +60,7 @@ export const ShowList = () => {
     setActiveArray(selected);
     closeModal();
   };
-
+  
   return (
     <Wrapper>
       {isModalOpen ? (
@@ -76,11 +75,11 @@ export const ShowList = () => {
             >
               arrow_back
             </span>
-            <p>{genre===":genre"?"전체 장르" :genre.slice(1)}</p>
+            <p>{genre === ":genre" ? "전체 장르" : genre.slice(1)}</p>
             {/* <p>뮤지컬</p> */}
-            <S.FloatRight>키워드 재설정</S.FloatRight>
+            <S.FloatRight onClick={toggleModal}>키워드 재설정</S.FloatRight>
           </S.ShowListTitle>
-          <SelectedList />
+          <SelectedList genre={genre} setArea={setArea} area={area} />
           <S.SpaceBetween>
             <p>키워드 적용된 공연입니다</p>
             <p>
