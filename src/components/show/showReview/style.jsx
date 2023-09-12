@@ -218,7 +218,7 @@ export const ReviewCmtWrapper = styled.form`
   padding-left: 10px;
   background: #e2e3e6;
 `;
-export const ReviewCmtPostBtn = styled.button`
+export const ReviewCmtPostBtn = styled.div`
   position: absolute;
   right: 12px;
   bottom: 10px;

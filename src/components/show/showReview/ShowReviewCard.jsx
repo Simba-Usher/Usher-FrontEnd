@@ -22,15 +22,17 @@ export const ShowReviewCard = ({ review }) => {
       {/*  */}
       <S.ReviewWriter>{review.writer}</S.ReviewWriter>
       <S.ReviewData>
-        {review.where} · 카드 제휴 할인 · ￦{review.price.toLocaleString()}
+        {review.ticket.reservation_site} · 카드 제휴 할인 · ￦
+        {parseInt(review.ticket.price).toLocaleString()}
       </S.ReviewData>
       <S.ReviewRowBox>
-        {Array(parseInt(review.star))
+        {Array(parseInt(review.rating))
           .fill(null)
           .map((_, index) => (
             <S.ReviewStars key={index} className="fas fa-star" />
           ))}
-        {review.date.slice(2)} | {review.time} 공연
+        {review.ticket.performance_date.slice(0, 10)} |{" "}
+        {review.ticket.performance_date.slice(11,16)} 공연
       </S.ReviewRowBox>
       <S.ReviewContent>
         {review.content.slice(0, 21)} <span>...더보기</span>
@@ -39,8 +41,8 @@ export const ShowReviewCard = ({ review }) => {
         <S.SmallBlueIcon className="material-symbols-outlined">
           thumb_up
         </S.SmallBlueIcon>
-        <S.SmallBlueTxt>공감해요 {review.likes}</S.SmallBlueTxt>
-        <S.SmallGrayTxt>&nbsp;· 댓글 {review.cocomments.length}</S.SmallGrayTxt>
+        <S.SmallBlueTxt>공감해요 {review.like_cnt}</S.SmallBlueTxt>
+        <S.SmallGrayTxt>&nbsp;· 댓글 {review.mainrecoms_cnt}</S.SmallGrayTxt>
         <span
           onClick={() => setFold((prevFold) => !prevFold)}
           className="material-symbols-outlined"

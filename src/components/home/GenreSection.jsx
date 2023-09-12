@@ -53,7 +53,7 @@ export const GenreSection = () => {
           <S.FlexColumn
             onClick={() =>
               navigate(
-                "/mainposts/:아동가족/:location/:price_range/:date_range"
+                "/mainposts/:가족/:location/:price_range/:date_range"
               )
             }
           >

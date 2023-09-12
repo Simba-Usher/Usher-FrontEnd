@@ -33,16 +33,17 @@ export const ReviewWrite = () => {
     setStar(newValue);
   };
 
-  // const handleSubmit = ()=>{
-  //   alert("ticket: "+selectedTicket.title+"/ 별점: "+star+"/ 본문: "+body)
-  // }
   const handleSubmit = async () => {
     try {
       const headers = { Authorization: `Bearer ${accessToken}` };
 
       const response = await axiosInstance.post(
         `/api/mainposts/${1}/mainreviews`,
-        { ticket: selectedTicket.ticketNum, content: body, rating: star },
+        {
+          ticket: selectedTicket.ticketNum,
+          content: body,
+          rating: star,
+        },
         { headers }
       );
       console.log(response.data);
