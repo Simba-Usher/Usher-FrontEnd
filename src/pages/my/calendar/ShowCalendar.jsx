@@ -62,7 +62,7 @@ export const ShowCalendar = () => {
   const fetchMemoData = async () => {
     try {
       const response = await axiosInstance.get("/api/mypage/memos", 
-      { withCredentials: true },
+      // { withCredentials: true },
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -104,6 +104,8 @@ export const ShowCalendar = () => {
         key={memo.id}
         data={memo}
         activeDate={activeDate}
+        memoList={memoList}
+        setMemoList={setMemoList}
       />
     ))}
     {/* <MemoCards activeDate={activeDate} /> */}

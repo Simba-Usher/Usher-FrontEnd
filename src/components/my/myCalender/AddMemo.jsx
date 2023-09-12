@@ -39,7 +39,7 @@ export const AddMemo = ({ activeDate, closeModal, addMemoToList, memoList }) => 
                     location: location,
                     content: content,
                 },
-                { withCredentials: true },
+                // { withCredentials: true },
                 {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,

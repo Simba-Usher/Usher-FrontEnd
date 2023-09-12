@@ -7,7 +7,7 @@ export const NoticeLists = ({ notice }) => {
 
     return (
         <>
-            <S.NotiveListsWrap onClick={() => navigate("/community/:detailId")}>
+            <S.NotiveListsWrap onClick={() => navigate(`/community/${compost.id}`)}>
                 <S.NotiveSec>
                     <S.Sec1Title>공지* {notice.title}</S.Sec1Title>
                     <S.Sec2Manager>

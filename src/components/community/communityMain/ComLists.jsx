@@ -7,7 +7,7 @@ export const ComLists = ({ compost, editorIsTrue }) => {
 
     return (
         <>
-            <S.ComListsWrap onClick={() => navigate("/community/:detailId")}>
+            <S.ComListsWrap onClick={() => navigate(`/community/${compost.id}`)}>
                 <S.TextSec>
                     <S.Sec1Title>{compost.title}</S.Sec1Title>
                     <S.Sec2>
