@@ -1,10 +1,34 @@
 import React, { useState } from 'react'
 import * as S from "./style";
+import axiosInstance from "../../../api/axios";
+import { useRecoilValue } from 'recoil';
+import { accessTokenState } from '../../../recoil/recoilState';
 
 export const TicketInput=() =>{
-    const [ticketNum,setTicketNum]=useState("");
-    const handleSubmit =() =>{
+    const [ticketNum, setTicketNum] = useState("");
+    const accessToken = useRecoilValue(accessTokenState);
+    // const handleSubmit = () => {
+    //     ticketNum && alert(ticketNum+"등록되었습니다.");
+    // }
+
+    const handleSubmit = async () => {
+      try {
+        const response = await axiosInstance.post(
+          "/api/mypage/ticket",
+          {
+            ticket_number: ticketNum,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            }
+          }
+        );
+        console.log(response.data);
         ticketNum && alert(ticketNum+"등록되었습니다.");
+      } catch (error) {
+        console.log("티켓 추가 중 오류 발생", error);
+      }
     }
 
   return (

@@ -14,60 +14,38 @@ import { accessTokenState } from "../../../recoil/recoilState";
 
 export const ShowCalendar = () => {
   const title = "공연 달력";
+  const accessToken = useRecoilValue(accessTokenState);
+  const [activeDate, setActiveDate] = useState('');
+  const [memoList, setMemoList] = useState([]);
+  const [ticketList, setTicketList] = useState([]);
+  const [ticketMemoList, setTicketMemoList] = useState([]);
 
-  const [activeDate, setActiveDate] = useState(''); // activeDate 상태 초기화
-
-  // activeDate를 업데이트하는 함수 정의
+  // activeDate 업데이트
   const handleActiveDateChange = (newActiveDate) => {
     setActiveDate(newActiveDate);
+    console.log(activeDate);
   };
 
-  const [memoList, setMemoList] = useState([]);
-  // const addMemoToList = (newMemo) => {
-  //   setMemoList([...memoList, newMemo]);
-  // };
+
+  // 메모 추가
   const addMemoToList = (newMemo) => {
     setMemoList((prevMemoList) => [...prevMemoList, newMemo]);
   };
   console.log(memoList);
 
-  const ShowData = [
-    {
-      "id": "1",
-        "title": "<뮤지컬> 오페라의 유령 - 서울",
-        "date": "2023-09-06",
-        "location": "샤롯데씨어터",
-        "content": "공연 메모 내용1 입니다 ..."
-    },
-    {
-      "id": "2",
-        "title": "<뮤지컬> 멤피스",
-        "date": "2023-09-06",
-        "location": "충무아트센터 대극장",
-        "content": "공연 메모 내용2 입니다 ..."
-    },
-    {
-      "id": "3",
-        "title": "<뮤지컬> 레베카",
-        "date": "2023-09-07",
-        "location": "내 집앞",
-        "content": "공연 메모 내용3 입니다 ..."
-    },
-  ];
-
-  // activeDate와 일치하는 데이터만 필터링
+  // activeDate와 일치하는 메모 데이터만 필터링
   const filteredData1 = memoList.filter((memo) => memo.date === activeDate);
-  const accessToken = useRecoilValue(accessTokenState);
 
+  // 메모 불러오기
   const fetchMemoData = async () => {
     try {
-      const response = await axiosInstance.get("/api/mypage/memos", 
-      // { withCredentials: true },
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        }
-      });
+      const response = await axiosInstance.get("/api/mypage/memos",
+        // { withCredentials: true },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          }
+        });
       setMemoList(response.data);
       console.log(memoList);
     } catch (error) {
@@ -77,39 +55,69 @@ export const ShowCalendar = () => {
   useEffect(() => {
     fetchMemoData();
   }, [])
-  
-  const filteredData2 = ShowData.filter((show) => show.date === activeDate);
 
-  return(
+
+  // 메모 추가
+  // const addTicketMemoToList = (newMemo) => {
+  //   setTicketMemoList((prevMemoList) => [...prevMemoList, newMemo]);
+  // };
+  // console.log(ticketMemoList);
+
+  // activeDate와 일치하는 티켓 데이터만 필터링
+  const filteredData2 = ticketList.filter((show) => show.performance_date.slice(0, 10) === activeDate);
+
+  // 티켓 불러오기
+  const fetchMyTicketData = async () => {
+    try {
+      const response = await axiosInstance.get("/api/mypage/ticket",
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          }
+        });
+      setTicketList(response.data);
+      console.log(ticketList);
+    } catch (error) {
+      console.log("티켓 불러오는 중 오류 발생", error);
+    }
+  }
+  useEffect(() => {
+    fetchMyTicketData();
+  }, [])
+
+  return (
     <>
-    <MyInnerNav title={title} />
-    <MyCalendar onActiveDateChange={handleActiveDateChange} />
-    <CalendarBar
-      activeDate={activeDate}
-      // closeModal={closeModal}
-      memoList={memoList}
-      addMemoToList={addMemoToList}
-    />
-    {/* 각 날짜에 맞는 공연카드 불러오기 ... */}
-    {filteredData2.map ((show) => (
-      <ShowCards
-      key={show.id}
-      data={show}
-      activeDate={activeDate}
-       />
-    ))}
-    {/* <ShowCards activeDate={activeDate} /> */}
-    {filteredData1.map ((memo) => (
-      <MemoCards
-        key={memo.id}
-        data={memo}
+      <MyInnerNav title={title} />
+      <MyCalendar onActiveDateChange={handleActiveDateChange} />
+      <CalendarBar
         activeDate={activeDate}
+        // closeModal={closeModal}
         memoList={memoList}
-        setMemoList={setMemoList}
+        addMemoToList={addMemoToList}
       />
-    ))}
-    {/* <MemoCards activeDate={activeDate} /> */}
-    <Footer />
+      {/* 각 날짜에 맞는 공연카드 불러오기 ... */}
+      {filteredData2.map((show) => (
+        <ShowCards
+          key={show.id}
+          data={show}
+          activeDate={activeDate}
+          ticketMemoList={ticketMemoList}
+          setTicketMemoList={setTicketMemoList}
+          // addTicketMemoToList={addTicketMemoToList}
+        />
+      ))}
+      {/* <ShowCards activeDate={activeDate} /> */}
+      {filteredData1.map((memo) => (
+        <MemoCards
+          key={memo.id}
+          data={memo}
+          activeDate={activeDate}
+          memoList={memoList}
+          setMemoList={setMemoList}
+        />
+      ))}
+      {/* <MemoCards activeDate={activeDate} /> */}
+      <Footer />
     </>
   );
 };
