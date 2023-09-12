@@ -3,8 +3,10 @@ import * as S from "../style";
 import axiosInstance from "../../../api/axios";
 import { useRecoilValue } from "recoil";
 import { accessTokenState } from "../../../recoil/recoilState";
+import { useLocation, useParams } from "react-router-dom";
 
-export const TitleSection = () => {
+export const TitleSection = ({data}) => {
+  const {pathname} = useLocation();
   const [like, setLike] = useState(false);
   const accessToken = useRecoilValue(accessTokenState);
 
@@ -13,7 +15,7 @@ export const TitleSection = () => {
       const headers = { Authorization: `Bearer ${accessToken}` };
 
       const response = await axiosInstance.post(
-        "/api/mainposts/1/likes",
+        `/api/mainposts/${pathname.slice(1)}/likes`,
         {},
         { headers }
       );
@@ -31,9 +33,11 @@ export const TitleSection = () => {
       <S.TitleSecWrap>
         <S.TitleSec1>
           {/* 장르 불러오기 */}
-          <S.GenreBox>뮤지컬</S.GenreBox>
+          <S.GenreBox>{data.genre}</S.GenreBox>
+          {/* <S.GenreBox>뮤지컬</S.GenreBox> */}
           {/* 지역 불러오기 */}
-          <S.AreaBox>서울</S.AreaBox>
+          <S.AreaBox>{data.location}</S.AreaBox>
+          {/* <S.AreaBox>서울</S.AreaBox> */}
           <S.EtcBox>
             <S.EtcBtns src="/share.png" alt="shareBtn" />
             <S.EtcBtns
@@ -44,7 +48,8 @@ export const TitleSection = () => {
           </S.EtcBox>
         </S.TitleSec1>
         {/* 제목 불러오기 */}
-        <S.TitleSec2>오페라의 유령 - 서울</S.TitleSec2>
+        <S.TitleSec2>{data.title}</S.TitleSec2>
+        {/* <S.TitleSec2>오페라의 유령 - 서울</S.TitleSec2> */}
         <S.TitleSec3>
           {/* 관람시간 불러오기 */}
           <p>150분 (인터미션 20분 포함)</p>
@@ -57,7 +62,10 @@ export const TitleSection = () => {
           {/* 공연장명 불러오기 */}
           <p style={{ color: "#002C4A" }}>서울 잠실. 샤롯데 씨어터</p>
           {/* 공연기간 불러오기 */}
-          <p style={{ color: "#002843" }}>2023.7.21 ~ 2023.11.17</p>
+          <p style={{ color: "#002843" }}>
+            {data.start_date} ~ {data.end_date}
+          </p>
+          {/* <p style={{ color: "#002843" }}>2023.7.21 ~ 2023.11.17</p> */}
         </S.TitleSec4>
       </S.TitleSecWrap>
     </>

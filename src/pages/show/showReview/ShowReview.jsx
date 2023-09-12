@@ -1,16 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import Wrapper from "../../../components/Wrapper";
 import { OtherNav } from "../../../components/layouts/otherNav/OtherNav";
 import { ShowReviewCard } from "../../../components/show/showReview/ShowReviewCard";
 import { WriteBtnSection } from "../../../components/show/showReview/WriteBtnSection";
 import { FilterModal } from "../../../components/show/showReview/filterModal/FilterModal";
+import axiosInstance from "../../../api/axios";
+import { useLocation, useParams } from "react-router-dom";
 
 export const ShowReview = () => {
   const [isSort, setIsSort] = useState("최신순");
   const [filterModal,setFilterModal]=useState(false);
+  const {pathname} = useLocation();
 
-  const data = [
+  const [data, setData] = useState([
+    {
+      id: 1,
+      writer: "익명의코끼리", //백에는 없음
+      like_cnt: 0,
+      mainpost: "오페라의 유령 - 서울",
+      mainrecoms: [
+        {
+          id: 1,
+          writer: "익명의코끼리",
+          content: "아멘... 이 댓읽고 카드 긁었습니다^-^",
+          created_at: "2023-09-06T21:09:34.929212Z",
+        },
+        {
+          id: 2,
+          writer: "뮤라이프",
+          content: "최고의 선택. 후회 없으실겁니다",
+          created_at: "2023-09-06T21:09:34.929212Z",
+        },
+      ],
+      mainrecoms_cnt: 2,
+      ticket: {
+        performance_date: "2023-08-10T15:00:00Z",
+        reservation_site: "인터파크 티켓",
+        discount_method: "",
+        price: 120000,
+      },
+      content:
+        "삼천년동안 얼어있던 내 심장이 뛰기 시작하고,,조승우행님 오페라의 유령을 본 이후로 심봉사마냥 두 눈 번쩍 떴습니다... 최고의 뮤지컬,, 두번 볼 의향 충분합니다 좌석은 말할 것도 없이 갓샤롯데.. 시야 완전 잘보여요!!",
+      created_at: "2023-09-06T21:09:34.929212Z",
+      updated_at: "2023-09-06T21:09:34.929227Z",
+      rating: 5,
+    },
+    /*
     {
       id: 1,
       writer: "뮤라이프",
@@ -23,7 +59,7 @@ export const ShowReview = () => {
         "삼천년동안 얼어있던 내 심장이 뛰기 시작하고,,조승우행님 오페라의 유령을 본 이후로 심봉사마냥 두 눈 번쩍 떴습니다... 최고의 뮤지컬,, 두번 볼 의향 충분합니다 좌석은 말할 것도 없이 갓샤롯데.. 시야 완전 잘보여요!!",
       likes: 6,
       comments: 2,
-      cocomments:[
+      cocomments: [
         {
           id: 1,
           writer: "익명의코끼리",
@@ -35,37 +71,24 @@ export const ShowReview = () => {
           writer: "뮤라이프",
           content: "최고의 선택. 후회 없으실겁니다",
           date: "2023.8.11",
-        }
-      ]
-      },
-    {
-      id: 2,
-      writer: "뮤라이프2",
-      price: 152000,
-      where: "인터파크 티켓2",
-      star: 5,
-      date: "2023.8.10",
-      time: "19:30",
-      content:
-        "삼천년동안 얼어있던 내 심장이 뛰기 시작하고,,조승우행님 오페라의 유령을 본 이후로 심봉사마냥 두 눈 번쩍 떴습니다... 최고의 뮤지컬,, 두번 볼 의향 충분합니다 좌석은 말할 것도 없이 갓샤롯데.. 시야 완전 잘보여요!!",
-      likes: 6,
-      comments: 2,
-      cocomments:[
-        {
-          id: 1,
-          writer: "익명의코끼리2",
-          content: "아멘... 이 댓읽고 카드 긁었습니다^-^",
-          date: "2023.8.11",
         },
-        {
-          id: 2,
-          writer: "뮤라이프2",
-          content: "최고의 선택. 후회 없으실겁니다",
-          date: "2023.8.11",
-        }
-      ]
-      },
-  ];
+      ],
+    },
+    */
+  ]);
+
+    useEffect(() => {
+      axiosInstance
+        .get(`/api/mainposts/${pathname.slice(1, 2)}/mainreviews`)
+        .then((response) => {
+          console.log(response.data);
+          setData(response.data);
+        })
+        .catch((error) => {
+          console.error("API 요청 실패:", error);
+        });
+    },);
+
   return (
     <>
       {filterModal && <FilterModal setFilterModal={setFilterModal} />}
