@@ -38,12 +38,7 @@ export const CoNotice = () => {
             <NoticeLists notice={result} />
           </div>
         ))}
-        {/* <NoticeLists />
-        <NoticeLists />
-        <NoticeLists />
-        <NoticeLists /> */}
         <p>페이지넘버링</p>
-        {/* <WriteBtn /> */}
       </S.CoWrap>
     </Wrapper>
   )
