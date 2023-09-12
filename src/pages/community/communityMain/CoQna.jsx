@@ -58,6 +58,7 @@ export const CoQna = () => {
   useEffect(() => {
     fetchAllData();
   },[]);
+
   return (
     <Wrapper>
       <Nav />
