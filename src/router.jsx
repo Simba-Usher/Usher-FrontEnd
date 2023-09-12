@@ -30,6 +30,7 @@ import { Join_3 } from "./pages/login/Join_3";
 import { Loading } from "./pages/startPage/Loading";
 import { GuidePage } from "./pages/startPage/GuidePage";
 import { Site } from "./pages/show/showDetail/Site";
+import { CoSearch } from "./pages/community/communityMain/CoSearch";
 
 const router = createBrowserRouter([
   {
@@ -157,6 +158,10 @@ const router = createBrowserRouter([
       {
         path: "community",
         element: <CoHot />,
+      },
+      {
+        path: "community/search",
+        element: <CoSearch />
       },
     ],
     errorElement: <NotFound />,
