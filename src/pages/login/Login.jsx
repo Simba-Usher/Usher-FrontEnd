@@ -30,14 +30,14 @@ export const Login = () => {
         password: isPw,
       });
 
-      const { refresh } = response.data;
-      // const { access } = response.data;
+      // const { refresh } = response.data;
+      const { access } = response.data;
 
 
-      setAccessToken(refresh);
-      // setAccessToken(access);
+      // setAccessToken(refresh);
+      setAccessToken(access);
 
-      alert("로그인 성공! 토큰 : " + refresh + "/ recoil: " + accessToken);
+      alert("로그인 성공! 토큰 : " + access + "/ recoil: " + accessToken);
       console.log("데이터 - ",response.data);
       navigate("/");
 

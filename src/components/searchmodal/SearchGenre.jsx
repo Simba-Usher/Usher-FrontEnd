@@ -47,8 +47,8 @@ export const SearchGenre = ({ genre, setgenre }) => {
           )}
           콘서트
         </S.FlexColumn>
-        <S.FlexColumn onClick={() => setgenre("가족")}>
-          {genre == "가족" ? (
+        <S.FlexColumn onClick={() => setgenre("아동가족")}>
+          {genre == "아동가족" ? (
             <S.SmallImg src="/s_family.png" alt="family" />
           ) : (
             <S.SmallImg src="/g_family.png" alt="family" />
