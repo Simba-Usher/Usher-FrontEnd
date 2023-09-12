@@ -8,11 +8,13 @@ import { ComLists } from "../../../components/community/communityMain/ComLists";
 import { WriteBtn } from "../../../components/community/communityMain/WriteBtn";
 import Wrapper from "../../../components/Wrapper";
 import axiosInstance from "../../../api/axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const CoHot = () => {
   const [hotCompost, setHotCompost] = useState([]);
   const [activeArray, setActiveArray] = useState("최신순");
+  const location = useLocation();
+  const searchValue = new URLSearchParams(location.search).get("search");
 
   const closeModal = () => {
     setModalOpen(false);
@@ -61,13 +63,27 @@ export const CoHot = () => {
     fetchCompostsByArrayMethod(arrayMethod);
   };
 
+  const handleSearch = async (searchValue) => {
+    try {
+        const response = await axiosInstance.get(`/api/composts?search=${searchValue}`)
+        // setSearch(response.data.results);
+        setSearchResults(response.data.results);
+        console.log(response.data.results);
+    } catch (error) {
+        console.log("검색어 입력 오류", error);
+    }
+  }
+
   useEffect(() => {
     fetchAllData();
-  },[]);
+    handleSearch(searchValue);
+  }, [searchValue]);
 
   return (
     <Wrapper>
-      <Nav />
+      <Nav
+        onClick={handleSearch}
+      />
       <HomeNav />
       <S.CoWrap>
         <NoticeSec />

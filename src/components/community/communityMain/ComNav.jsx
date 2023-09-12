@@ -14,7 +14,6 @@ export const ComNav = ({ activeArray, handleArraySecClick }) => {
   const isCommunityQna = location.pathname === "/community/qna";
 
   const [modalOpen, setModalOpen] = useState(false);
-  // const [activeArray, setActiveArray] = useState("최신순");
 
   // 모달 열기
   const openModal = () => {
@@ -25,29 +24,6 @@ export const ComNav = ({ activeArray, handleArraySecClick }) => {
   const closeModal = () => {
     setModalOpen(false);
   };
-
-  // // 선택한 ArraySec 저장
-  // const handleArraySecClick = async (selected, apiUrl) => {
-  //   const openModal = () => {
-  //     setModalOpen(true);
-  //   };
-
-  //   const closeModal = () => {
-  //     setModalOpen(false);
-  //   };
-  //   setActiveArray(selected);
-  //   // 이제 apiUrl을 사용하여 데이터를 가져올 수 있습니다.
-  //   console.log('Selected Array:', selected);
-  //   console.log('API URL:', apiUrl);
-
-  //   try {
-  //     const response = await axiosInstance.get(apiUrl);
-  //     setActiveArray(response.data);
-  //     closeModal();
-  //   } catch (error) {
-  //     console.log("배열 정렬 url GET 시 오류 발생", error);
-  //   }
-  // };
 
   return (
     <>
@@ -88,9 +64,6 @@ export const ComNav = ({ activeArray, handleArraySecClick }) => {
           }}
         />
         {modalOpen && (
-          // <Array
-          //   setModalOpen={setModalOpen}
-          //   closeModal={closeModal} />
           <Array
             setModalOpen={setModalOpen}
             closeModal={closeModal}
