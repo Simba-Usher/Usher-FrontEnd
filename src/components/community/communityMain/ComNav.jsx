@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Array } from './Array';
 import axiosInstance from "../../../api/axios";
 
-export const ComNav = () => {
+export const ComNav = ({ activeArray, handleArraySecClick }) => {
   const navigate = useNavigate();
   const isCommunityHot = location.pathname === "/community";
   const isCommunityFree = location.pathname === "/community/free";
@@ -14,7 +14,7 @@ export const ComNav = () => {
   const isCommunityQna = location.pathname === "/community/qna";
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [activeArray, setActiveArray] = useState("최신순");
+  // const [activeArray, setActiveArray] = useState("최신순");
 
   // 모달 열기
   const openModal = () => {
@@ -26,21 +26,28 @@ export const ComNav = () => {
     setModalOpen(false);
   };
 
-  // 선택한 ArraySec 저장
-  const handleArraySecClick = async (selected, apiUrl) => {
-    // setActiveArray(selected);
-    // closeModal();
+  // // 선택한 ArraySec 저장
+  // const handleArraySecClick = async (selected, apiUrl) => {
+  //   const openModal = () => {
+  //     setModalOpen(true);
+  //   };
 
-    setActiveArray(selected);
-    // 이제 apiUrl을 사용하여 데이터를 가져올 수 있습니다.
-    console.log('Selected Array:', selected);
-    console.log('API URL:', apiUrl);
+  //   const closeModal = () => {
+  //     setModalOpen(false);
+  //   };
+  //   setActiveArray(selected);
+  //   // 이제 apiUrl을 사용하여 데이터를 가져올 수 있습니다.
+  //   console.log('Selected Array:', selected);
+  //   console.log('API URL:', apiUrl);
 
-    const response = await axiosInstance.get("apiUrl");
-    setActiveArray(response.data);
-
-    closeModal();
-  };
+  //   try {
+  //     const response = await axiosInstance.get(apiUrl);
+  //     setActiveArray(response.data);
+  //     closeModal();
+  //   } catch (error) {
+  //     console.log("배열 정렬 url GET 시 오류 발생", error);
+  //   }
+  // };
 
   return (
     <>
@@ -93,17 +100,17 @@ export const ComNav = () => {
         )}
 
         {modalOpen && (
-          <div 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            zIndex: "11"
-          }}
-          onClick={closeModal}
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              zIndex: "11"
+            }}
+            onClick={closeModal}
           />
         )}
 
