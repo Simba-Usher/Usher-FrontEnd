@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
+import { Grade } from "../../my/myMain/style";
 
 export const Nav = ({ toggleModal }) => {
   const location = useLocation();
@@ -30,10 +31,23 @@ export const Nav = ({ toggleModal }) => {
       )}
 
       {isCommunityPage && (
-        <S.LevelIcon>
-          <p>등급</p>
-          <p>아이콘</p>
-        </S.LevelIcon>
+        <>
+          <S.ComSearchSection>
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="어떤 공연을 찾으시나요?"
+              // onClick={toggleModal}
+              style={{ cursor: "default" }}
+            />
+            <span className="material-symbols-outlined">search</span>
+          </S.ComSearchSection>
+          {/* 사용자 등급 불러오기 */}
+          <S.LevelIcon>
+            <Grade src="/grade1.png" alt="grade" />
+          </S.LevelIcon>
+        </>
       )}
       <Link to="/category">
         <S.MoreBtn src="/menu.png" alt="img" />

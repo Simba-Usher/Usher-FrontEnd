@@ -45,7 +45,6 @@ export const MyProfile = () => {
                         <S.Grade src="/grade1.png" alt="grade" />
                         {/* 닉네임, 메일 불러오기 */}
                         <S.MyInfo>
-                            {/* <S.MyName>뮤라이프 님</S.MyName> */}
                             <S.MyName>{Nickname}</S.MyName>
                             <S.MyMail>
                                 <img src="/mail.png" alt="mail" />

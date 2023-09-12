@@ -71,7 +71,7 @@ export const ShowCalendar = () => {
       setMemoList(response.data);
       console.log(memoList);
     } catch (error) {
-      console.log("메모 받아오는 중에 오류 발생", error);
+      console.log("메모 받아오는 중 오류 발생", error);
     }
   };
   useEffect(() => {
