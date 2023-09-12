@@ -31,15 +31,20 @@ export const SearchSection = styled.div`
     color: #90a4c1;
   }
 `;
+export const ComSearchSection = styled(SearchSection)`
+  input {
+    width: 204px;
+  }
+`
 export const LevelIcon = styled.div`
   position: absolute;
-  right: 60px;
+  right: 46px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   background-color: #d9d9d9;
   color: #808080;
   border-radius: 40px;

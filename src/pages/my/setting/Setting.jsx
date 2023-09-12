@@ -20,25 +20,6 @@ export const Setting = () => {
   
   const accessToken = useRecoilValue(accessTokenState);
 
-  const handleLike = async () => {
-    try {
-      const headers = { Authorization: `Bearer ${accessToken}` };
-
-      const response = await axiosInstance.post(
-        "/api/mainposts/1/likes",
-        {},
-        { headers }
-      );
-      const detail = response.data.detail;
-      detail == "좋아요 취소" ? setLike(false) : setLike(true);
-    } catch (error) {
-      console.error("좋아요 오류 발생:", error);
-      throw error;
-    }
-  };
-  handleLike();
-
-
   const [nickname, setNickname] = useState(Nickname);
   // const [currentPw, setCurrentPw] = useState(saveCurrentPw);
   const [currentPw, setCurrentPw] = useState("");

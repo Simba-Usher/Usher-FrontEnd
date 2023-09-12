@@ -9,6 +9,8 @@ import { ShowCards } from "../../../components/my/myCalender/ShowCards";
 import { MemoCards } from "../../../components/my/myCalender/MemoCards";
 import { Footer } from "../../../components/layouts/footer/Footer";
 import axiosInstance from "../../../api/axios";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
 
 export const ShowCalendar = () => {
   const title = "공연 달력";
@@ -55,19 +57,27 @@ export const ShowCalendar = () => {
 
   // activeDate와 일치하는 데이터만 필터링
   const filteredData1 = memoList.filter((memo) => memo.date === activeDate);
-  const fetchMeMoData = async () => {
+  const accessToken = useRecoilValue(accessTokenState);
+
+  const fetchMemoData = async () => {
     try {
-      const response = await axiosInstance.get("/api/mypage/memos");
+      const response = await axiosInstance.get("/api/mypage/memos", 
+      { withCredentials: true },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        }
+      });
       setMemoList(response.data);
       console.log(memoList);
     } catch (error) {
-      console.log("메모 받아오는 중에 오류 발생", error);
+      console.log("메모 받아오는 중 오류 발생", error);
     }
   };
   useEffect(() => {
-    fetchMeMoData();
+    fetchMemoData();
   }, [])
-  // const filteredData1 = MemoData.filter((memo) => memo.date === activeDate);
+  
   const filteredData2 = ShowData.filter((show) => show.date === activeDate);
 
   return(

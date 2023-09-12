@@ -1,25 +1,11 @@
+// Array.jsx
+
 import React, { useEffect, useRef, useState } from 'react'
 import * as S from "./style";
+// import axiosInstance from "../../../api/axios";
 
-export const Array = ({ activeArray, handleArraySecClick }) => {
+export const Array = ({ activeArray, handleArraySecClick, closeModal }) => {
     const modal = useRef();
-
-    const getApiUrlByArrayMethod = (arrayMethod) => {
-        switch (arrayMethod) {
-            case '최신순':
-                return '/api/composts/reccent';
-            case '조회순':
-                return '/api/composts/views';
-            case '좋아요 많은순':
-                return '/api/composts/popular';
-            case '댓글 많은 순':
-                return '/api/composts/cmt';
-            default:
-                return '/api/composts/reccent';
-        }
-    };
-
-    console.log(activeArray);
 
     return (
         <>
@@ -27,8 +13,8 @@ export const Array = ({ activeArray, handleArraySecClick }) => {
                 <S.ArraySec
                     className={activeArray === "최신순" ? "active" : ""}
                     onClick={() => {
-                        const apiUrl = getApiUrlByArrayMethod('최신순');
-                        handleArraySecClick('최신순', apiUrl);
+                        handleArraySecClick('최신순');
+                        closeModal();
                     }}
                 >
                     최신순
@@ -36,22 +22,27 @@ export const Array = ({ activeArray, handleArraySecClick }) => {
                 <S.ArraySec
                     className={activeArray === "조회순" ? "active" : ""}
                     onClick={() => {
-                        const apiUrl = getApiUrlByArrayMethod('조회순');
-                        handleArraySecClick('조회순', apiUrl);
-                    }
-                    }
+                        handleArraySecClick('조회순');
+                        closeModal();
+                    }}
                 >
                     조회순
                 </S.ArraySec>
                 <S.ArraySec
                     className={activeArray === "좋아요 많은순" ? "active" : ""}
-                    onClick={() => handleArraySecClick("좋아요 많은순")}
+                    onClick={() => {
+                        handleArraySecClick('좋아요 많은순');
+                        closeModal();
+                    }}
                 >
                     좋아요 많은순
                 </S.ArraySec>
                 <S.ArraySec
                     className={activeArray === "댓글 많은 순" ? "active" : ""}
-                    onClick={() => handleArraySecClick("댓글 많은 순")}
+                    onClick={() => {
+                        handleArraySecClick('댓글 많은 순');
+                        closeModal();
+                    }}
                 >
                     댓글 많은 순
                 </S.ArraySec>

@@ -9,11 +9,9 @@ export const ComLists = ({ compost, editorIsTrue }) => {
         <>
             <S.ComListsWrap onClick={() => navigate("/community/:detailId")}>
                 <S.TextSec>
-                    {/* <S.Sec1Title>23년 하반기 꼭 관람해야하는 뮤지컬</S.Sec1Title> */}
                     <S.Sec1Title>{compost.title}</S.Sec1Title>
                     <S.Sec2>
                         {/* 에디터의 경우 -> '에디터' 추가, 글자색 변경 */}
-                        {/* 작성자 불러오기 */}
                         {editorIsTrue === true ? (
                             <>
                                 <div className='editor'>에디터·</div>
@@ -23,7 +21,6 @@ export const ComLists = ({ compost, editorIsTrue }) => {
                             <p className='writer'>{compost.writer}</p>
                         )}
                         <p className='bar'>|</p>
-                        {/* 작성일 불러오기 */}
                         <p className='date'>{compost.created_at.slice(0,10)}</p>
                         {/* 에디터의 경우 */}
                         {editorIsTrue === true ? (

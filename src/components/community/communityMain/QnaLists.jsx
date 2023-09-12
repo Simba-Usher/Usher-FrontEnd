@@ -1,3 +1,5 @@
+// QnaLists.jsx
+
 import React from 'react'
 import * as S from "./style";
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +9,7 @@ export const QnaLists = ({ compost }) => {
 
     return (
         <>
-            <S.ComListsWrap onClick={() => navigate("/community/:detailId")}>
+            <S.ComListsWrap onClick={() => navigate(`/community/${compost.id}`)}>
                 <S.QnaSec>
                     <S.Sec1Title>Q. {compost.title}</S.Sec1Title>
                     <S.Sec2Content>
