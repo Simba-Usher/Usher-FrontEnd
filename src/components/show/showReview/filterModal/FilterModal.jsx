@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from "./style";
-import { FilterStars } from './filterStars';
-import { FilterPrice } from './filterPrice';
+import { FilterStars } from './FilterStars';
+import { FilterPrice } from './FilterPrice';
 import { FilterDiscount } from './FilterDiscount';
 
 export const FilterModal = ({ setFilterModal }) => {
