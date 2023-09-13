@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Nav } from '../../../components/layouts/nav/Nav';
 import { HomeNav } from '../../../components/layouts/homeNav/HomeNav';
 import Wrapper from "../../../components/Wrapper";
@@ -13,10 +13,30 @@ import { AskUsher } from '../../../components/my/myMain/AskUsher';
 import { LogOut } from '../../../components/my/myMain/LogOut';
 import { Delete } from '../../../components/my/myMain/Delete';
 import { Footer } from '../../../components/layouts/footer/Footer';
+import axiosInstance from "../../../api/axios";
 
 export const My = () => {
   const navigate = useNavigate();
+  const [myTicket, setMyTicket] = useState([]);
   const accessToken = useRecoilValue(accessTokenState);
+
+  const fetchMyTicketData = async () => {
+    try {
+      const response = await axiosInstance.get("/api/mypage/ticket",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+      }
+      });
+      setMyTicket(response.data);
+      console.log(myTicket);
+    } catch (error) {
+      console.log("티켓 불러오는 중 오류 발생", error);
+    }
+  }
+  useEffect(() => {
+    fetchMyTicketData();
+  },[])
 
     // Access Token이 있는지 확인
   if (accessToken) {
@@ -25,7 +45,7 @@ export const My = () => {
         <Nav />
         <HomeNav />
         <MyProfile />
-        <MyTicket />
+        <MyTicket ticket={myTicket} />
         <UseUsher />
         <AskUsher />
         <LogOut />

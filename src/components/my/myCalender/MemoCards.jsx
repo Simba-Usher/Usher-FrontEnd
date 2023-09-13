@@ -1,9 +1,32 @@
 import React, { useState } from 'react'
 import * as S from "./style";
+import axiosInstance from "../../../api/axios";
+import { useRecoilValue } from 'recoil';
+import { accessTokenState } from '../../../recoil/recoilState';
+import { useNavigate } from 'react-router-dom';
 
-export const MemoCards = ({ data }) => {
+export const MemoCards = ({ data, memoList, setMemoList }) => {
+    const navigate = useNavigate();
     const MemoDate = data.date.slice(2, 4) + '.' + data.date.slice(5, 7) + '.' + data.date.slice(8, 10);
     console.log("메모날짜는", MemoDate);
+
+    const accessToken = useRecoilValue(accessTokenState);
+
+    const deleteMemo = async () => {
+        try {
+            const response = await axiosInstance.delete(`/api/mypage/memos/${data.id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                }
+            });
+            setMemoList([...memoList.filter((memo) => memo.id !== data.id)]);
+            alert("메모가 삭제되었습니다");
+            navigate("/my/showcalendar")
+        } catch (error) {
+            console.log("메모 삭제 중 오류 발생", error);
+        }
+    }
 
     return (
         <>
@@ -14,7 +37,7 @@ export const MemoCards = ({ data }) => {
                         {/* ex) 23.09.06 */}
                         {MemoDate}
                     </S.DateBox2>
-                    <S.Delete>
+                    <S.Delete onClick={() => deleteMemo()}>
                         <p>삭제하기</p>
                         <img src="/deleteBtn.png" alt="delete" />
                     </S.Delete>

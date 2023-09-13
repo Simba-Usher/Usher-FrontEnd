@@ -4,31 +4,35 @@ import { useNavigate } from "react-router-dom";
 
 export const TicketCard = ({ ticket }) => {
     const navigate = useNavigate();
+    const ticketDate = ticket.performance_date.slice(0,10);
+    const ticketTime = ticket.performance_date.slice(14,19);
 
   return (
     <S.TicketLine>
       <S.TicketCardCircle />
       <S.TicketCardWrapper>
         <S.TicketClose src="/reviewwriteclose.png" alt="close" />
-        <S.TicketTItle>{ticket.showtitle}</S.TicketTItle>
+        <S.TicketTItle>{ticket.performance}</S.TicketTItle>
         <S.TicketCardDataLabel>
           <S.TicketCardTxt>장소</S.TicketCardTxt>
-          <S.TicketCardData>{ticket.where}</S.TicketCardData>
+          <S.TicketCardData>{ticket.performance_location}</S.TicketCardData>
         </S.TicketCardDataLabel>
         <S.TicketCardDataLabel>
           <S.TicketCardTxt>관람 일시</S.TicketCardTxt>
           <S.TicketCardData>
-            {ticket.date} · {ticket.time}
+            {/* 2023-08-10T15:00:00.000000000 */}
+            {ticketDate} · {ticketTime}
           </S.TicketCardData>
         </S.TicketCardDataLabel>
         <S.TicketCardDataLabel>
           <S.TicketCardTxt>예매처</S.TicketCardTxt>
-          <S.TicketCardData>{ticket.buy}</S.TicketCardData>
+          <S.TicketCardData>{ticket.reservation_site}</S.TicketCardData>
         </S.TicketCardDataLabel>
         <S.TicketCardDataLabel>
           <S.TicketCardTxt>할인 결제액</S.TicketCardTxt>
           <S.TicketCardData>
-            카드 제휴할인 · ￦{ticket.price.toLocaleString()}
+          카드제휴할인 · ￦{ticket.price.toLocaleString()}
+            {/* {ticket.discount_method} · ￦{ticket.price.toLocaleString()} */}
           </S.TicketCardData>
         </S.TicketCardDataLabel>
         <S.TicketLink onClick={()=>navigate(`/${ticket.id}`)}>

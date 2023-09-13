@@ -1,52 +1,75 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import Wrapper from "../../../components/Wrapper";
 import { MyInnerNav } from "../../../components/my/MyInnerNav";
 import { TicketInput } from "../../../components/my/myTicket/TicketInput";
 import { TicketDateDivide } from "../../../components/my/myTicket/TicketDateDivide";
 import { TicketCard } from "../../../components/my/myTicket/TicketCard";
+import axiosInstance from "../../../api/axios";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
 
 export const Ticket = () => {
   const [isSelected, setIsSelected] = useState(1);
-  const ticket = [
-    //내 글만 get
-    {
-      id: 1,
-      showtitle: "뮤지컬 <오페라의 유령> - 서울",
-      price: 152000,
-      where: "샤롯데씨어터",
-      date: "2023.8.10",
-      time: "19:30",
-      buy: "엔에이치엔(주)",
-    },
-    {
-      id: 2,
-      showtitle: "2뮤지컬 <오페라의 유령> - 서울",
-      price: 152000,
-      where: "2샤롯데씨어터",
-      date: "2023.8.10",
-      time: "19:30",
-      buy: "엔에이치엔(주)",
-    },
-    {
-      id: 3,
-      showtitle: "3뮤지컬 <오페라의 유령> - 서울",
-      price: 152000,
-      where: "3샤롯데씨어터",
-      date: "2023.8.10",
-      time: "19:30",
-      buy: "엔에이치엔(주)",
-    },
-    {
-      id: 4,
-      showtitle: "4뮤지컬 <오페라의 유령> - 서울",
-      price: 152000,
-      where: "4샤롯데씨어터",
-      date: "2023.8.10",
-      time: "19:30",
-      buy: "엔에이치엔(주)",
-    },
-  ];
+  // const ticket = [
+  //   //내 글만 get
+  //   {
+  //     id: 1,
+  //     showtitle: "뮤지컬 <오페라의 유령> - 서울",
+  //     price: 152000,
+  //     where: "샤롯데씨어터",
+  //     date: "2023.8.10",
+  //     time: "19:30",
+  //     buy: "엔에이치엔(주)",
+  //   },
+  //   {
+  //     id: 2,
+  //     showtitle: "2뮤지컬 <오페라의 유령> - 서울",
+  //     price: 152000,
+  //     where: "2샤롯데씨어터",
+  //     date: "2023.8.10",
+  //     time: "19:30",
+  //     buy: "엔에이치엔(주)",
+  //   },
+  //   {
+  //     id: 3,
+  //     showtitle: "3뮤지컬 <오페라의 유령> - 서울",
+  //     price: 152000,
+  //     where: "3샤롯데씨어터",
+  //     date: "2023.8.10",
+  //     time: "19:30",
+  //     buy: "엔에이치엔(주)",
+  //   },
+  //   {
+  //     id: 4,
+  //     showtitle: "4뮤지컬 <오페라의 유령> - 서울",
+  //     price: 152000,
+  //     where: "4샤롯데씨어터",
+  //     date: "2023.8.10",
+  //     time: "19:30",
+  //     buy: "엔에이치엔(주)",
+  //   },
+  // ];
+  const [myTicket, setMyTicket] = useState([]);
+  const accessToken = useRecoilValue(accessTokenState);
+
+  const fetchMyTicketData = async () => {
+    try {
+      const response = await axiosInstance.get("/api/mypage/ticket",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+      }
+      });
+      setMyTicket(response.data);
+      console.log(myTicket);
+    } catch (error) {
+      console.log("티켓 불러오는 중 오류 발생", error);
+    }
+  }
+  useEffect(() => {
+    fetchMyTicketData();
+  },[])
 
   return (
     <Wrapper>
@@ -56,12 +79,12 @@ export const Ticket = () => {
         <S.TicketWrapper>
           <S.TicketTxt>등록 티켓</S.TicketTxt>
           <TicketDateDivide
-            ticket={ticket}
+            ticket={myTicket}
             isSelected={isSelected}
             setIsSelected={setIsSelected}
           />
         </S.TicketWrapper>
-        {ticket.map((item) => (
+        {myTicket.map((item) => (
           <TicketCard key={item.id} ticket={item} />
         ))}
         <S.TicketGuide>
