@@ -131,6 +131,7 @@ export const MyTickets = styled.div`
     img {
         margin-left: 9px;
         margin-right: 21px;
+        margin-top: 2px;
         width: 20px;
         height: 16px;
     }
@@ -138,6 +139,8 @@ export const MyTickets = styled.div`
         color: #7749C3;
         font-size: 22px;
         font-weight: 600;
+        position: relative;
+        top: -1px;
     }
 `
 export const AddTicket = styled.div`
@@ -153,6 +156,7 @@ export const AddTicket = styled.div`
     cursor: pointer;
     img {
         margin-left: 8px;
+        margin-top: 3px;
     }
 `
 export const BottomBox = styled.div`
@@ -195,6 +199,7 @@ export const UseUsherWrap = styled.div`
         font-size: 16px;
         font-weight: 400;
         padding: 8px 0;
+        /* border: 1px solid red; */
     }
 `
 

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import * as S from "./style";
+import { Link } from 'react-router-dom';
 
 export const UseUsher = () => {
   return (
@@ -10,7 +11,7 @@ export const UseUsher = () => {
             <div>어셔 활용하기</div>
             <div>이벤트 및 공지사항</div>
             <div>등급별 혜택</div>
-            <div>KOPIS 바로가기</div>
+            <div><Link to={"https://www.kopis.or.kr/por/main/main.do"}>KOPIS 바로가기</Link></div>
         </S.UseUsherWrap>
     </>
   )

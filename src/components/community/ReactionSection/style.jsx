@@ -18,17 +18,25 @@ export const InnerWrapper = styled.div`
 `;
 export const ReactionBtn = styled.div`
   width: 50px;
+  display: flex;
+  flex-direction: row;
+  p {
+    margin-left: 3px;
+  }
 `;
 export const PurpleColor = styled.i`
   color: #a182d2;
   font-size: 1.2rem;
   margin-right: 3px;
-  margin-top: 3px;
 `;
+export const PurpleColor2 = styled(PurpleColor)`
+  margin-top: 3px;
+`
 export const GrayColor = styled.i`
   color: #cccece;
   font-size: 1.2rem;
   margin-right: 3px;
+  margin-top: 3px;
 `;
 
 export const LikeBtn = styled.div`
@@ -41,6 +49,9 @@ export const LikeBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  p {
+    margin-bottom: 3px;
+  }
 `;
 export const CmtSection = styled.div`
   display: flex;
