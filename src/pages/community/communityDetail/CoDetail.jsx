@@ -50,6 +50,9 @@ export const CoDetail = () => {
       console.log("커뮤니티 글 삭제하는 중 오류 발생", error);
     }
   }
+  const slicedate = (sdate) => {
+    return sdate.slice(0, 10);
+  };
 
   // 좋아요 post
   // const handleLike = async () => {
@@ -75,42 +78,31 @@ export const CoDetail = () => {
           >
             arrow_back
           </S.CoNavArrow>
-          {/* <div>{data.group}</div> */}
           <div>{detailData.category}</div>
         </S.CoDetailNav>
 
-        {/* <S.DetailTitle>{data.title}</S.DetailTitle> */}
         <S.DetailTitle>{detailData.title}</S.DetailTitle>
         <S.DetailUserBox>
-          {/* <div>{data.username}</div> */}
           <div>{detailData.writer}</div>
           <span>
-            {/* {data.date} | 조회 {data.views} */}
+            {/* {slicedate(detailData.created_at)} | 조회 {detailData.views} */}
             {detailData.created_at} | 조회 {detailData.views}
           </span>
           {/* accessTocken 확인 후 실제 사용자와 같을시 */}
-          {/* {data.username === "뮤라이프" && (
-            <S.MyWriteDeleteBtn>
-              삭제하기<span className="material-symbols-outlined">delete</span>
-            </S.MyWriteDeleteBtn>
-          )} */}
           {detailData.writer === Nickname && (
             <S.MyWriteDeleteBtn onClick={() => deleteCom()}>
               삭제하기<span className="material-symbols-outlined">delete</span>
             </S.MyWriteDeleteBtn>
           )}
-          {/*  */}
         </S.DetailUserBox>
 
-        {detailData.image &&
+        {detailData.image && (
           <S.DetailImg>
-            {/* <img src={data.img} alt="your img" /> */}
             <img src={detailData.image} alt="your img" />
           </S.DetailImg>
-        }
-        
+        )}
+
         <S.DetailGrayLine />
-        {/* <S.DetailBody>{data.body}</S.DetailBody> */}
         <S.DetailBody>{detailData.content}</S.DetailBody>
         <ReactionBar data={detailData} />
         <CommentSection />

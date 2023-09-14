@@ -23,7 +23,7 @@ export const CoFree = () => {
     try {
       const response = await axiosInstance.get("/api/composts?category=자유");
       setFreeCompost(response.data.results);
-      console.log(freeCompost);
+      console.log(response.data.results);
 
       const sorted = sortComposts(response.data.results, "최신순");
       setFilteredComposts(sorted);

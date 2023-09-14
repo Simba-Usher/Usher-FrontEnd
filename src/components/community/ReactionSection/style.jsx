@@ -149,7 +149,7 @@ export const CmtWrapper = styled.form`
   padding-left: 10px;
 `;
 export const CmtPostBtnImg = styled.img``;
-export const CmtPostBtn = styled.button`
+export const CmtPostBtn = styled.div`
   position: absolute;
   right: 0px;
   bottom: 5px;
