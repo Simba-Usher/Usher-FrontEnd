@@ -3,9 +3,12 @@ import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
 import { OtherNav } from "../../components/layouts/otherNav/OtherNav";
+import { useSetRecoilState, useRecoilValue } from "recoil";
+import { joinemailState } from "./join_email";
 
 export const Join_3 = () => {
   const navigate = useNavigate();
+  const joinemail = useRecoilValue(joinemailState);
 
   const handleSubmit = (e) => {
     navigate("/success");
@@ -32,7 +35,8 @@ export const Join_3 = () => {
           <br />
           이메일 인증을 완료해주세요!
         </S.GuideTxt>
-        <S.OurEmail>usher@kopis.mail</S.OurEmail>
+        <S.OurEmail>{joinemail}</S.OurEmail>
+        {/* <S.OurEmail>usher@kopis.mail</S.OurEmail> */}
         <S.AzaAza>어셔에 어셔오세요 ☺️</S.AzaAza>
       </S.Join3Wrpper>
       <S.BottomBlueBtn onClick={handleSubmit}>로그인하기</S.BottomBlueBtn>

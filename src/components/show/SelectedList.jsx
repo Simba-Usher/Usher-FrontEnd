@@ -87,7 +87,7 @@ export const SelectedList = ({ genre,area, setArea }) => {
         </S.SelectDesign>
 
         {/* date */}
-        {dateRange[0].startDate && dateRange[0].endDate ? (
+        {/* {dateRange[0].startDate && dateRange[0].endDate ? (
           <S.DateDesign
             onClick={() =>
               setDateRange([
@@ -111,7 +111,7 @@ export const SelectedList = ({ genre,area, setArea }) => {
             onChange={(ranges) => setDateRange([ranges.selection])}
             style={{ zIndex: "100" }}
           />
-        )}
+        )} */}
 
         {/* price */}
         <S.priceDesign

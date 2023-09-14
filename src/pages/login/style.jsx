@@ -39,6 +39,7 @@ export const InputSection = styled.div`
   background: #f3f8ff;
   margin: 20px 0;
   input {
+    font-size: 1rem;
     padding: 0 15px;
     width: 100%;
     height: 60px;
@@ -47,6 +48,7 @@ export const InputSection = styled.div`
     outline: none;
     &::placeholder {
       color: #a2b4cf;
+      font-size: 1rem;
     }
   }
   :nth-child(1) {
@@ -70,7 +72,7 @@ export const IdSave = styled.label`
     margin-right: 10px;
   }
 `;
-export const BlueBtn = styled.button`
+export const BlueBtn = styled.div`
   width: 100%;
   height: 60px;
   border-radius: 10px;

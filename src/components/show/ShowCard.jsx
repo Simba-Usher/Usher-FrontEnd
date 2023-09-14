@@ -2,6 +2,7 @@ import React from 'react'
 import * as S from "./style";
 
 export const ShowCard = ({ data, onClick }) => {
+  console.log("showCard 데이터 : ",data);
   return (
     <S.ShowCardWrapper onClick={onClick}>
       <img src={data.image} alt="poster" />

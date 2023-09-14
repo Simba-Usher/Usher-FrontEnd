@@ -4,8 +4,13 @@ import { useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
 import axiosInstance from "../../api/axios";
 import { OtherNav } from "../../components/layouts/otherNav/OtherNav";
+import { useSetRecoilState, useRecoilValue } from "recoil";
+import { joinemailState } from "./join_email";
 
 export const JoinInput = () => {
+  const setJoinemailState = useSetRecoilState(joinemailState);
+  const joinemail = useRecoilValue(joinemailState);
+
   const navigate = useNavigate();
   const [isName, setisName] = useState("");
   const [isEmail, setisEmail] = useState("");
@@ -30,6 +35,7 @@ export const JoinInput = () => {
       );
       console.log(response.data);
       navigate("/join_3");
+      setJoinemailState(isEmail);
     } catch (error) {
       // 오류 처리
       console.error("이메일 확인 이메일 전송 중 오류 발생:", error);
