@@ -16,34 +16,23 @@ export const CoWrite = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [img, setImg] = useState(null);
-  /*
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (group == "none" || title == "" || body == "") {
-      alert("필수항목을 입력해주세요");
-    } else alert("게시판: " + group + "제목: " + title + "본문: " + body+"url:"+img);
-  };
-  */
 
   // submit 시 로직
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("category", group);
+    formData.append("title", title);
+    formData.append("content", body);
+    if (img) formData.append("image", img);
 
     try {
-      const response = await axiosInstance.post(
-        "/api/composts",
-        {
-          category: group,
-          title: title,
-          content: body,
-          image: img,
+      const response = await axiosInstance.post("/api/composts", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${accessToken}`, // 액세스 토큰을 헤더에 추가
         },
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`, // 액세스 토큰을 헤더에 추가
-          },
-        }
-      );
+      });
       console.log("post 성공:", response.data);
       alert("글이 업로드 되었습니다");
     } catch (error) {
@@ -64,7 +53,7 @@ export const CoWrite = () => {
   if (accessToken) {
     return (
       <Wrapper>
-        <S.PostForm onSubmit={handleSubmit}>
+        <S.PostForm>
           <S.WriteNav>
             <S.NavArrow
               className="material-symbols-outlined"
@@ -73,7 +62,7 @@ export const CoWrite = () => {
               arrow_back
             </S.NavArrow>
             <div>글쓰기</div>
-            <S.PostGreenBtn type="submit">등록</S.PostGreenBtn>
+            <S.PostGreenBtn onClick={handleSubmit}>등록</S.PostGreenBtn>
           </S.WriteNav>
           <S.PostSelect
             isselect={group}
@@ -105,11 +94,16 @@ export const CoWrite = () => {
                   onClick={openFilePicker}
                   isselected={img ? "true" : "false"}
                 >
-                  <span className="material-symbols-outlined">photo_camera</span>
+                  <span className="material-symbols-outlined">
+                    photo_camera
+                  </span>
                   사진 추가하기
                 </S.PostImg>
                 {img && (
-                  <S.SelectedImg src={URL.createObjectURL(img)} alt="your img" />
+                  <S.SelectedImg
+                    src={URL.createObjectURL(img)}
+                    alt="your img"
+                  />
                 )}
               </S.FlexRow>
               <input

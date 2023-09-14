@@ -7,10 +7,31 @@ import axiosInstance from "../../../api/axios";
 
 export const ChoiceTicket = ({ setSelectedTicket, selectedTicket, allTicket }) => {
   const [isClicked, setisClicked] = useState(false);
-  // const [selectedTicket, setSelectedTicket] = useState(null);
-  // const [myTicket, setMyTicket] = useState([]);
-  // const accessToken = useRecoilValue(accessTokenState);
 
+  const [data, setData] = useState({
+    id: 1,
+    title: "뮤지컬 <오페라의 유령> - 서울",
+    ticketNum: "T0897847619",
+    date: "2023-8-10",
+    time: "19:30",
+    review: false,
+    seat: "VIP석",
+    discount: "카드 제휴할인",
+    price: 152000,
+  });
+/*
+  useEffect(() => {
+    axiosInstance
+      .get("/api/mypage/ticket")
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("티켓 요청 실패:", error);
+      });
+  }, []);
+*/
   const handleSelect = (ticket) => {
     setSelectedTicket(ticket);
     setisClicked(false);
@@ -18,60 +39,6 @@ export const ChoiceTicket = ({ setSelectedTicket, selectedTicket, allTicket }) =
   const handleClick = () => {
     setisClicked((prevIsClicked) => !prevIsClicked);
   };
-
-  // const data = [
-  //   {
-  //     id: 1,
-  //     title: "뮤지컬 <오페라의 유령> - 서울",
-  //     ticketNum: "T1234567890",
-  //     date: "2023-8-10",
-  //     time: "19:30",
-  //     review: false,
-  //     seat: "VIP석",
-  //     discount: "카드 제휴할인",
-  //     price: 152000,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "뮤지컬 <레베카> 10주년 기념 공연",
-  //     ticketNum: "T0101010101",
-  //     date: "2023-8-19",
-  //     time: "19:30",
-  //     review: false,
-  //     seat: "R석",
-  //     discount: "카드 제휴할인",
-  //     price: 102000,
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "뮤지컬 <시카고> 25주년 기념 오리지널 내한",
-  //     ticketNum: "T1411111127",
-  //     date: "2023-6-18",
-  //     time: "14:00",
-  //     review: true,
-  //     seat: "S석",
-  //     discount: "카드 제휴할인",
-  //     price: 99000,
-  //   },
-  // ];
-
-  // const fetchMyTicketData = async () => {
-  //   try {
-  //     const response = await axiosInstance.get("/api/mypage/ticket",
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${accessToken}`,
-  //     }
-  //     });
-  //     setMyTicket(response.data);
-  //     console.log(myTicket);
-  //   } catch (error) {
-  //     console.log("티켓 불러오는 중 오류 발생", error);
-  //   }
-  // }
-  // useEffect(() => {
-  //   fetchMyTicketData();
-  // },[])
 
   return (
     <S.TicketWrapper>
@@ -121,7 +88,7 @@ export const ChoiceTicket = ({ setSelectedTicket, selectedTicket, allTicket }) =
               {selectedTicket.reservation_site}
             </S.TicketInfo>
             <S.TicketInfo isselected={"true"}>
-              카드 할인 · {selectedTicket.price}
+              카드제휴할인 · {selectedTicket.price}
             </S.TicketInfo>
           </>
         ) : (

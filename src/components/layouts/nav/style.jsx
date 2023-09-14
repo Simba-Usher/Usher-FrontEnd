@@ -38,13 +38,13 @@ export const ComSearchSection = styled(SearchSection)`
 `
 export const LevelIcon = styled.div`
   position: absolute;
-  right: 46px;
+  right: 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
+  width:  40px;
+  height: 40px;
   background-color: #d9d9d9;
   color: #808080;
   border-radius: 40px;
