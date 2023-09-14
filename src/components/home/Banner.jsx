@@ -20,10 +20,10 @@ export const Banner = () => {
           <S.BannerImg src="/banner.png" alt="배너1" />
         </SwiperSlide>
         <SwiperSlide>
-          <S.BannerImg src="/banner.png" alt="배너2" />
+          <S.BannerImg src="/banner2.jpg" alt="배너2" />
         </SwiperSlide>
         <SwiperSlide>
-          <S.BannerImg src="/banner.png" alt="배너3" />
+          <S.BannerImg src="/banner3.jpg" alt="배너3" />
         </SwiperSlide>
       </Swiper>
     </S.BannerContainer>

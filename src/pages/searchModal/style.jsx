@@ -71,6 +71,7 @@ export const KeywordSearchBar = styled(SearchSection)`
     border: 2px solid #632787;
     background: #fff;
     outline: none;
+    color: #632787;
     &::placeholder {
       color: #632787;
     }

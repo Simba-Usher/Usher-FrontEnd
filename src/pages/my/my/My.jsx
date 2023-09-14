@@ -14,6 +14,7 @@ import { LogOut } from '../../../components/my/myMain/LogOut';
 import { Delete } from '../../../components/my/myMain/Delete';
 import { Footer } from '../../../components/layouts/footer/Footer';
 import axiosInstance from "../../../api/axios";
+import { Login } from '../../login/Login';
 
 export const My = () => {
   const navigate = useNavigate();
@@ -55,10 +56,13 @@ export const My = () => {
     );
   } else {
     return (
-      <div>
-        <h1>로그인이 필요합니다.</h1>
-        <div onClick={() => navigate("/login")} style={{ background: "red" }}>로그인 하러가기</div>
-      </div>
+      // <div>
+      //   <h1>로그인이 필요합니다.</h1>
+      //   <div onClick={() => navigate("/login")} style={{ background: "red" }}>로그인 하러가기</div>
+      // </div>
+      <>
+        <Login />
+      </>
     );
   }
 };

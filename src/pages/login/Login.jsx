@@ -84,7 +84,7 @@ export const Login = () => {
         <S.TxtLine>어셔 계정이 없으신가요?</S.TxtLine>
         <S.SkyBlueBtn onClick={handleJoin}>회원가입</S.SkyBlueBtn>
         <S.TxtLine>
-          또는 <S.Google></S.Google>
+          {/* 또는 <S.Google></S.Google> */}
         </S.TxtLine>
         <S.LoginFooter>Copyright &copy; 심바씨들</S.LoginFooter>
       </S.LoginSection>

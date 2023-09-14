@@ -7,21 +7,22 @@ import { XBtn } from './style';
 export const ShowLike = ({ data, onClick }) => {
     return (
         <S.ShowCardWrapper onClick={onClick}>
-            <img src={data.img} alt="poster" />
+            <img src={data.image} alt="poster" />
             <div>
                 <S.ShowCardTitle>{data.title}</S.ShowCardTitle>
                 <S.ShowCardPlace>{data.place}</S.ShowCardPlace>
                 <S.ShowCardDate>
-                    {data.startdate} ~ {data.enddate}
+                    {data.start_date} ~ {data.end_date}
                 </S.ShowCardDate>
                 <S.ShowCardReactin>
                     <S.ShowCardStar>
                         <i className="fas fa-star" />
-                        {data.star}
+                        4.5
+                        {data.average_rating}
                     </S.ShowCardStar>
-                    <S.ShowCardReviews>관람 인증 {data.reviews}</S.ShowCardReviews>
+                    <S.ShowCardReviews>관람 인증 {data.mainreviews_cnt}</S.ShowCardReviews>
                 </S.ShowCardReactin>
-                <S.ShowCardComment>"{data.comment}"</S.ShowCardComment>
+                <S.ShowCardComment>"{data.sentence}"</S.ShowCardComment>
             </div>
             <XBtn src="/mydelete.png" alt="xBtn" />
         </S.ShowCardWrapper>
