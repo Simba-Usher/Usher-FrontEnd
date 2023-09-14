@@ -55,9 +55,9 @@ export const SelectedList = ({ genre,area, setArea }) => {
       setRangeMaxValue(rangeMinValue + priceGap);
       setRangeMinValue(rangeMaxValue - priceGap);
     } else {
-      setrangeMinPercent((rangeMinValue / 200000) * 100);
+      setrangeMinPercent((rangeMinValue / 300000) * 100);
       // setrangeMinPercent((rangeMinValue / fixedMaxPrice) * 100);
-      setrangeMaxPercent(100 - (rangeMaxValue / 200000) * 100);
+      setrangeMaxPercent(100 - (rangeMaxValue / 300000) * 100);
       // setrangeMaxPercent(100 - (rangeMaxValue / fixedMaxPrice) * 100);
     }
   };
@@ -114,6 +114,8 @@ export const SelectedList = ({ genre,area, setArea }) => {
         )} */}
 
         {/* price */}
+        <div style={{position: "relative"}}>
+
         <S.priceDesign
           onClick={() =>
             setisRangeClick((prevIsRangeClick) => !prevIsRangeClick)
@@ -125,10 +127,11 @@ export const SelectedList = ({ genre,area, setArea }) => {
             expand_more
           </S.DropDown>
         </S.priceDesign>
+
         {isRangeClick && (
           <S.InputBar>
             {/* 하나로 합치기 */}
-            <div>
+            <div style={{width: "185px", height: "36px", position: "absolute", top: "-10px", left: "-15px", backgroundColor: "white", borderRadius: "5px", border: "2px solid #d6dde6"}} />
               <PriceSlide2>
                 <PriceSlideInner
                   className="gradient"
@@ -141,7 +144,7 @@ export const SelectedList = ({ genre,area, setArea }) => {
                   type="range"
                   min="0"
                   // min={fixedMinPrice}
-                  max={200000 - priceGap}
+                  max={300000 - priceGap}
                   // max={fixedMaxPrice - priceGap}
                   step="1000"
                   value={rangeMinValue}
@@ -154,7 +157,7 @@ export const SelectedList = ({ genre,area, setArea }) => {
                   type="range"
                   min={priceGap}
                   // min={fixedMinPrice + priceGap}
-                  max="200000"
+                  max="300000"
                   // max={fixedMaxPrice}
                   step="1000"
                   value={rangeMaxValue}
@@ -164,9 +167,11 @@ export const SelectedList = ({ genre,area, setArea }) => {
                   }}
                 />
               </PriceRangeWrap2>
-            </div>
           </S.InputBar>
         )}
+
+        </div>
+        
       </S.SelectedListContainer>
       <S.GrayLine />
       <S.SelectedReaction>

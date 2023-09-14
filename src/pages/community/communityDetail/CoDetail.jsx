@@ -12,6 +12,7 @@ import { accessTokenState } from "../../../recoil/recoilState";
 
 export const CoDetail = () => {
   const navigate = useNavigate();
+  const accessToken = useRecoilValue(accessTokenState);
 
   const { detailId } = useParams();
   console.log({ detailId });
@@ -20,8 +21,8 @@ export const CoDetail = () => {
 
   const fetchCoDetailData = async () => {
     try {
-      const respose = await axiosInstance.get(`/api/composts/${detailId}`)
-      setDetailData(respose.data);
+      const response = await axiosInstance.get(`/api/composts/${detailId}`)
+      setDetailData(response.data);
       console.log(detailData);
     } catch (error) {
       console.log("각 id에 해당하는 디테일 페이지 가져오는 중 에러 발생", error);
@@ -34,7 +35,6 @@ export const CoDetail = () => {
   // 사용자 닉네임 불러오기
   const Nickname = localStorage.getItem('nickname');
   console.log(Nickname);
-  const accessToken = useRecoilValue(accessTokenState);
 
   const deleteCom = async () => {
     try {
@@ -50,6 +50,20 @@ export const CoDetail = () => {
       console.log("커뮤니티 글 삭제하는 중 오류 발생", error);
     }
   }
+
+  // 좋아요 post
+  // const handleLike = async () => {
+  //   try {
+  //     const headers = { Authorization: `Bearer ${accessToken}` };
+
+  //     const response = await axiosInstance.post(
+  //       `/api/composts/${detailId}/likes`,
+  //       {},
+  //       { headers }
+  //     );
+  //     console.log(response.data);
+  //   }
+  // }
 
   return (
     <Wrapper>
@@ -98,7 +112,7 @@ export const CoDetail = () => {
         <S.DetailGrayLine />
         {/* <S.DetailBody>{data.body}</S.DetailBody> */}
         <S.DetailBody>{detailData.content}</S.DetailBody>
-        <ReactionBar />
+        <ReactionBar data={detailData} />
         <CommentSection />
       </S.CoDetailWrapper>
     </Wrapper>
