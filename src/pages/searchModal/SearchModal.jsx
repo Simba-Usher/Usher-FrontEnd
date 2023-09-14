@@ -14,7 +14,7 @@ export const SearchModal = ({ isModalOpen, toggleModal }) => {
   const [area, setarea] = useState("서울");
   const [genre, setgenre] = useState("뮤지컬");
   const [rangeMinValue, setRangeMinValue] = useState(0);
-  const [rangeMaxValue, setRangeMaxValue] = useState(200000);
+  const [rangeMaxValue, setRangeMaxValue] = useState(300000);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 

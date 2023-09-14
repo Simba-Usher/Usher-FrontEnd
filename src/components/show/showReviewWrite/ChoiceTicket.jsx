@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { TicketList } from "./TicketList";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
+import axiosInstance from "../../../api/axios";
 
-export const ChoiceTicket = ({ setSelectedTicket, selectedTicket }) => {
+export const ChoiceTicket = ({ setSelectedTicket, selectedTicket, allTicket }) => {
   const [isClicked, setisClicked] = useState(false);
 
   const [data, setData] = useState({
@@ -61,32 +64,31 @@ export const ChoiceTicket = ({ setSelectedTicket, selectedTicket }) => {
         )}
         {isClicked && (
           <S.TicketListWrapper>
-            <TicketList ticket={data} onSelect={handleSelect} />
-            {/* {data.map((ticket) => (
+            {allTicket.map((ticket) => (
               <TicketList
                 key={ticket.id}
                 ticket={ticket}
                 onSelect={handleSelect}
               />
-            ))} */}
+            ))}
           </S.TicketListWrapper>
         )}
         {selectedTicket ? (
           <>
             <S.TicketTitle isselected={"true"}>
-              {selectedTicket.title}
+              {selectedTicket.performance}
             </S.TicketTitle>
             <S.TicketInfo isselected={"true"}>
-              {selectedTicket.ticketNum}
+              {selectedTicket.ticket_number}
             </S.TicketInfo>
             <S.TicketInfo isselected={"true"}>
-              {selectedTicket.date} · {selectedTicket.time}
+              {selectedTicket.performance_date.slice(0,10)} · {selectedTicket.performance_date.slice(11,16)}
             </S.TicketInfo>
             <S.TicketInfo isselected={"true"}>
-              {selectedTicket.seat}
+              {selectedTicket.reservation_site}
             </S.TicketInfo>
             <S.TicketInfo isselected={"true"}>
-              {selectedTicket.discount} · {selectedTicket.price}
+              카드제휴할인 · {selectedTicket.price}
             </S.TicketInfo>
           </>
         ) : (
@@ -94,7 +96,7 @@ export const ChoiceTicket = ({ setSelectedTicket, selectedTicket }) => {
             <S.TicketTitle>공연명</S.TicketTitle>
             <S.TicketInfo>예매 번호</S.TicketInfo>
             <S.TicketInfo>관람 일시</S.TicketInfo>
-            <S.TicketInfo>좌석 등급</S.TicketInfo>
+            <S.TicketInfo>예매처</S.TicketInfo>
             <S.TicketInfo>할인 · 결제액</S.TicketInfo>
           </>
         )}
