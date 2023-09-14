@@ -24,8 +24,8 @@ export const FilterPrice = ({
       setRangeMaxValue(rangeMinValue + priceGap);
       setRangeMinValue(rangeMaxValue - priceGap);
     } else {
-      setrangeMinPercent((rangeMinValue / 200000) * 100);
-      setrangeMaxPercent(100 - (rangeMaxValue / 200000) * 100);
+      setrangeMinPercent((rangeMinValue / 300000) * 100);
+      setrangeMaxPercent(100 - (rangeMaxValue / 300000) * 100);
     }
   };
 
@@ -45,7 +45,7 @@ export const FilterPrice = ({
             type="range"
             min="0"
             // min={fixedMinPrice}
-            max={200000 - priceGap}
+            max={300000 - priceGap}
             // max={fixedMaxPrice - priceGap}
             step="1000"
             value={rangeMinValue}
@@ -58,7 +58,7 @@ export const FilterPrice = ({
             type="range"
             min={priceGap}
             // min={fixedMinPrice + priceGap}
-            max="200000"
+            max="300000"
             // max={fixedMaxPrice}
             step="1000"
             value={rangeMaxValue}

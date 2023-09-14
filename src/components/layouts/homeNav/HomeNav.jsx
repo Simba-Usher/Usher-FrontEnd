@@ -15,7 +15,7 @@ export const HomeNav = () => {
         홈
       </Link>
       <Link
-        to="/community/free"
+        to="/community"
         className={isCommunityPage ? "active" : ""}>
         커뮤니티
       </Link>
