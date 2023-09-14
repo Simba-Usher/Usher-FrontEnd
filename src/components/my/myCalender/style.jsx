@@ -275,7 +275,7 @@ export const BtnSec = styled.div`
     padding-top: 14px;
     padding-bottom: 22px;
 `
-export const ResetBtn = styled.button`
+export const ResetBtn = styled.div`
     width: 137px;
     height: 55px;
     border-radius: 5px;
@@ -288,7 +288,7 @@ export const ResetBtn = styled.button`
     justify-content: center;
     align-items: center;
 `
-export const DoneBtn = styled.button`
+export const DoneBtn = styled.div`
     width: 200px;
     height: 55px;
     border: none;
