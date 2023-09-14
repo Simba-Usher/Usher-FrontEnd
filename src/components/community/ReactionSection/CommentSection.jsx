@@ -1,169 +1,148 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import * as S from "./style";
+import axiosInstance from "../../../api/axios";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
 
 export const CommentSection = () => {
-  const scrollRef = useRef(null);
+  const { detailId } = useParams();
   const [cmt, setcmt] = useState("");
   const [cocmt, setcocmt] = useState("");
   const [isSub, setisSub] = useState(false);
+  const setAccessToken = useSetRecoilState(accessTokenState);
+  const accessToken = useRecoilValue(accessTokenState);
+  const [selectedCommentId, setSelectedCommentId] = useState(null);
+  const [data, setData] = useState([]);
 
-  const handleClick = () => {
-    if (scrollRef.current) {
-      const yOffset =
-        scrollRef.current.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: yOffset, behavior: "smooth" });
+  const fetchComentData = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `/api/composts/${detailId}/comcomments`
+      );
+      setData(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.log("댓글 에러 : ", error);
     }
+  };
+  useEffect(() => {
+    fetchComentData();
+  }, []);
+
+  const handleCmtSubmit = async () => {
+    try {
+      const headers = { Authorization: `Bearer ${accessToken}` };
+
+      const response = await axiosInstance.post(
+        `/api/composts/${detailId}/comcomments`,
+        {
+          content: cmt,
+        },
+        { headers }
+      );
+      console.log(response.data);
+      fetchComentData();
+    } catch (error) {
+      console.error("댓글 작성 오류 발생:", error);
+      throw error;
+    }
+  };
+  const handleCocmtSubmit = async () => {
+    try {
+      const headers = { Authorization: `Bearer ${accessToken}` };
+
+      const response = await axiosInstance.post(
+        `/api/comcomments/${selectedCommentId}/comreplies`,
+        {
+          content: cocmt,
+        },
+        { headers }
+      );
+      console.log(response.data);
+      fetchComentData();
+    } catch (error) {
+      console.error("대댓글 작성 오류 발생:", error);
+      throw error;
+    }
+  };
+
+  const handleClick = (commentId) => {
+    setSelectedCommentId(commentId);
     setisSub((prevIsSub) => !prevIsSub);
     setcmt("");
     setcocmt("");
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("cmt: " + cmt + "cocmt: " + cocmt);
+  const slicedate = (sdate) => {
+    return sdate.slice(0, 10);
   };
-
-  const data = [
-    {
-      id: 1,
-      username: "연뮤신강림",
-      date: "2023.8.17",
-      body: "혹시 코노에 엘리자벳,,, 넘버도 있을까요? 레드북 넘버도 있는지 궁금합니다",
-      coComents: [
-        {
-          id: 1,
-          username: "뮤라이프",
-          date: "2023.8.17",
-          body: "엘리자벳은 있지만 레드북은 없던 것 같아요..!",
-        },
-        {
-          id: 2,
-          username: "뮤라이프",
-          date: "2023.8.17",
-          body: "랄라는 있지만 레드북은 없던 것 같아요..!",
-        },
-      ],
-    },
-    {
-      id: 2,
-      username: "먀뮤신강림",
-      date: "2023.8.17",
-      body: "2번 댓글",
-      coComents: [
-        {
-          id: 1,
-          username: "2대댓글",
-          date: "2023.8.17",
-          body: "2엘리자벳은 있지만 레드북은 없던 것 같아요..!",
-        },
-        {
-          id: 2,
-          username: "2대댓글",
-          date: "2023.8.17",
-          body: "2랄라는 있지만 레드북은 없던 것 같아요..!",
-        },
-      ],
-    },
-    {
-      id: 3,
-      username: "먀뮤신강림",
-      date: "2023.8.17",
-      body: "2번 댓글",
-      coComents: [
-        {
-          id: 1,
-          username: "2대댓글",
-          date: "2023.8.17",
-          body: "2엘리자벳은 있지만 레드북은 없던 것 같아요..!",
-        },
-        {
-          id: 2,
-          username: "2대댓글",
-          date: "2023.8.17",
-          body: "2랄라는 있지만 레드북은 없던 것 같아요..!",
-        },
-      ],
-    },
-    {
-      id: 4,
-      username: "먀뮤신강림",
-      date: "2023.8.17",
-      body: "2번 댓글",
-      coComents: [
-        {
-          id: 1,
-          username: "2대댓글",
-          date: "2023.8.17",
-          body: "2엘리자벳은 있지만 레드북은 없던 것 같아요..!",
-        },
-        {
-          id: 2,
-          username: "2대댓글",
-          date: "2023.8.17",
-          body: "2랄라는 있지만 레드북은 없던 것 같아요..!",
-        },
-      ],
-    },
-  ];
 
   return (
     <>
       {data.map((cmt, index) => (
         <>
-          <S.CmtSection
-            key={cmt.id}
-            ref={index === data.length + 1 ? scrollRef : null}
-          >
-            <S.CmtBody>{cmt.body}</S.CmtBody>
+          <S.CmtSection key={cmt.id}>
+            <S.CmtBody>{cmt.content}</S.CmtBody>
             <S.FlexRowBox>
-              <S.CmtUsername>{cmt.username}</S.CmtUsername>
-              <S.CmtDate>{cmt.date} | 신고</S.CmtDate>
-              <S.CoCmtBtn onClick={handleClick}>답글 쓰기</S.CoCmtBtn>
+              <S.CmtUsername>{cmt.writer}</S.CmtUsername>
+              <S.CmtDate>
+                {slicedate(cmt.created_at)} | 신고
+                {/* {cmt.created_at} | 신고 */}
+              </S.CmtDate>
+              <S.CoCmtBtn onClick={() => handleClick(cmt.id)}>
+                답글 쓰기
+              </S.CoCmtBtn>
             </S.FlexRowBox>
           </S.CmtSection>
-          {cmt.coComents.map((cocmt) => (
-            <S.CoCmtSection key={cocmt.id}>
-              <S.CoCmtBody>
-                <S.CoCmtArrow className="material-symbols-outlined">
-                  subdirectory_arrow_right
-                </S.CoCmtArrow>
-                {cocmt.body}
-              </S.CoCmtBody>
-              <S.CoFlexRowBox>
-                <S.CmtUsername>{cocmt.username}</S.CmtUsername>
-                <S.CmtDate>{cocmt.date} | 신고</S.CmtDate>
-                {/* accessTocken 확인 후 실제 사용자와 같을시 */}
-                {cocmt.username === "뮤라이프" && (
-                  <S.WriterMark>작성자</S.WriterMark>
-                )}
-              </S.CoFlexRowBox>
-            </S.CoCmtSection>
-          ))}
+          {cmt.replies &&
+            cmt.replies.map((cocmt) => (
+              <S.CoCmtSection key={cocmt.id}>
+                <S.CoCmtBody>
+                  <S.CoCmtArrow className="material-symbols-outlined">
+                    subdirectory_arrow_right
+                  </S.CoCmtArrow>
+                  {cocmt.content}
+                </S.CoCmtBody>
+                <S.CoFlexRowBox>
+                  <S.CmtUsername>{cocmt.writer}</S.CmtUsername>
+                  <S.CmtDate>{slicedate(cocmt.created_at)} | 신고</S.CmtDate>
+                  {cocmt.writer === "뮤라이프" && (
+                    <S.WriterMark>작성자</S.WriterMark>
+                  )}
+                </S.CoFlexRowBox>
+              </S.CoCmtSection>
+            ))}
         </>
       ))}
-      <S.CmtWrapper onSubmit={handleSubmit}>
+      <S.CmtWrapper>
         {isSub ? (
           <>
             <S.CmtInput2
               type="text"
               placeholder="댓글을 입력해주세요."
-              value={cmt}
-              onChange={(e) => setcmt(e.target.value)}
+              value={cocmt}
+              onChange={(e) => setcocmt(e.target.value)}
             />
             <S.CoCmtArrow2 className="material-symbols-outlined">
               subdirectory_arrow_right
             </S.CoCmtArrow2>
+            <S.CmtPostBtn onClick={handleCocmtSubmit}>
+              <S.CmtPostBtnImg src="/send.png" alt="send" />
+            </S.CmtPostBtn>
           </>
         ) : (
-          <S.CmtInput
-            type="text"
-            placeholder="댓글을 입력해주세요."
-            value={cocmt}
-            onChange={(e) => setcocmt(e.target.value)}
-          />
+          <>
+            <S.CmtInput
+              type="text"
+              placeholder="댓글을 입력해주세요."
+              value={cmt}
+              onChange={(e) => setcmt(e.target.value)}
+            />
+            <S.CmtPostBtn onClick={handleCmtSubmit}>
+              <S.CmtPostBtnImg src="/send.png" alt="send" />
+            </S.CmtPostBtn>
+          </>
         )}
-        <S.CmtPostBtn type="submit">
-          <S.CmtPostBtnImg src="/send.png" alt="send" />
-        </S.CmtPostBtn>
       </S.CmtWrapper>
     </>
   );
