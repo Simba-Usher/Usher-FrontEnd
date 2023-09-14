@@ -14,12 +14,18 @@ import { ShowWrite } from "../../../components/my/myWrite/ShowWrite";
 import { useRecoilValue } from "recoil";
 import { accessTokenState } from "../../../recoil/recoilState";
 import { Login } from "../../login/Login";
+import { ComLikes } from "../like/ComLikes";
+import { QnaLikes } from "../like/QnaLikes";
 
 export const MyWrite = () => {
   const title = "나의 글";
 
   const accessToken = useRecoilValue(accessTokenState);
   const [selectedButton, setSelectedButton] = useState('toggleA');
+
+  const [likedCom, setLikedCom] = useState([]);
+  // const dataLength = data.length;
+  const comLength = likedCom.length;
 
   const navigate = useNavigate();
   const handleCardClick = (review) => {
@@ -82,13 +88,15 @@ export const MyWrite = () => {
       ]
       },
   ];
+  const dataLength = data.length;
 
   if (accessToken) {
     return (
       <Wrapper>
         <MyInnerNav title={title} />
+        {/* {accessToken ? <></> : <p onClick={() => navigate("/login")} style={{color: "#6B2ED0", fontSize: "18px", textAlign: "center", backgroundColor: "#EFE9FF", padding: "5px 0", textDecoration: "underline"}}>로그인 후 이용가능한 서비스입니다 🧐</p>} */}
         <MyToggle title={title} selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
-        <NumBox />
+        <NumBox data={selectedButton === 'toggleA' ? dataLength : comLength}/>
         {/* {selectedButton === 'toggleA' ? <ShowReview /> : <ComWrite />} */}
         {selectedButton === 'toggleA' ? (
           <>
@@ -110,9 +118,35 @@ export const MyWrite = () => {
         ) : (
           <>
             {/* 나중에 ComWrite에 리스트로 받아와서 ... */}
-            <ComLists />
+            {likedCom.map((com, id) => (
+              <div key={id}>
+                {com.category === "자유" ? (
+                  <ComLikes
+                    // key={com.id}
+                    data={com}
+                    editorIsTrue={false}
+                    onClick={() => handleCardClick(com.id)}
+                  />
+                ) : com.category === "질문" ? (
+                  <QnaLikes
+                    // key={com.id}
+                    data={com}
+                    editorIsTrue={false}
+                    onClick={() => handleCardClick(com.id)}
+                  />
+                ) : (
+                  <ComLikes
+                    // key={com.id}
+                    data={com}
+                    editorIsTrue={true}
+                    onClick={() => handleCardClick(com.id)}
+                  />
+                )}
+              </div>
+            ))}
+            {/* <ComLists />
             <QnaLists />
-            <ComLists />
+            <ComLists /> */}
           </>
         )}
       </Wrapper>

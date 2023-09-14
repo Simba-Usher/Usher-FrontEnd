@@ -40,7 +40,7 @@ export const CoNotice = () => {
             <NoticeLists notice={result} />
           </div>
         ))}
-        <p>페이지넘버링</p>
+        {/* <p>페이지넘버링</p> */}
       </S.CoWrap>
     </Wrapper>
   )
