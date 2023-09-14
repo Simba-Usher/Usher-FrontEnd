@@ -28,8 +28,8 @@ export const Profile = styled.div`
     align-items: center;
 `
 export const Grade = styled.img`
-    width: 50px;
-    height: 50px;
+    width:  40px;
+    height: 40px;
 `
 export const MyInfo = styled.div`
     /* width: 304px; */

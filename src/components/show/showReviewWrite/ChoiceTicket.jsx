@@ -4,8 +4,31 @@ import { TicketList } from "./TicketList";
 
 export const ChoiceTicket = ({ setSelectedTicket, selectedTicket }) => {
   const [isClicked, setisClicked] = useState(false);
-  // const [selectedTicket, setSelectedTicket] = useState(null);
 
+  const [data, setData] = useState({
+    id: 1,
+    title: "뮤지컬 <오페라의 유령> - 서울",
+    ticketNum: "T0897847619",
+    date: "2023-8-10",
+    time: "19:30",
+    review: false,
+    seat: "VIP석",
+    discount: "카드 제휴할인",
+    price: 152000,
+  });
+/*
+  useEffect(() => {
+    axiosInstance
+      .get("/api/mypage/ticket")
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("티켓 요청 실패:", error);
+      });
+  }, []);
+*/
   const handleSelect = (ticket) => {
     setSelectedTicket(ticket);
     setisClicked(false);
@@ -13,42 +36,6 @@ export const ChoiceTicket = ({ setSelectedTicket, selectedTicket }) => {
   const handleClick = () => {
     setisClicked((prevIsClicked) => !prevIsClicked);
   };
-
-  const data = [
-    {
-      id: 1,
-      title: "뮤지컬 <오페라의 유령> - 서울",
-      ticketNum: "T1234567890",
-      date: "2023-8-10",
-      time: "19:30",
-      review: false,
-      seat: "VIP석",
-      discount: "카드 제휴할인",
-      price: 152000,
-    },
-    {
-      id: 2,
-      title: "뮤지컬 <레베카> 10주년 기념 공연",
-      ticketNum: "T0101010101",
-      date: "2023-8-19",
-      time: "19:30",
-      review: false,
-      seat: "R석",
-      discount: "카드 제휴할인",
-      price: 102000,
-    },
-    {
-      id: 3,
-      title: "뮤지컬 <시카고> 25주년 기념 오리지널 내한",
-      ticketNum: "T1411111127",
-      date: "2023-6-18",
-      time: "14:00",
-      review: true,
-      seat: "S석",
-      discount: "카드 제휴할인",
-      price: 99000,
-    },
-  ];
 
   return (
     <S.TicketWrapper>
@@ -74,13 +61,14 @@ export const ChoiceTicket = ({ setSelectedTicket, selectedTicket }) => {
         )}
         {isClicked && (
           <S.TicketListWrapper>
-            {data.map((ticket) => (
+            <TicketList ticket={data} onSelect={handleSelect} />
+            {/* {data.map((ticket) => (
               <TicketList
                 key={ticket.id}
                 ticket={ticket}
                 onSelect={handleSelect}
               />
-            ))}
+            ))} */}
           </S.TicketListWrapper>
         )}
         {selectedTicket ? (
