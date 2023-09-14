@@ -13,7 +13,10 @@ export const NavArrow = styled.span`
   margin-right: 15px;
   font-weight: 600;
 `;
-export const PostGreenBtn = styled.button`
+export const PostGreenBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   right: 20px;
   width: 70px;
@@ -21,7 +24,6 @@ export const PostGreenBtn = styled.button`
   font-size: 1.2rem;
   font-weight: 600;
   background-color: #c7ffef;
-  /* color: #111; */
   color: #029f95;
   border-radius: 70px;
   border: 0;

@@ -22,10 +22,9 @@ export const ShowList = () => {
       .get(
         `/api/mainposts?genre=${
           genre !== ":genre" ? genre.slice(1) : ""
-        }&location=${area !== "location" ? area : ""}&price_range${
-          price_range !== ":price_range" ? price_range.slice(1) : ""
-        }&date_range=${date_range !== ":date_range" ? date_range.slice(1) : ""}`
-      )
+        }&location=${area !== "location" ? area : ""}
+        &price_range=&date_range=`
+        )
       .then((response) => {
         console.log(response.data);
         setData(response.data);
