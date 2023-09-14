@@ -341,6 +341,8 @@ export const ShortReview = styled.div`
 export const SelectedListContainer = styled.div`
   display: flex;
   margin: 10px;
+  /* border: 1px solid red; */
+  /* position: relative; */
 `;
 export const SelectDesign = styled.select`
   width: 75px;
@@ -375,11 +377,14 @@ export const priceDesign = styled(DateDesign)`
   cursor: pointer;
 `;
 export const InputBar = styled.div`
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
   z-index: 100;
-  left: 215px;
-  /* top: 100px; */
-  top: 90px;
+  /* left: 215px; */
+  /* top: 90px; */
+  /* 수정 후 */
+  top: 44px;
+  /* border: 1px solid red; */
 `;
 export const DropDown = styled.span`
   position: absolute;
