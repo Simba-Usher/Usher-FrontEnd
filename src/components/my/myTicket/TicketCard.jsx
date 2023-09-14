@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const TicketCard = ({ ticket }) => {
     const navigate = useNavigate();
     const ticketDate = ticket.performance_date.slice(0,10);
-    const ticketTime = ticket.performance_date.slice(14,19);
+    const ticketTime = ticket.performance_date.slice(11,16);
 
   return (
     <S.TicketLine>
