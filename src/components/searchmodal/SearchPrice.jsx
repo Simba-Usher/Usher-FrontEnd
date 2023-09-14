@@ -15,8 +15,8 @@ export const SearchPrice = ({
   // const fixedMinPrice = 0;
   // const fixedMaxPrice = 200000;
   const priceGap = 20000;
-  // const [rangeMinValue, setRangeMinValue] = useState(fixedMinPrice);
-  // const [rangeMaxValue, setRangeMaxValue] = useState(fixedMaxPrice);
+  // const [rangeMinValue, setRangeMinValue] = useState(0);
+  // const [rangeMaxValue, setRangeMaxValue] = useState(300000);
 
   const priceRangeMinValueHandler = (e) => {
     setRangeMinValue(parseInt(e.target.value));
@@ -31,9 +31,9 @@ export const SearchPrice = ({
       setRangeMaxValue(rangeMinValue + priceGap);
       setRangeMinValue(rangeMaxValue - priceGap);
     } else {
-      setrangeMinPercent((rangeMinValue / 200000) * 100);
+      setrangeMinPercent((rangeMinValue / 300000) * 100);
       // setrangeMinPercent((rangeMinValue / fixedMaxPrice) * 100);
-      setrangeMaxPercent(100 - (rangeMaxValue / 200000) * 100);
+      setrangeMaxPercent(100 - (rangeMaxValue / 300000) * 100);
       // setrangeMaxPercent(100 - (rangeMaxValue / fixedMaxPrice) * 100);
     }
   };
@@ -54,7 +54,7 @@ export const SearchPrice = ({
             type="range"
             min="0"
             // min={fixedMinPrice}
-            max={200000 - priceGap}
+            max={300000 - priceGap}
             // max={fixedMaxPrice - priceGap}
             step="1000"
             value={rangeMinValue}
@@ -67,7 +67,7 @@ export const SearchPrice = ({
             type="range"
             min={priceGap}
             // min={fixedMinPrice + priceGap}
-            max="200000"
+            max="300000"
             // max={fixedMaxPrice}
             step="1000"
             value={rangeMaxValue}

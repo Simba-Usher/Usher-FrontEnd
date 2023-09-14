@@ -7,15 +7,15 @@ export const TicketList = ({ ticket, onSelect, islist }) => {
       islist={islist}
       onClick={!ticket.review ? () => onSelect(ticket) : null}
     >
-      <S.ListTitle>{ticket.title}</S.ListTitle>
+      <S.ListTitle>{ticket.performance}</S.ListTitle>
       <S.ListData>
         <S.ListTxt>예매 번호</S.ListTxt>
-        <S.ListDate>{ticket.ticketNum}</S.ListDate>
+        <S.ListDate>{ticket.ticket_number}</S.ListDate>
       </S.ListData>
       <S.ListData>
         <S.ListTxt>관람 일시</S.ListTxt>
         <S.ListDate>
-          {ticket.date} · {ticket.time}
+          {ticket.performance_date.slice(0,10)} · {ticket.performance_date.slice(11,16)}
         </S.ListDate>
       </S.ListData>
       {ticket.review ? (

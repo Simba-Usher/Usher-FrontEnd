@@ -14,6 +14,7 @@ export const ReviewWrite = () => {
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [star, setStar] = useState(5);
   const [body, setBody] = useState("");
+  const [myTicket, setMyTicket] = useState([]);
 
   const goback = () => {
     navigate(-1);
@@ -40,18 +41,38 @@ export const ReviewWrite = () => {
       const response = await axiosInstance.post(
         `/api/mainposts/${1}/mainreviews`,
         {
-          ticket: selectedTicket.ticketNum,
+          ticket: selectedTicket.id,
           content: body,
           rating: star,
         },
         { headers }
       );
+      console.log(selectedTicket.id);
       console.log(response.data);
     } catch (error) {
       console.error("관람 후기 작성 오류 발생:", error);
       throw error;
     }
   };
+
+  // 티켓 가져오기
+  const fetchMyTicketData = async () => {
+    try {
+      const response = await axiosInstance.get("/api/mypage/ticket",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+      }
+      });
+      setMyTicket(response.data);
+      console.log(myTicket);
+    } catch (error) {
+      console.log("티켓 불러오는 중 오류 발생", error);
+    }
+  }
+  useEffect(() => {
+    fetchMyTicketData();
+  },[])
 
   return (
     <Wrapper>
@@ -70,6 +91,7 @@ export const ReviewWrite = () => {
       <ChoiceTicket
         setSelectedTicket={handleSelectTicket}
         selectedTicket={selectedTicket}
+        allTicket={myTicket}
       />
       <S.ReviewWriteSection>
         <S.FlexRow_>

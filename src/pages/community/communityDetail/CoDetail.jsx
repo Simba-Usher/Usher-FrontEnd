@@ -54,6 +54,10 @@ export const CoDetail = () => {
     return sdate.slice(0, 10);
   };
 
+  // 이전 화살표 nav 연결
+  const Cate = detailData.category;
+  const PrevPage = Cate === "자유" ? "/community/free" : Cate === "에디터 픽" ? "/community/editor" : Cate === "질문" ? "/community/qna" : Cate === "공지" ? "/community/notice" : "/community/free";
+
   // 좋아요 post
   // const handleLike = async () => {
   //   try {
@@ -74,7 +78,7 @@ export const CoDetail = () => {
         <S.CoDetailNav>
           <S.CoNavArrow
             className="material-symbols-outlined"
-            onClick={() => navigate("/community")}
+            onClick={() => navigate(PrevPage)}
           >
             arrow_back
           </S.CoNavArrow>

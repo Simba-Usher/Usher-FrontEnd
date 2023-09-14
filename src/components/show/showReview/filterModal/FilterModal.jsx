@@ -7,13 +7,13 @@ import { FilterDiscount } from './FilterDiscount';
 export const FilterModal = ({ setFilterModal }) => {
   const [stars, setStars] = useState("전체");
   const [rangeMinValue, setRangeMinValue] = useState(0);
-  const [rangeMaxValue, setRangeMaxValue] = useState(200000);
+  const [rangeMaxValue, setRangeMaxValue] = useState(300000);
   const [discount, setDiscount] = useState("카드 제휴");
 
   const reset = () =>{
     setStars("전체");
     setRangeMinValue(0);
-    setRangeMaxValue(200000);
+    setRangeMaxValue(300000);
     setDiscount("카드 제휴");
   }
 
