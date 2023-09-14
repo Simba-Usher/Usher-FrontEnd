@@ -17,7 +17,7 @@ export const MyTicket = ({ ticket }) => {
                         <img src="/ticket.png" alt="ticket" />
                         {/* 티켓 수 불러오기 */}
                         {/* <p>3장</p> */}
-                        <p>{ticket.length}</p>
+                        <p>{ticket.length}장</p>
                     </S.MyTickets>
                     <S.AddTicket onClick={()=>navigate("/my/ticket")}>
                         <p>티켓 등록하기</p>
