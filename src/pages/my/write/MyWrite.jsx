@@ -11,10 +11,14 @@ import { ComLists } from "../../../components/community/communityMain/ComLists";
 import { ShowReviewCard } from "../../../components/show/showReview/ShowReviewCard";
 import { useNavigate } from "react-router-dom";
 import { ShowWrite } from "../../../components/my/myWrite/ShowWrite";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
+import { Login } from "../../login/Login";
 
 export const MyWrite = () => {
   const title = "나의 글";
 
+  const accessToken = useRecoilValue(accessTokenState);
   const [selectedButton, setSelectedButton] = useState('toggleA');
 
   const navigate = useNavigate();
@@ -79,37 +83,45 @@ export const MyWrite = () => {
       },
   ];
 
-  return (
-    <Wrapper>
-      <MyInnerNav title={title} />
-      <MyToggle title={title} selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
-      <NumBox />
-      {/* {selectedButton === 'toggleA' ? <ShowReview /> : <ComWrite />} */}
-      {selectedButton === 'toggleA' ? (
-        <>
-          {/* {data.map((show) => (
-            <ShowReview
-              key={show.id}
-              data={show}
-              onClick={() => handleCardClick(show.id)}
-            />
-          ))} */}
-          {data.map((review) => (
-            <ShowWrite
-              key={review.id}
-              review={review}
-              onClick={() => handleCardClick(review.id)}
-            />
-          ))}
-        </>
-      ) : (
-        <>
-          {/* 나중에 ComWrite에 리스트로 받아와서 ... */}
-          <ComLists />
-          <QnaLists />
-          <ComLists />
-        </>
-      )}
-    </Wrapper>
-  );
+  if (accessToken) {
+    return (
+      <Wrapper>
+        <MyInnerNav title={title} />
+        <MyToggle title={title} selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
+        <NumBox />
+        {/* {selectedButton === 'toggleA' ? <ShowReview /> : <ComWrite />} */}
+        {selectedButton === 'toggleA' ? (
+          <>
+            {/* {data.map((show) => (
+              <ShowReview
+                key={show.id}
+                data={show}
+                onClick={() => handleCardClick(show.id)}
+              />
+            ))} */}
+            {data.map((review) => (
+              <ShowWrite
+                key={review.id}
+                review={review}
+                onClick={() => handleCardClick(review.id)}
+              />
+            ))}
+          </>
+        ) : (
+          <>
+            {/* 나중에 ComWrite에 리스트로 받아와서 ... */}
+            <ComLists />
+            <QnaLists />
+            <ComLists />
+          </>
+        )}
+      </Wrapper>
+    );
+  } else {
+    return (
+      <>
+        <Login />
+      </>
+    )
+  }
 };

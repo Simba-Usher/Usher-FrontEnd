@@ -476,6 +476,7 @@ export const ShowCardStar = styled.span`
   margin-right: 10px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   i{
     font-size: 1rem;
     padding-right: 3px;
