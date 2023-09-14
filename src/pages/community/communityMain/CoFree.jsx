@@ -99,7 +99,7 @@ export const CoFree = () => {
             <ComLists compost={result} />
           </div>
         ))}
-        <p>페이지넘버링</p>
+        {/* <p>페이지넘버링</p> */}
         <WriteBtn />
       </S.CoWrap>
     </Wrapper>

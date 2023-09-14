@@ -12,6 +12,7 @@ export const Setting = () => {
   const title = "기본 정보 수정";
 
   const Nickname = localStorage.getItem('nickname');
+  const Email = localStorage.getItem('email');
   console.log(Nickname);
 
   // 초기 기본정보 설정
@@ -119,7 +120,7 @@ export const Setting = () => {
         <S.EmailBox>
           <div>대표 이메일</div>
           {/* 대표 이메일 불러오기 */}
-          <div>musicismylife@gmail.com</div>
+          <div>{Email}</div>
         </S.EmailBox>
         <S.SettingBox>
           <div>현재 비밀번호</div>

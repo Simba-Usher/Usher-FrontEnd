@@ -95,7 +95,7 @@ export const CoEditor = () => {
               <ComLists compost={result} editorIsTrue={true} />
             </div>
           ))}
-        <p>페이지넘버링</p>
+        {/* <p>페이지넘버링</p> */}
       </S.CoWrap>
     </Wrapper>
   );

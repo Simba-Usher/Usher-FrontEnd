@@ -12,9 +12,11 @@ import axiosInstance from "../../../api/axios";
 import { useRecoilValue } from "recoil";
 import { accessTokenState } from "../../../recoil/recoilState";
 import { Login } from "../../login/Login";
+import { useNavigate } from "react-router-dom";
 
 export const ShowCalendar = () => {
   const title = "공연 달력";
+  const navigate = useNavigate();
   const accessToken = useRecoilValue(accessTokenState);
   const [activeDate, setActiveDate] = useState('');
   const [memoList, setMemoList] = useState([]);
@@ -57,7 +59,6 @@ export const ShowCalendar = () => {
     fetchMemoData();
   }, [])
 
-
   // 메모 추가
   // const addTicketMemoToList = (newMemo) => {
   //   setTicketMemoList((prevMemoList) => [...prevMemoList, newMemo]);
@@ -86,16 +87,18 @@ export const ShowCalendar = () => {
     fetchMyTicketData();
   }, [])
 
-  if (accessToken) {
+  // if (accessToken) {
     return (
       <>
         <MyInnerNav title={title} />
+        {accessToken ? <></> : <p onClick={() => navigate("/login")} style={{color: "#6B2ED0", fontSize: "18px", textAlign: "center", backgroundColor: "#EFE9FF", padding: "5px 0", textDecoration: "underline"}}>로그인 후 이용가능한 서비스입니다 🧐</p>}
         <MyCalendar onActiveDateChange={handleActiveDateChange} />
         <CalendarBar
           activeDate={activeDate}
           // closeModal={closeModal}
           memoList={memoList}
           addMemoToList={addMemoToList}
+          ticket={filteredData2}
         />
         {/* 각 날짜에 맞는 공연카드 불러오기 ... */}
         {filteredData2.map((show) => (
@@ -122,11 +125,11 @@ export const ShowCalendar = () => {
         <Footer />
       </>
     );
-  } else {
-    return (
-      <>
-        <Login />
-      </>
-    )
-  }
+  // } else {
+  //   return (
+  //     <>
+        // <Login />
+  //     </>
+  //   )
+  // }
 };

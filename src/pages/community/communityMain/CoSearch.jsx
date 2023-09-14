@@ -90,7 +90,7 @@ export const CoSearch = () => {
                         }
                     </div>
                 ))}
-                <p>페이지넘버링</p>
+                {/* <p>페이지넘버링</p> */}
                 <WriteBtn />
             </S.CoWrap>
         </Wrapper>

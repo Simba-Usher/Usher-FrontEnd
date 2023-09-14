@@ -31,6 +31,8 @@ export const MyLike = () => {
 
   const [likedShow, setLikedShow] = useState([]);
   const [likedCom, setLikedCom] = useState([]);
+  const showLength = likedShow.length;
+  const comLength = likedCom.length;
   const accessToken = useRecoilValue(accessTokenState);
   // console.log(accessToken);
 
@@ -73,12 +75,13 @@ export const MyLike = () => {
     getLikedCom();
   }, [])
 
-  if (accessToken) {
+  // if (accessToken) {
     return (
       <Wrapper>
         <MyInnerNav title={title} />
+        {accessToken ? <></> : <p onClick={() => navigate("/login")} style={{color: "#6B2ED0", fontSize: "18px", textAlign: "center", backgroundColor: "#EFE9FF", padding: "5px 0", textDecoration: "underline"}}>로그인 후 이용가능한 서비스입니다 🧐</p>}
         <MyToggle title={title} selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
-        <NumBox />
+        <NumBox data={selectedButton === 'toggleA' ? showLength : comLength} />
   
         {selectedButton === 'toggleA' ? (
           <>
@@ -127,11 +130,11 @@ export const MyLike = () => {
   
       </Wrapper>
     );
-  } else {
-    return (
-      <>
-        <Login />
-      </>
-    )
-  }
+  // } else {
+  //   return (
+  //     <>
+  //       <Login />
+  //     </>
+  //   )
+  // }
 };

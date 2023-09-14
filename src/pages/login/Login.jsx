@@ -36,6 +36,7 @@ export const Login = () => {
       navigate("/");
 
       localStorage.setItem('nickname', response.data.nickname);
+      localStorage.setItem('email', response.data.email);
 
     } catch (error) {
       console.error("로그인 실패:", error);

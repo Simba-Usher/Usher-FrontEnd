@@ -79,7 +79,7 @@ export const CoQna = () => {
             <QnaLists compost={result} editorIsTrue={false} />
           </div>
         ))}
-        <p>페이지넘버링</p>
+        {/* <p>페이지넘버링</p> */}
         <WriteBtn />
       </S.CoWrap>
     </Wrapper>

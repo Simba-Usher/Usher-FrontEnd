@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import * as S from "./style";
 import { useNavigate } from 'react-router-dom';
 
-export const MyProfile = () => {
+export const MyProfile = ({yourname}) => {
     // const fetchAllData = async () => {
     //     try {
     //         const response = await axiosInstance.get("/api/login/");
@@ -34,7 +34,9 @@ export const MyProfile = () => {
 
 
     const Nickname = localStorage.getItem('nickname');
+    const Email = localStorage.getItem('email');
     console.log(Nickname);
+    console.log(Email);
 
     const navigate = useNavigate();
     return (
@@ -45,10 +47,12 @@ export const MyProfile = () => {
                         <S.Grade src="/grade1.png" alt="grade" />
                         {/* 닉네임, 메일 불러오기 */}
                         <S.MyInfo>
-                            <S.MyName>{Nickname}</S.MyName>
+                            {yourname ? <S.MyName>{Nickname}</S.MyName> : <S.MyName>로그인이 필요합니다</S.MyName>}
+                            {/* <S.MyName>{Nickname}</S.MyName> */}
                             <S.MyMail>
                                 <img src="/mail.png" alt="mail" />
-                                <p>musicismylife@kopis.com</p>
+                                {/* <p>{Email}</p> */}
+                                {yourname ? <p>{Email}</p> : <p>email</p>}
                             </S.MyMail>
                         </S.MyInfo>
                         <S.GoImg
