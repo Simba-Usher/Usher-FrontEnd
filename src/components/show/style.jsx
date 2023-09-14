@@ -113,8 +113,9 @@ export const TitleSec4 = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
+    color: #616161;
 `
 // DetailNav.jsx
 export const DetailNavWrap = styled.div`

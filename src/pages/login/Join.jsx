@@ -51,7 +51,7 @@ export const Join = () => {
       <S.MarginSection>
         회원가입을 위해 <span>약관 동의</span>가 필요해요.
       </S.MarginSection>
-      <form onSubmit={handleSubmit}>
+      <form>
         <S.AllAgree>
           <p>
             전체 동의 <span>(선택 항목 포함)</span>
@@ -114,7 +114,7 @@ export const Join = () => {
             onChange={() => setCheck4((prevCheck4) => !prevCheck4)}
           />
         </S.Checkbox>
-        <S.BottomBlueBtn>다음</S.BottomBlueBtn>
+        <S.BottomBlueBtn onClick={handleSubmit}>다음</S.BottomBlueBtn>
       </form>
     </Wrapper>
   );

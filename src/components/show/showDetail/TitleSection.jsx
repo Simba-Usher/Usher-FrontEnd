@@ -60,11 +60,9 @@ export const TitleSection = ({data}) => {
         </S.TitleSec3>
         <S.TitleSec4>
           {/* 공연장명 불러오기 */}
-          <p style={{ color: "#002C4A" }}>{data.location}. {data.place}</p>
+          <p>{data.location}. {data.place}</p>
           {/* 공연기간 불러오기 */}
-          <p style={{ color: "#002843" }}>
-            {data.start_date} ~ {data.end_date}
-          </p>
+          <p>{data.start_date} ~ {data.end_date}</p>
           {/* <p style={{ color: "#002843" }}>2023.7.21 ~ 2023.11.17</p> */}
         </S.TitleSec4>
       </S.TitleSecWrap>
