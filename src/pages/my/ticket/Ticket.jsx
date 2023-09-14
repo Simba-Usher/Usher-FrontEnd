@@ -33,11 +33,12 @@ export const Ticket = () => {
     fetchMyTicketData();
   },[])
 
-  if (accessToken) {
+  // if (accessToken) {
     return (
       <Wrapper>
         <S.TicketWrap>
           <MyInnerNav title="티켓 등록" />
+          {accessToken ? <></> : <p onClick={() => navigate("/login")} style={{color: "#6B2ED0", fontSize: "18px", textAlign: "center", backgroundColor: "#EFE9FF", padding: "5px 0", textDecoration: "underline"}}>로그인 후 이용가능한 서비스입니다 🧐</p>}
           <TicketInput />
           <S.TicketWrapper>
             <S.TicketTxt>등록 티켓</S.TicketTxt>
@@ -59,11 +60,11 @@ export const Ticket = () => {
         </S.TicketWrap>
       </Wrapper>
     );
-  } else {
-    return (
-      <>
-        <Login />
-      </>
-    )
-  }
+  // } else {
+  //   return (
+  //     <>
+  //       <Login />
+  //     </>
+  //   )
+  // }
 };

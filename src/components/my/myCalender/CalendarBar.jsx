@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import * as S from "./style";
 import { AddMemo } from './AddMemo';
 
-export const CalendarBar = ({ activeDate, memoList, addMemoToList }) => {
+export const CalendarBar = ({ activeDate, memoList, addMemoToList, ticket }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
@@ -20,7 +20,7 @@ export const CalendarBar = ({ activeDate, memoList, addMemoToList }) => {
                 <S.ShowNumSec>
                     <p>관람공연</p>
                     {/* 관람공연수 불러오기 */}
-                    <p>3건</p>
+                    <p>{ticket.length}건</p>
                 </S.ShowNumSec>
                 <S.BlankSec />
                 <S.AddMemoSec onClick={openModal}>
