@@ -23,7 +23,7 @@ export const Nav = ({ toggleModal, onClick }) => {
   // 엔터키 검색
   const handleEnterKey = (e) => {
     if (e.key === "Enter") {
-      onClick(search);
+      // onClick(search);
       handleSearchURL();
     }
   }

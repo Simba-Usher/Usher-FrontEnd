@@ -7,11 +7,15 @@ import { WriteBtnSection } from "../../../components/show/showReview/WriteBtnSec
 import { FilterModal } from "../../../components/show/showReview/filterModal/FilterModal";
 import axiosInstance from "../../../api/axios";
 import { useLocation, useParams } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../recoil/recoilState";
+import { Login } from "../../login/Login";
 
 export const ShowReview = () => {
   const [isSort, setIsSort] = useState("최신순");
   const [filterModal,setFilterModal]=useState(false);
   const {pathname} = useLocation();
+  const accessToken = useRecoilValue(accessTokenState);
 
   const [data, setData] = useState([
     {
@@ -89,37 +93,45 @@ export const ShowReview = () => {
         });
     },);
 
-  return (
-    <>
-      {filterModal && <FilterModal setFilterModal={setFilterModal} />}
-      <Wrapper>
-        <OtherNav title="관람후기" />
-        <S.GrayHr />
-        <WriteBtnSection />
-        <S.ReviewBlueTxt>관람 후기 ({data.length})</S.ReviewBlueTxt>
-        <S.ReviewFilterSection>
-          <S.ReviewSort
-            onClick={() => setIsSort("최신순")}
-            isclicked={isSort == "최신순" ? "true" : "false"}
-          >
-            최신순
-          </S.ReviewSort>
-          &nbsp;|&nbsp;
-          <S.ReviewSort
-            onClick={() => setIsSort("공감순")}
-            isclicked={isSort == "공감순" ? "true" : "false"}
-          >
-            공감순
-          </S.ReviewSort>
-          <S.FilterBtnWrapper onClick={()=>setFilterModal(true)}>
-            <img src="/filter.png" alt="filter" />
-            맞춤 필터
-          </S.FilterBtnWrapper>
-        </S.ReviewFilterSection>
-        {data.map((review) => (
-          <ShowReviewCard key={review.id} review={review} />
-        ))}
-      </Wrapper>
-    </>
-  );
+  if (accessToken) {
+    return (
+      <>
+        {filterModal && <FilterModal setFilterModal={setFilterModal} />}
+        <Wrapper>
+          <OtherNav title="관람후기" />
+          <S.GrayHr />
+          <WriteBtnSection />
+          <S.ReviewBlueTxt>관람 후기 ({data.length})</S.ReviewBlueTxt>
+          <S.ReviewFilterSection>
+            <S.ReviewSort
+              onClick={() => setIsSort("최신순")}
+              isclicked={isSort == "최신순" ? "true" : "false"}
+            >
+              최신순
+            </S.ReviewSort>
+            &nbsp;|&nbsp;
+            <S.ReviewSort
+              onClick={() => setIsSort("공감순")}
+              isclicked={isSort == "공감순" ? "true" : "false"}
+            >
+              공감순
+            </S.ReviewSort>
+            <S.FilterBtnWrapper onClick={()=>setFilterModal(true)}>
+              <img src="/filter.png" alt="filter" />
+              맞춤 필터
+            </S.FilterBtnWrapper>
+          </S.ReviewFilterSection>
+          {data.map((review) => (
+            <ShowReviewCard key={review.id} review={review} />
+          ))}
+        </Wrapper>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Login />
+      </>
+    )
+  }
 };

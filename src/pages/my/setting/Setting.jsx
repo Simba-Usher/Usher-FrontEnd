@@ -6,6 +6,7 @@ import { MyGrade } from "../../../components/my/mySetting/MyGrade";
 import axiosInstance from "../../../api/axios";
 import { useRecoilValue } from "recoil";
 import { accessTokenState } from "../../../recoil/recoilState";
+import { Login } from "../../login/Login";
 
 export const Setting = () => {
   const title = "기본 정보 수정";
@@ -97,61 +98,69 @@ export const Setting = () => {
   }
 
   // 기존의 데이터들이 이미 입력되어 있는 상태로 불러와져야 함 ...
-  return (
-    <Wrapper>
-      <MyInnerNav title={title} />
-      <MyGrade />
-      <S.NameBox>
-        <div>닉네임</div>
-        <div>
+  if (accessToken) {
+    return (
+      <Wrapper>
+        <MyInnerNav title={title} />
+        <MyGrade />
+        <S.NameBox>
+          <div>닉네임</div>
+          <div>
+            <input
+              type="text"
+              maxLength="6"
+              // value={newNickname !== undefined ? newNickname : nickname}
+              value={nickname}
+              onChange={handleNicknameChange}
+            />
+            <p>※닉네임은 6자까지 입력 가능합니다</p>
+          </div>
+        </S.NameBox>
+        <S.EmailBox>
+          <div>대표 이메일</div>
+          {/* 대표 이메일 불러오기 */}
+          <div>musicismylife@gmail.com</div>
+        </S.EmailBox>
+        <S.SettingBox>
+          <div>현재 비밀번호</div>
           <input
-            type="text"
-            maxLength="6"
-            // value={newNickname !== undefined ? newNickname : nickname}
-            value={nickname}
-            onChange={handleNicknameChange}
+            type="password"
+            placeholder="기존 비밀번호를 입력해주세요"
+            value={currentPw}
+            onChange={handleCurrentPwChange}
           />
-          <p>※닉네임은 6자까지 입력 가능합니다</p>
-        </div>
-      </S.NameBox>
-      <S.EmailBox>
-        <div>대표 이메일</div>
-        {/* 대표 이메일 불러오기 */}
-        <div>musicismylife@gmail.com</div>
-      </S.EmailBox>
-      <S.SettingBox>
-        <div>현재 비밀번호</div>
-        <input
-          type="password"
-          placeholder="기존 비밀번호를 입력해주세요"
-          value={currentPw}
-          onChange={handleCurrentPwChange}
-        />
-      </S.SettingBox>
-      <S.SettingBox>
-        <div>비밀번호 변경</div>
-        <input
-          type="password"
-          placeholder="새 비밀번호를 입력해주세요"
-          value={newPw}
-          onChange={handleNewPwChange}
-        />
-      </S.SettingBox>
-      <S.SettingBox>
-        <div>비밀번호 변경</div>
-        <input
-          type="password"
-          placeholder="새 비밀번호를 다시 입력해주세요"
-          value={checkPw}
-          onChange={handleCheckPwChange}
-        />
-      </S.SettingBox>
-      <div style={{ height: "64px" }}></div>
-      <S.BtnBox>
-        {/* 처음처럼 */}
-        <S.ResetBtn onClick={handleReset}>초기화</S.ResetBtn>
-        <S.DoneBtn onClick={handleSave}>변경완료</S.DoneBtn>
-      </S.BtnBox>
-    </Wrapper>
-  );
+        </S.SettingBox>
+        <S.SettingBox>
+          <div>비밀번호 변경</div>
+          <input
+            type="password"
+            placeholder="새 비밀번호를 입력해주세요"
+            value={newPw}
+            onChange={handleNewPwChange}
+          />
+        </S.SettingBox>
+        <S.SettingBox>
+          <div>비밀번호 변경</div>
+          <input
+            type="password"
+            placeholder="새 비밀번호를 다시 입력해주세요"
+            value={checkPw}
+            onChange={handleCheckPwChange}
+          />
+        </S.SettingBox>
+        <div style={{ height: "64px" }}></div>
+        <S.BtnBox>
+          {/* 처음처럼 */}
+          <S.ResetBtn onClick={handleReset}>초기화</S.ResetBtn>
+          <S.DoneBtn onClick={handleSave}>변경완료</S.DoneBtn>
+        </S.BtnBox>
+      </Wrapper>
+    );
+  } else {
+    return (
+      <>
+        <Login />
+      </>
+    )
+  }
 };

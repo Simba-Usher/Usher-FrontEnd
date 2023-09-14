@@ -23,6 +23,7 @@ export const PurpleColor = styled.i`
   color: #a182d2;
   font-size: 1.2rem;
   margin-right: 3px;
+  margin-top: 3px;
 `;
 export const GrayColor = styled.i`
   color: #cccece;
@@ -30,7 +31,7 @@ export const GrayColor = styled.i`
   margin-right: 3px;
 `;
 
-export const LikeBtn = styled.button`
+export const LikeBtn = styled.div`
   width: 88px;
   height: 34px;
   background-color: #fff;

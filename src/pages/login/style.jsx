@@ -79,6 +79,9 @@ export const BlueBtn = styled.button`
   color: #fff;
   font-size: 1.5rem;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const SkyBlueBtn = styled(BlueBtn)`
   background-color: #f3f8ff;

@@ -11,6 +11,7 @@ import { Footer } from "../../../components/layouts/footer/Footer";
 import axiosInstance from "../../../api/axios";
 import { useRecoilValue } from "recoil";
 import { accessTokenState } from "../../../recoil/recoilState";
+import { Login } from "../../login/Login";
 
 export const ShowCalendar = () => {
   const title = "공연 달력";
@@ -85,39 +86,47 @@ export const ShowCalendar = () => {
     fetchMyTicketData();
   }, [])
 
-  return (
-    <>
-      <MyInnerNav title={title} />
-      <MyCalendar onActiveDateChange={handleActiveDateChange} />
-      <CalendarBar
-        activeDate={activeDate}
-        // closeModal={closeModal}
-        memoList={memoList}
-        addMemoToList={addMemoToList}
-      />
-      {/* 각 날짜에 맞는 공연카드 불러오기 ... */}
-      {filteredData2.map((show) => (
-        <ShowCards
-          key={show.id}
-          data={show}
+  if (accessToken) {
+    return (
+      <>
+        <MyInnerNav title={title} />
+        <MyCalendar onActiveDateChange={handleActiveDateChange} />
+        <CalendarBar
           activeDate={activeDate}
-          ticketMemoList={ticketMemoList}
-          setTicketMemoList={setTicketMemoList}
-          // addTicketMemoToList={addTicketMemoToList}
-        />
-      ))}
-      {/* <ShowCards activeDate={activeDate} /> */}
-      {filteredData1.map((memo) => (
-        <MemoCards
-          key={memo.id}
-          data={memo}
-          activeDate={activeDate}
+          // closeModal={closeModal}
           memoList={memoList}
-          setMemoList={setMemoList}
+          addMemoToList={addMemoToList}
         />
-      ))}
-      {/* <MemoCards activeDate={activeDate} /> */}
-      <Footer />
-    </>
-  );
+        {/* 각 날짜에 맞는 공연카드 불러오기 ... */}
+        {filteredData2.map((show) => (
+          <ShowCards
+            key={show.id}
+            data={show}
+            activeDate={activeDate}
+            ticketMemoList={ticketMemoList}
+            setTicketMemoList={setTicketMemoList}
+            // addTicketMemoToList={addTicketMemoToList}
+          />
+        ))}
+        {/* <ShowCards activeDate={activeDate} /> */}
+        {filteredData1.map((memo) => (
+          <MemoCards
+            key={memo.id}
+            data={memo}
+            activeDate={activeDate}
+            memoList={memoList}
+            setMemoList={setMemoList}
+          />
+        ))}
+        {/* <MemoCards activeDate={activeDate} /> */}
+        <Footer />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Login />
+      </>
+    )
+  }
 };

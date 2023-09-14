@@ -29,7 +29,7 @@ export const CoNotice = () => {
   return (
     <Wrapper>
       <Nav
-        onClick={handleSearch}
+        // onClick={handleSearch}
       />
       <HomeNav />
       <S.CoWrap>
