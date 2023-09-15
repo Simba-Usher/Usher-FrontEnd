@@ -8,7 +8,7 @@ export const TicketInput=() =>{
     const [ticketNum, setTicketNum] = useState("");
     const accessToken = useRecoilValue(accessTokenState);
     // const handleSubmit = () => {
-    //     ticketNum && alert(ticketNum+"등록되었습니다.");
+    //     ticketNum && alert("티켓 번호: ["+ticketNum+"]이 등록되었습니다.");
     // }
 
     const handleSubmit = async () => {
@@ -25,7 +25,7 @@ export const TicketInput=() =>{
           }
         );
         console.log(response.data);
-        ticketNum && alert(ticketNum+"등록되었습니다.");
+        ticketNum && alert("티켓 번호: [" + ticketNum + "]이 등록되었습니다.");
       } catch (error) {
         console.log("티켓 추가 중 오류 발생", error);
       }

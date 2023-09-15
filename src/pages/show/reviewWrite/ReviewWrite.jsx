@@ -39,7 +39,7 @@ export const ReviewWrite = () => {
       const headers = { Authorization: `Bearer ${accessToken}` };
 
       const response = await axiosInstance.post(
-        `/api/mainposts/${1}/mainreviews`,
+        "/api/mainposts/1/mainreviews",
         {
           ticket: selectedTicket.id,
           content: body,
@@ -49,6 +49,7 @@ export const ReviewWrite = () => {
       );
       console.log(selectedTicket.id);
       console.log(response.data);
+      alert("관람 후기가 작성되었습니다")
     } catch (error) {
       console.error("관람 후기 작성 오류 발생:", error);
       throw error;

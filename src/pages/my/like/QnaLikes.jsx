@@ -14,7 +14,7 @@ export const QnaLikes = ({ data }) => {
                     <S.Sec1Title>Q. {data.title}</S.Sec1Title>
                     <S.Sec2Content>
                         {/* 본문 글자수 자르기 해야될듯 */}
-                        {data.content}
+                        {data.content.slice(0,70)}&nbsp;...
                     </S.Sec2Content>
                     <S.Sec3>
                         <img src="/views.png" alt="views" />
