@@ -44,6 +44,7 @@ export const CoWrite = () => {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) setImg(file);
+    console.log(file);
   };
   // 이미지 업로드 선택
   const openFilePicker = () => {
