@@ -44,8 +44,6 @@ export const My = () => {
       <Wrapper>
         <Nav />
         <HomeNav />
-        {/* {accessToken ? <></> : <p onClick={() => navigate("/login")} style={{color: "#6B2ED0", fontSize: "18px", textAlign: "center", backgroundColor: "#EFE9FF", padding: "5px 0", textDecoration: "underline"}}>로그인 후 이용가능한 서비스입니다 🧐</p>} */}
-        {/* <MyProfile /> */}
         {accessToken ? <MyProfile yourname={true} /> : <MyProfile yourname={false} />}
         <MyTicket ticket={myTicket} />
         <UseUsher />
@@ -55,15 +53,4 @@ export const My = () => {
         <Footer />
       </Wrapper>
     );
-  // } else {
-  //   return (
-  //     // <div>
-  //     //   <h1>로그인이 필요합니다.</h1>
-  //     //   <div onClick={() => navigate("/login")} style={{ background: "red" }}>로그인 하러가기</div>
-  //     // </div>
-  //     <>
-  //       <Login />
-  //     </>
-  //   );
-  // }
 };

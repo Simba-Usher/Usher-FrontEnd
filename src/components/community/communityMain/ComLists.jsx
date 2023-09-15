@@ -46,7 +46,7 @@ export const ComLists = ({ compost, editorIsTrue }) => {
             <p>{compost.comcomments_cnt}</p>
           </S.Sec3>
         </S.TextSec>
-        <S.ImgSec src={compost.image} />
+        {compost.image && <S.ImgSec src={compost.image} />}
         {/* <S.ImgSec src="/comlistposter.png" /> */}
       </S.ComListsWrap>
     </>
