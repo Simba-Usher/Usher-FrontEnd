@@ -35,7 +35,7 @@ export const TicketCard = ({ ticket }) => {
             {/* {ticket.discount_method} · ￦{ticket.price.toLocaleString()} */}
           </S.TicketCardData>
         </S.TicketCardDataLabel>
-        <S.TicketLink onClick={()=>navigate(`/${ticket.id}`)}>
+        <S.TicketLink onClick={()=>navigate(`/${1}`)}>
           공연 상세페이지로
           <span className="material-symbols-outlined">arrow_right</span>
         </S.TicketLink>
