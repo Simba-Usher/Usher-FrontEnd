@@ -32,12 +32,15 @@ export const ReviewSection = forwardRef((props, ref) => {
         </S.ReviewSec2>
         {/* 리뷰 불러오기 */}
         <S.ReviewSec3>
-          {props.data.mainreviews.map((review) => (
+          {/*
+          {props.data.mainreviews.length < 0 &&
+          props.data.mainreviews.map((review) => (
             <S.Reviews onClick={() => navigate(`/${pathname.slice(1)}/review`)}>
               <S.Profile src="/reviewprofile.png" />
               <S.ShortReview>{review.content}</S.ShortReview>
             </S.Reviews>
           ))}
+          */}
           <S.Reviews onClick={() => navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
             <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>

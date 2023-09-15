@@ -22,7 +22,7 @@ export const ShowCard = ({ data, onClick }) => {
             관람 인증 {data.mainreviews_cnt}
           </S.ShowCardReviews>
         </S.ShowCardReactin>
-        <S.ShowCardComment>"{data.sentence}"</S.ShowCardComment>
+        <S.ShowCardComment>{data.sentence}</S.ShowCardComment>
       </div>
     </S.ShowCardWrapper>
   );

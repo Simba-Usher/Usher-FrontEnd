@@ -21,23 +21,7 @@ export const ShowDetail = () => {
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-  const [data, setData] = useState({
-    id: 1,
-    title: "오페라의 유령 개짱ㅋㅋ",
-    content: "냠냠 ㅋㅋ아 백엔드개노잼 ㅋㅋ",
-    mainreviews: [],
-    mainreviews_cnt: 0,
-    image: null,
-    like_cnt: 0,
-    genre: "뮤지컬",
-    location: "경기",
-    average_rating: 4,
-    reactions: [],
-    price: 150000,
-    start_date: "2023-07-06",
-    end_date: "2023-08-25",
-    sentence: "오유 개쩐다는데 봐보쉴?ㅋㅋㅋ",
-  });
+  const [data, setData] = useState({});
 
   useEffect(() => {
     axiosInstance

@@ -49,7 +49,7 @@ export const TitleSection = ({data}) => {
         </S.TitleSec1>
         {/* 제목 불러오기 */}
         <S.TitleSec2>{data.title}</S.TitleSec2>
-        {/* <S.TitleSec2>오페라의 유령 - 서울</S.TitleSec2> */}
+        {/* <S.TitleSec2>뮤지컬 [레베카] 10주년 기념공연</S.TitleSec2> */}
         <S.TitleSec3>
           {/* 관람시간 불러오기 */}
           <p>150분 (인터미션 20분 포함)</p>

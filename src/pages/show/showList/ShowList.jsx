@@ -16,15 +16,15 @@ export const ShowList = () => {
   const [data, setData] = useState([]);
   const { genre, location, price_range, date_range } = useParams();
   const [area, setArea] = useState(location.slice(1));
+  console.log(area);
 
   useEffect(() => {
     axiosInstance
       .get(
         `/api/mainposts?genre=${
           genre !== ":genre" ? genre.slice(1) : ""
-        }&location=${area !== "location" ? area : ""}
-        &price_range=&date_range=`
-        )
+        }&location=${location !== ":location" ? location.slice(1) : ""}&price_range=&date_range=`
+      )
       .then((response) => {
         console.log(response.data);
         setData(response.data);
