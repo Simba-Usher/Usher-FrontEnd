@@ -19,7 +19,7 @@ export const ChoiceTicket = ({ setSelectedTicket, selectedTicket, allTicket }) =
     discount: "카드 제휴할인",
     price: 152000,
   });
-/*
+
   useEffect(() => {
     axiosInstance
       .get("/api/mypage/ticket")
@@ -31,7 +31,7 @@ export const ChoiceTicket = ({ setSelectedTicket, selectedTicket, allTicket }) =
         console.error("티켓 요청 실패:", error);
       });
   }, []);
-*/
+
   const handleSelect = (ticket) => {
     setSelectedTicket(ticket);
     setisClicked(false);
