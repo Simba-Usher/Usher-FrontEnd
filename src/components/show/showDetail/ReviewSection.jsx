@@ -47,19 +47,19 @@ export const ReviewSection = forwardRef((props, ref) => {
           </S.Reviews>
           <S.Reviews onClick={() => navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
-            <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
+            <S.ShortReview>이 라인업은 그저 갓입니다..</S.ShortReview>
           </S.Reviews>
           <S.Reviews onClick={() => navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
-            <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
+            <S.ShortReview>좋다.. 또 봐야지</S.ShortReview>
           </S.Reviews>
           <S.Reviews onClick={() => navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
-            <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
+            <S.ShortReview>어캐 부르누!! 녹아내려요</S.ShortReview>
           </S.Reviews>
           <S.Reviews onClick={() => navigate(`/${1}/review`)}>
             <S.Profile src="/reviewprofile.png" />
-            <S.ShortReview>사랑이 뭐길래 날 울려</S.ShortReview>
+            <S.ShortReview>한달내내 앓았슴니다</S.ShortReview>
           </S.Reviews>
         </S.ReviewSec3>
       </S.ReviewSecWrap>
