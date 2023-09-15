@@ -53,7 +53,7 @@ export const Nav = ({ toggleModal, onClick }) => {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="어떤 공연을 찾으시나요?"
+              placeholder="검색어를 입력해주세요."
               style={{ cursor: "default" }}
               // 엔터키 검색
               onKeyDown={handleEnterKey}
