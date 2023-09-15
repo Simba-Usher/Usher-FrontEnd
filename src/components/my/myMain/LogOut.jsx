@@ -16,6 +16,7 @@ export const LogOut = () => {
         {}
       );
       setAccessToken(null);
+      alert("로그아웃 되었습니다")
       console.log(response.data);
     } catch (error) {
       console.error("로그아웃 오류 발생:", error);

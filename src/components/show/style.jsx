@@ -84,7 +84,7 @@ export const TitleSec2 = styled.div`
     width: 100%;
     height: 39px;
     color: #001F35;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 600;
     align-items: center;
 `
